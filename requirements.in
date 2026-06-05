@@ -11,4 +11,5 @@ matplotlib
 mplsoccer
 tiktoken
 python-dotenv
+pyreadr  # read worldfootballR .rds stat extracts
 pytest  # dev/test
