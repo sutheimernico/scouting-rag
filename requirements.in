@@ -1,0 +1,13 @@
+# Direct dependencies, cycle 0 scope only (corpus acquisition + token check).
+# ML dependencies (torch CPU, FlagEmbedding, qdrant-client, ...) are added in
+# the cycle that introduces them, then re-pinned via pip freeze.
+# requirements.txt is the pinned freeze of this file — install that one.
+requests
+beautifulsoup4
+lxml
+trafilatura
+pandas
+matplotlib
+mplsoccer
+tiktoken
+python-dotenv
