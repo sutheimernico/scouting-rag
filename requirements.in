@@ -11,3 +11,4 @@ matplotlib
 mplsoccer
 tiktoken
 python-dotenv
+pytest  # dev/test

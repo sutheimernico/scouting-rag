@@ -9,6 +9,7 @@ dateparser==1.4.0
 fonttools==4.63.0
 htmldate==1.10.0
 idna==3.18
+iniconfig==2.3.0
 jusText==3.0.2
 kiwisolver==1.5.0
 lxml==6.1.1
@@ -19,7 +20,10 @@ numpy==2.4.6
 packaging==26.2
 pandas==3.0.3
 pillow==12.2.0
+pluggy==1.6.0
+Pygments==2.20.0
 pyparsing==3.3.2
+pytest==9.0.3
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.2
 pytz==2026.2
