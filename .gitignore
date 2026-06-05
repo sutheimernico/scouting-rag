@@ -1,0 +1,14 @@
+# Corpus raw data: scraped articles are licensed for private use only — never commit or redistribute.
+data/
+
+# Secrets and local environment
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Model caches
+.cache/
+models/
