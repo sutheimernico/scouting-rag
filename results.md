@@ -24,7 +24,7 @@ against these ceilings, not against 1.0.
 |-------|-----------|--------|----------|-------------|-----------|--------|
 | −1 | Closed book (no retrieval) | – | – | – | – | – |
 | 1 | Naive dense (BGE-M3) | 0.60 | **1.00** | 0.83 | 0.42 | 0.00 |
-| 2 | + Hybrid (sparse + RRF) | | | | | |
+| 2 | + Hybrid (sparse + RRF) | 0.60 | 0.87 | **0.89** | **0.50** | 0.00 |
 | 3 | + Reranking (cross-encoder) | | | | | |
 | 4 | + Contextual retrieval | | | | | |
 | 5 | Visual (ColQwen) | | | | | |
@@ -39,24 +39,28 @@ _Same table layout as Recall@5 — filled per cycle._
 | Cycle | Technique | global | semantic | exact-match | multi-hop | visual |
 |-------|-----------|--------|----------|-------------|-----------|--------|
 | 1 | Naive dense (BGE-M3) | 0.66 | 1.00 | 0.89 | 0.62 | 0.00 |
+| 2 | + Hybrid (sparse + RRF) | 0.66 | 1.00 | 0.89 | 0.62 | 0.00 |
 
 ### Precision@5
 
 | Cycle | Technique | global | semantic | exact-match | multi-hop | visual |
 |-------|-----------|--------|----------|-------------|-----------|--------|
 | 1 | Naive dense (BGE-M3) | 0.15 | 0.24 | 0.17 | 0.17 | 0.00 |
+| 2 | + Hybrid (sparse + RRF) | 0.16 | 0.20 | 0.18 | 0.20 | 0.00 |
 
 ### MRR
 
 | Cycle | Technique | global | semantic | exact-match | multi-hop | visual |
 |-------|-----------|--------|----------|-------------|-----------|--------|
 | 1 | Naive dense (BGE-M3) | 0.53 | 0.79 | 0.64 | 0.62 | 0.00 |
+| 2 | + Hybrid (sparse + RRF) | 0.52 | 0.69 | 0.65 | 0.65 | 0.00 |
 
 ### nDCG@10
 
 | Cycle | Technique | global | semantic | exact-match | multi-hop | visual |
 |-------|-----------|--------|----------|-------------|-----------|--------|
 | 1 | Naive dense (BGE-M3) | 0.56 | 0.95 | 0.70 | 0.49 | 0.00 |
+| 2 | + Hybrid (sparse + RRF) | 0.55 | 0.86 | 0.72 | 0.51 | 0.00 |
 
 ## Secondary: generation quality (judge-free number-hit + local judge)
 
@@ -90,6 +94,7 @@ answer-quality signal.
 |-------|-------------------------|------------------------|-------------|-------|
 | −1 | – | ~48 s generation (measured under load, not representative) | Ollama | closed book |
 | 1 | 106 min (BGE-M3 encode, 4,318 chunks) | 0.43 s retrieval + ~69 s generation (7B CPU) | Qdrant embedded | API cost: 0 €; judge run ~50 min one-off |
+| 2 | + ~5 s BM25 build (in-memory) | 0.38 s retrieval | rank_bm25 | no re-encoding needed |
 
 ## Per-cycle deltas and verdicts
 

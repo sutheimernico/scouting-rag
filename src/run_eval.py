@@ -29,11 +29,22 @@ def load_golden() -> list[dict]:
     return [json.loads(line) for line in GOLDEN.read_text(encoding="utf-8").splitlines()]
 
 
-def run_retrieval() -> dict:
-    from src.embed_index import DenseIndex
+def make_retriever(name: str):
+    if name == "dense":
+        from src.embed_index import DenseIndex
+
+        return DenseIndex()
+    if name == "hybrid":
+        from src.hybrid import HybridRetriever
+
+        return HybridRetriever()
+    raise SystemExit(f"unknown retriever: {name}")
+
+
+def run_retrieval(retriever_name: str) -> dict:
     from src.eval_metrics import aggregate, query_metrics
 
-    index = DenseIndex()
+    index = make_retriever(retriever_name)
     entries = load_golden()
     per_query, types, details = [], [], []
     t0 = time.monotonic()
@@ -53,7 +64,7 @@ def run_retrieval() -> dict:
         print(f"  {entry['id']} {entry['type']:<12} r@5={metrics['recall@5']:.2f} mrr={metrics['mrr']:.2f}", flush=True)
     elapsed = time.monotonic() - t0
     return {
-        "mode": "retrieval",
+        "mode": f"retrieval_{retriever_name}",
         "latency_per_query_s": round(elapsed / len(entries), 2),
         "metrics": aggregate(per_query, types),
         "details": details,
@@ -64,11 +75,7 @@ def _run_generation(args: argparse.Namespace, closed_book: bool) -> dict:
     from src.rag import generate_closed_book, generate_rag
 
     entries = load_golden()
-    index = None
-    if not closed_book:
-        from src.embed_index import DenseIndex
-
-        index = DenseIndex()
+    index = None if closed_book else make_retriever(args.retriever)
     outputs = []
     t0 = time.monotonic()
     for entry in entries:
@@ -96,7 +103,7 @@ def _run_generation(args: argparse.Namespace, closed_book: bool) -> dict:
         print(f"  {entry['id']} ({result['total_duration_s']}s): {result['text'][:80]!r}", flush=True)
     elapsed = time.monotonic() - t0
     return {
-        "mode": "closedbook" if closed_book else f"rag_k{args.k}",
+        "mode": "closedbook" if closed_book else f"rag_{args.retriever}_k{args.k}",
         "latency_per_query_s": round(elapsed / len(entries), 2),
         "outputs": outputs,
     }
@@ -107,10 +114,11 @@ def main() -> None:
     parser.add_argument("mode", choices=["retrieval", "closedbook", "rag"])
     parser.add_argument("--name", required=True, help="output file name (eval/results/<name>.json)")
     parser.add_argument("--k", type=int, default=5, help="contexts for rag mode")
+    parser.add_argument("--retriever", default="dense", choices=["dense", "hybrid"])
     args = parser.parse_args()
 
     if args.mode == "retrieval":
-        result = run_retrieval()
+        result = run_retrieval(args.retriever)
     else:
         result = _run_generation(args, closed_book=(args.mode == "closedbook"))
 
