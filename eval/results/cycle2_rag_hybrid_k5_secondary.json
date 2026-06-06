@@ -9,5 +9,425 @@
    "q013",
    "q030"
   ]
+ },
+ "faithfulness": {
+  "n": 59,
+  "faithful_rate": 0.7627,
+  "refusal_rate": 0.2203,
+  "details": [
+   {
+    "id": "q001",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der von Harry Kane erzielten Tore wird im Kontext erwähnt."
+   },
+   {
+    "id": "q002",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der von Deniz Undav erzielten Tore in der Saison 2025/26 wird im Kontext explizit genannt."
+   },
+   {
+    "id": "q003",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "The answer is directly supported by the context."
+   },
+   {
+    "id": "q004",
+    "type": "exact_match",
+    "supported": false,
+    "refusal": true,
+    "reason": "There are multiple players with the same goal count, but no single best scorer."
+   },
+   {
+    "id": "q005",
+    "type": "exact_match",
+    "supported": false,
+    "refusal": false,
+    "reason": "The answer is only supported for the top scorer, not the total number of goals scored by F. Bilbija."
+   },
+   {
+    "id": "q006",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort wird direkt im Kontext erwähnt."
+   },
+   {
+    "id": "q007",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Zahl 122 wird im Kontext mehrfach erwähnt."
+   },
+   {
+    "id": "q008",
+    "type": "exact_match",
+    "supported": false,
+    "refusal": true,
+    "reason": "Die Frage nach dem Sieger der 2. Bundesliga 2025/26 und den gewonnenen Punkten wird nicht beantwortet."
+   },
+   {
+    "id": "q009",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der Punkte, die die TSG Hoffenheim in der Saison 2025/26 erreicht hat, ist direkt im Kontext angegeben."
+   },
+   {
+    "id": "q010",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Passquote von 89,5% wird im Kontext erwähnt."
+   },
+   {
+    "id": "q011",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der von Joshua Kimmich gespielten progressiven Pässe wird im Kontext angegeben."
+   },
+   {
+    "id": "q012",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "The answer is directly mentioned in the context."
+   },
+   {
+    "id": "q013",
+    "type": "exact_match",
+    "supported": false,
+    "refusal": true,
+    "reason": "Die Torschützenliste für die Saison 2024/25 ist nicht im Korpus enthalten."
+   },
+   {
+    "id": "q014",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der von Tim Kleindienst erzielten Tore ist im Kontext angegeben."
+   },
+   {
+    "id": "q015",
+    "type": "visual",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort ist vollständig durch den Kontext unterstützt, aber die Aussage über das Perzentil ist falsch."
+   },
+   {
+    "id": "q016",
+    "type": "visual",
+    "supported": false,
+    "refusal": true,
+    "reason": "Keine Information über die Anzahl von Key Passes pro 90 Minuten für Álex Grimaldo oder andere Verteidiger im Kontext"
+   },
+   {
+    "id": "q017",
+    "type": "visual",
+    "supported": true,
+    "refusal": false,
+    "reason": "Der Wert ist im Statblatt von Nathan N'Goumou für 2024/25 angegeben."
+   },
+   {
+    "id": "q018",
+    "type": "visual",
+    "supported": true,
+    "refusal": false,
+    "reason": "Der Wert von PrgP in Xhakas Statistik beträgt 318, was einem Durchschnitt von 3.58 pro Spiel entspricht. Da die Frage nach dem Perzentil laut seinem Statblatt fragt und nicht nach dem absoluten Wert, "
+   },
+   {
+    "id": "q019",
+    "type": "visual",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Passquote von Jonathan Tah wird im Kontext als 92,9% angegeben."
+   },
+   {
+    "id": "q020",
+    "type": "visual",
+    "supported": false,
+    "refusal": true,
+    "reason": "Keine Informationen über die Positionen der Spieler oder deren npxG-Percentile"
+   },
+   {
+    "id": "q021",
+    "type": "visual",
+    "supported": false,
+    "refusal": true,
+    "reason": "nicht im Korpus"
+   },
+   {
+    "id": "q022",
+    "type": "visual",
+    "supported": false,
+    "refusal": true,
+    "reason": "xAG-Prozentsatz nicht im Korpus"
+   },
+   {
+    "id": "q023",
+    "type": "visual",
+    "supported": false,
+    "refusal": true,
+    "reason": "nicht im Korpus"
+   },
+   {
+    "id": "q024",
+    "type": "visual",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Passquote von Tim Kleindienst ist in seinem Spieler-Passstatistik-Blatt 2024/25 als Cmp_percent_Total angegeben und entspricht 60,9%"
+   },
+   {
+    "id": "q025",
+    "type": "visual",
+    "supported": false,
+    "refusal": true,
+    "reason": "nicht im Korpus"
+   },
+   {
+    "id": "q026",
+    "type": "visual",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort wird aus dem Kontext unterstützt, da die Passquote von Ko Itakura in der Statistik erwähnt wird."
+   },
+   {
+    "id": "q027",
+    "type": "visual",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort ist vollständig durch den Kontext unterstützt."
+   },
+   {
+    "id": "q028",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Ablösesumme von 80 Millionen Euro wird im Kontext erwähnt."
+   },
+   {
+    "id": "q029",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort wird direkt im Kontext genannt."
+   },
+   {
+    "id": "q030",
+    "type": "exact_match",
+    "supported": false,
+    "refusal": true,
+    "reason": "Die internationale Saison 2025/26 wird im Kontext nicht erwähnt."
+   },
+   {
+    "id": "q031",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Der PPDA-Wert des FC Bayern sank von 10,4 in der ersten Jahreshälfte auf 9,3 in der zweiten Jahreshälfte 2025/26."
+   },
+   {
+    "id": "q032",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort enthält alle genannten Stärken von Ismael Saibari aus dem Scouting-Report."
+   },
+   {
+    "id": "q033",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Der Text besagt, dass Saibari 'am stärksten ist, wenn er hinter der Spitze spielen darf' und auch 'als Schattenstürmer beziehungsweise hängende Spitze agiert'."
+   },
+   {
+    "id": "q034",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort entspricht den Angaben im Text."
+   },
+   {
+    "id": "q035",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort entspricht den Aussagen im Kontext."
+   },
+   {
+    "id": "q036",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort wird aus dem Kontext unterstützt, insbesondere aus den Abschnitten 'In Thorsten Finks System übernahm Xhaka zunächst die Zehnerposition in einer Raute, später bildete er zusammen mit Benja"
+   },
+   {
+    "id": "q037",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort wird durch den Text unterstützt, insbesondere die Beschreibung von Kanes Rolle in verschiedenen Spielsituationen und seine Fähigkeit, taktische und spielerische Mehrwerte zu liefern."
+   },
+   {
+    "id": "q038",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Der Text beschreibt, wie ein klassischer Strafraumstürmer das Spiel des FC Bayern verändern würde."
+   },
+   {
+    "id": "q039",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Kritik von Tom Bischof wird im Kontext genau wiedergegeben."
+   },
+   {
+    "id": "q040",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Wyscout-Daten zeigen tatsächlich mehr Ballverluste in der zweiten Jahreshälfte, was Kompanys Aussage über häufigere Ballbesitz-Arbeit unterstützt."
+   },
+   {
+    "id": "q041",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort wird durch die Textstellen \"Laimer wechselte 2023 als gelernter Mittelfeldspieler von RB Leipzig nach München und auch Stanišić wurde während seiner Leihe zu Bayer Leverkusen des Öfteren a"
+   },
+   {
+    "id": "q042",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Analyse erwähnt explizit, dass Read seine Explosivität im Antritt als einen entscheidenden Unterschied zu Laimer und Stanišić ausmacht."
+   },
+   {
+    "id": "q043",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Änderungen in Lewandowskis Spiel werden durch den Text unterstützt."
+   },
+   {
+    "id": "q044",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Aussage wird im Text mehrfach wiederholt."
+   },
+   {
+    "id": "q045",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Passquote von Marco Reus wird im Text als 76% angegeben, was auch in der Antwort genannt ist."
+   },
+   {
+    "id": "q046",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Alle in der Antwort genannten Fakten finden sich im Kontext."
+   },
+   {
+    "id": "q047",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort entspricht den Angaben im Kontext."
+   },
+   {
+    "id": "q048",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Der Artikel erwähnt, dass Anthony Gordon und Dušan Vlahović als mögliche Ersatzspieler für Anthony Gordon in Betracht gezogen wurden."
+   },
+   {
+    "id": "q049",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort enthält alle in der Frage genannten Fakten und ergänzt sie mit Erklärungen."
+   },
+   {
+    "id": "q050",
+    "type": "multi_hop",
+    "supported": false,
+    "refusal": true,
+    "reason": "Die Frage bezieht sich auf Harry Kanes Torzahlen, aber es gibt keine Informationen über seine Leistungen in der Saison 2025/26."
+   },
+   {
+    "id": "q051",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Tatsache, dass Tim Kleindienst 16 Tore schoss und seine Passquote bei 60,9% liegt, wird in den Statistiken bestätigt."
+   },
+   {
+    "id": "q052",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der Key Passes von Álex Grimaldo (7) ist im Korpus enthalten."
+   },
+   {
+    "id": "q053",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort enthält die korrekten Zahlen aus dem Kontext."
+   },
+   {
+    "id": "q054",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Tatsache, dass Serhou Guirassy in der Saison 2025/26 16 Bundesliga-Tore erzielte, wird durch die Torschützenliste bestätigt. Außerdem ist sein npxG pro 90 Minuten im Statblatt 2024/25 mit 0.23 ang"
+   },
+   {
+    "id": "q055",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort enthält alle in der Frage genannten Informationen."
+   },
+   {
+    "id": "q056",
+    "type": "multi_hop",
+    "supported": false,
+    "refusal": true,
+    "reason": "Keine Informationen über die Anzahl der Punkte des FC Bayern 2025/26"
+   },
+   {
+    "id": "q057",
+    "type": "multi_hop",
+    "supported": false,
+    "refusal": true,
+    "reason": "Keine Informationen über die Saison 2025/26"
+   },
+   {
+    "id": "q058",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Beschreibung von Xhakas Rolle in Basel und seine Passquote werden ausreichend durch die Kontexte unterstützt."
+   },
+   {
+    "id": "q059",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Passquote von Jonathan Tah 2024/25 wird direkt aus der Tabelle abgeleitet und entspricht dem angegebenen Wert."
+   }
+  ]
  }
 }

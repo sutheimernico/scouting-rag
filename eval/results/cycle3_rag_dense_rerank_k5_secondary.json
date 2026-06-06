@@ -1,0 +1,433 @@
+{
+ "source": "cycle3_rag_dense_rerank_k5.json",
+ "number_hit_exact_match": {
+  "n": 18,
+  "hit_rate": 0.7778,
+  "misses": [
+   "q001",
+   "q004",
+   "q008",
+   "q028"
+  ]
+ },
+ "faithfulness": {
+  "n": 59,
+  "faithful_rate": 0.7288,
+  "refusal_rate": 0.2542,
+  "details": [
+   {
+    "id": "q001",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der von Harry Kane erzielten Tore wird im Kontext genannt."
+   },
+   {
+    "id": "q002",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der von Deniz Undav erzielten Tore wird im Kontext explizit genannt."
+   },
+   {
+    "id": "q003",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "The answer is fully supported by the context, which lists A. Kade with 6 goals."
+   },
+   {
+    "id": "q004",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "The answer is fully supported by the context, as it correctly states that Joel Grodowski has 7 goals and is the top scorer."
+   },
+   {
+    "id": "q005",
+    "type": "exact_match",
+    "supported": false,
+    "refusal": true,
+    "reason": "Faktische Behauptung im Antworttext (13 Tore) wird nicht durch den Kontext gestützt, da er nur 1 Tor in einem anderen Eintrag erwähnt."
+   },
+   {
+    "id": "q006",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der Punkte des FC Bayern München wird im Kontext genannt."
+   },
+   {
+    "id": "q007",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort ist direkt im Kontext enthalten."
+   },
+   {
+    "id": "q008",
+    "type": "exact_match",
+    "supported": false,
+    "refusal": true,
+    "reason": "Der Name des Siegers lautet im Kontext 'Hannover 96', nicht 'FC Hannover 96'."
+   },
+   {
+    "id": "q009",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort wird direkt aus dem Kontext unterstützt."
+   },
+   {
+    "id": "q010",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Passquote von 89,5% ist tatsächlich im Kontext enthalten."
+   },
+   {
+    "id": "q011",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der progressiven Pässe von Joshua Kimmich wird im Kontext genannt."
+   },
+   {
+    "id": "q012",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der von Angelo Stiller erzielten Assists wird im Kontext genannt."
+   },
+   {
+    "id": "q013",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der von Harry Kane geschossenen Tore wird im Kontext genannt."
+   },
+   {
+    "id": "q014",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der von Tim Kleindienst erzielten Tore ist im Kontext angegeben."
+   },
+   {
+    "id": "q015",
+    "type": "visual",
+    "supported": false,
+    "refusal": true,
+    "reason": "Keine Information über xAG pro 90 Minuten für Álex Grimaldo"
+   },
+   {
+    "id": "q016",
+    "type": "visual",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort enthält die genaue Zahl von Álex Grimaldo (50.0) und einen Vergleich mit Matthijis de Ligt (ca. 38 PPA)."
+   },
+   {
+    "id": "q017",
+    "type": "visual",
+    "supported": false,
+    "refusal": true,
+    "reason": "nicht im Korpus"
+   },
+   {
+    "id": "q018",
+    "type": "visual",
+    "supported": false,
+    "refusal": true,
+    "reason": "Keine Information über progressive Pässe von Granit Xhaka"
+   },
+   {
+    "id": "q019",
+    "type": "visual",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort enthält die korrekten Zahlen aus dem Kontext."
+   },
+   {
+    "id": "q020",
+    "type": "visual",
+    "supported": false,
+    "refusal": true,
+    "reason": "Keine Informationen über die Positionen der Spieler oder deren npxG-Percentile"
+   },
+   {
+    "id": "q021",
+    "type": "visual",
+    "supported": true,
+    "refusal": false,
+    "reason": "npxG_per_Sh_Expected value is 0.15, which corresponds to a percentage of 15%"
+   },
+   {
+    "id": "q022",
+    "type": "visual",
+    "supported": false,
+    "refusal": true,
+    "reason": "Kein Hinweis auf den xAG-Wert in der Antwort im Kontext"
+   },
+   {
+    "id": "q023",
+    "type": "visual",
+    "supported": false,
+    "refusal": false,
+    "reason": "Keine Informationen über die npxG pro 90-Werte von Ko Itakura und Shiō Fukuda in Bezug auf ihre Positionen als DF bzw. FW im bereitgestellten Kontext."
+   },
+   {
+    "id": "q024",
+    "type": "visual",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Passquote von Tim Kleindienst ist in seinem Spieler-Passstatistik-Blatt 2024/25 als Cmp_percent_Total angegeben und entspricht 60,9%"
+   },
+   {
+    "id": "q025",
+    "type": "visual",
+    "supported": true,
+    "refusal": false,
+    "reason": "Der npxG-Perzentilwert von Danilho Doekhi ist tatsächlich 0,08."
+   },
+   {
+    "id": "q026",
+    "type": "visual",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort enthält alle in der Frage genannten Fakten und Statistiken."
+   },
+   {
+    "id": "q027",
+    "type": "visual",
+    "supported": false,
+    "refusal": true,
+    "reason": "Keine Informationen über die Rangierungsverhältnisse von Álex Grimaldo in Bezug auf Key Passes pro 90 Minuten oder Passquote im Perzentil-Vergleich sind im bereitgestellten Statistikblatt enthalten."
+   },
+   {
+    "id": "q028",
+    "type": "exact_match",
+    "supported": false,
+    "refusal": true,
+    "reason": "Dazu finde ich nichts im Korpus."
+   },
+   {
+    "id": "q029",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort wird direkt im Text erwähnt."
+   },
+   {
+    "id": "q030",
+    "type": "exact_match",
+    "supported": false,
+    "refusal": true,
+    "reason": "Die Frage bezieht sich auf die Saison 2025/26, aber im Kontext wird nur die Saison 2024/25 erwähnt."
+   },
+   {
+    "id": "q031",
+    "type": "exact_match",
+    "supported": true,
+    "refusal": false,
+    "reason": "Der PPDA-Wert des FC Bayern sank von 10,4 in der ersten Jahreshälfte auf 9,3 in der zweiten Jahreshälfte 2025/26."
+   },
+   {
+    "id": "q032",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Alle in der Antwort genannten Stärken von Ismael Saibari werden im Scouting-Report erwähnt."
+   },
+   {
+    "id": "q033",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Der Text beschreibt, dass Saibari am stärksten ist, wenn er 'hinter der Spitze spielen darf', was als Schattenstürmer oder hängende Spitze interpretiert werden kann."
+   },
+   {
+    "id": "q034",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort entspricht genau dem Kontext."
+   },
+   {
+    "id": "q035",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Schwäche in der ersten Ballberührung wurde im Spielverlagerung-Portrait von 2012 erwähnt."
+   },
+   {
+    "id": "q036",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort wird durch das Spielverlagerung-Portrait und die Artikel über Granit Xhaka unterstützt."
+   },
+   {
+    "id": "q037",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Alle Aussagen über Harry Kanes Rolle im Offensivspiel des FC Bayern werden durch den Kontext gestützt."
+   },
+   {
+    "id": "q038",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Aussage über die Wirkung eines klassischen Strafraumstürmers auf das Spiel des FC Bayern wird durch den Text unterstützt."
+   },
+   {
+    "id": "q039",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort enthält alle in der Frage genannten Punkte aus dem Kontext."
+   },
+   {
+    "id": "q040",
+    "type": "semantic",
+    "supported": false,
+    "refusal": true,
+    "reason": "Die Antwort bezieht sich auf die Position des Linksverteidigers, aber der Kontext beschränkt sich nur auf die Datenanalyse und nicht explizit auf die Position von Bischof."
+   },
+   {
+    "id": "q041",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort wird durch den Text unterstützt, der besagt, dass Laimer und Stanišić auch in anderen Rollen eingesetzt werden können."
+   },
+   {
+    "id": "q042",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Analyse erwähnt explizit, dass Read seine Explosivität im Antritt als einen entscheidenden Unterschied zu Laimer und Stanišić ausmacht."
+   },
+   {
+    "id": "q043",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort entspricht genau den Angaben im Text über Lewandowskis Spielveränderung in seiner ersten Dortmund-Zeit."
+   },
+   {
+    "id": "q044",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Aussage wird im Text mehrfach wiederholt."
+   },
+   {
+    "id": "q045",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort enthält alle in der Kontexte genannten Schwächen von Marco Reus."
+   },
+   {
+    "id": "q046",
+    "type": "semantic",
+    "supported": true,
+    "refusal": false,
+    "reason": "Alle in der Antwort genannten Fakten finden sich im Kontext."
+   },
+   {
+    "id": "q047",
+    "type": "multi_hop",
+    "supported": false,
+    "refusal": true,
+    "reason": "Keine Informationen über das Spielverlagerung-Portrait 2012 oder die progressive Passquote von Granit Xhaka in der Statistik 2024/25"
+   },
+   {
+    "id": "q048",
+    "type": "multi_hop",
+    "supported": false,
+    "refusal": true,
+    "reason": "Der Artikel erwähnt, dass der FC Bayern nach dem Transfer von Anthony Gordon einen Spieler namens Mika Godts im Visier hatte, nicht Ismael Saibari."
+   },
+   {
+    "id": "q049",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort enthält die korrekte Torsziffer für Harry Kane aus dem Kontext."
+   },
+   {
+    "id": "q050",
+    "type": "multi_hop",
+    "supported": false,
+    "refusal": true,
+    "reason": "Keine Informationen über Harry Kanes Bundesliga-Torzahlen von der Saison 2024/25 zur Saison 2025/26"
+   },
+   {
+    "id": "q051",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Alle Angaben in der Antwort werden aus dem Kontext unterstützt."
+   },
+   {
+    "id": "q052",
+    "type": "multi_hop",
+    "supported": false,
+    "refusal": true,
+    "reason": "Keine Angaben zum Perzentil-Vergleich in der Position"
+   },
+   {
+    "id": "q053",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Alle Angaben über Angelo Stiller stimmen mit den Statistiken überein."
+   },
+   {
+    "id": "q054",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort ist vollständig durch den Kontext unterstützt."
+   },
+   {
+    "id": "q055",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort entspricht den Angaben im Kontext."
+   },
+   {
+    "id": "q056",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Anzahl der Punkte des FC Bayern München (89) wird im Kontext genannt."
+   },
+   {
+    "id": "q057",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Tatsachenangaben in der Antwort werden aus dem Kontext unterstützt."
+   },
+   {
+    "id": "q058",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Antwort entspricht den Angaben im Kontext."
+   },
+   {
+    "id": "q059",
+    "type": "multi_hop",
+    "supported": true,
+    "refusal": false,
+    "reason": "Die Passquote von Jonathan Tah (92.9%) und das zugehörige Perzentil (93%) werden in beiden Tabellen genannt."
+   }
+  ]
+ }
+}

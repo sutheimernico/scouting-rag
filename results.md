@@ -77,7 +77,8 @@ the refusal rule inconsistently, so both readings are reported).
 |-------|-------------------------------|------------------------|---------------|--------------|---------------------|
 | −1 | **0.00** | n/a (no context to be faithful to) | n/a | – | – |
 | 1 | **0.72** | 0.66 | 0.95 | 0.31 | done (Claude, not human — see below) |
-| 2 | **0.78** | judge pending | – | – | – |
+| 2 | **0.78** | 0.76 | 0.98 | 0.22 | – |
+| 3 | **0.78** | 0.73 | 0.98 | 0.25 | – |
 
 **Judge noise (test–retest, n=10, temp 0.3, seeds 1/2):** agreement 1.00 —
 the judge is stable on this sample; n is small, treat as indicative.
@@ -100,7 +101,7 @@ answer-quality signal.
 | −1 | – | ~48 s generation (measured under load, not representative) | Ollama | closed book |
 | 1 | 106 min (BGE-M3 encode, 4,318 chunks) | 0.43 s retrieval + ~69 s generation (7B CPU) | Qdrant embedded | API cost: 0 €; judge run ~50 min one-off |
 | 2 | + ~5 s BM25 build (in-memory) | 0.38 s retrieval + ~70 s generation | rank_bm25 | no re-encoding needed |
-| 3 | – (reuses index) | **29.6 s retrieval** + generation | bge-reranker-v2-m3 (2.3 GB) | 30 cross-encoder passes/query on CPU — the measured cost of this cycle |
+| 3 | – (reuses index) | **29.6 s retrieval** + ~65 s generation (95 s total) | bge-reranker-v2-m3 (2.3 GB) | 30 cross-encoder passes/query on CPU — the measured cost of this cycle |
 
 ## Per-cycle deltas and verdicts
 
@@ -169,3 +170,13 @@ its delta, it goes, and that gets documented here._
   (drop the fusion when reranking — one component less, same quality).
   Hybrid stays documented as the latency-constrained alternative
   (0.38 s, exact-match 0.89) for setups that cannot afford a reranker.
+
+**Cycle-3 end-to-end addendum:** number-hit stays at 0.78 despite clearly
+better retrieval (R@5 0.60→0.67). The misses *moved* (q013/q030 flipped to
+hits, q008/q028 to misses) with correct retrieval in all four — i.e. the
+7B generator drops ~2 of 18 answers semi-randomly depending on context
+composition, even at temperature 0. **From this stage on, the generator is
+the end-to-end bottleneck, not retrieval.** Honest rate stays high (0.98).
+This is a finding, not a failure: retrieval improvements beyond cycle 3
+cannot show up in answer quality unless the generator improves too —
+relevant context for interpreting cycle 4.
