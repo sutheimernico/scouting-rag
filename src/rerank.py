@@ -14,18 +14,32 @@ enough to keep CPU latency tolerable).
 from __future__ import annotations
 
 TOP_N = 30
+BATCH_SIZE = 8  # CPU RAM-friendly
+MODEL_NAME = "BAAI/bge-reranker-v2-m3"
 
 _model = None
+_tokenizer = None
 
 
 def get_reranker():
-    """Lazy singleton — ~2.3 GB weights, fp32 on CPU."""
-    global _model
-    if _model is None:
-        from FlagEmbedding import FlagReranker
+    """Lazy singleton — ~2.3 GB weights, fp32 on CPU.
 
-        _model = FlagReranker("BAAI/bge-reranker-v2-m3", use_fp16=False)
-    return _model
+    Loaded via plain transformers (the documented HF path for
+    bge-reranker): FlagEmbedding's FlagReranker wrapper is incompatible
+    with our pinned transformers version (calls the removed
+    tokenizer.prepare_for_model).
+    """
+    global _model, _tokenizer
+    if _model is None:
+        import torch
+        from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+        _tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+        _model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
+        _model.eval()
+        torch.set_grad_enabled(False)
+    assert _model is not None and _tokenizer is not None
+    return _model, _tokenizer
 
 
 def rerank(query: str, candidates: list[dict], k: int, scorer=None) -> list[dict]:
@@ -36,11 +50,18 @@ def rerank(query: str, candidates: list[dict], k: int, scorer=None) -> list[dict
     if not candidates:
         return []
     if scorer is None:
-        model = get_reranker()
+        model, tokenizer = get_reranker()
 
         def model_scorer(pairs: list[list[str]]) -> list[float]:
-            raw = model.compute_score(pairs)
-            return raw if isinstance(raw, list) else [raw]
+            scores: list[float] = []
+            for start in range(0, len(pairs), BATCH_SIZE):
+                batch = pairs[start : start + BATCH_SIZE]
+                inputs = tokenizer(
+                    batch, padding=True, truncation=True, max_length=512, return_tensors="pt"
+                )
+                logits = model(**inputs).logits.view(-1)
+                scores.extend(logits.float().tolist())
+            return scores
 
         scorer = model_scorer
 
