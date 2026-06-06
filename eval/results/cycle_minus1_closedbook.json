@@ -1,0 +1,537 @@
+{
+ "mode": "closedbook",
+ "latency_per_query_s": 47.89,
+ "outputs": [
+  {
+   "id": "q001",
+   "type": "exact_match",
+   "query": "Wie viele Tore hat Harry Kane in der Bundesliga-Saison 2025/26 erzielt?",
+   "reference_answer": "36 Tore.",
+   "answer": "Leider kann ich keine genaue Anzahl der Tore von Harry Kane in der Bundesliga-Saison 2025/26 angeben, da diese Daten noch nicht verfügbar sind. Die Saison ist noch nicht begonnen und es gibt aktuell keine offiziellen Ergebnisse.",
+   "context_docs": [],
+   "duration_s": 73.11
+  },
+  {
+   "id": "q002",
+   "type": "exact_match",
+   "query": "Wie viele Bundesliga-Tore erzielte Deniz Undav in der Saison 2025/26?",
+   "reference_answer": "19 Tore.",
+   "answer": "Leider kann ich keine genauen Informationen zur Saison 2025/26 liefern, da diese noch nicht stattgefunden hat und aktuelle Daten fehlen.",
+   "context_docs": [],
+   "duration_s": 8.69
+  },
+  {
+   "id": "q003",
+   "type": "exact_match",
+   "query": "Wie viele Tore hat A. Kade in der Bundesliga-Saison 2025/26 geschossen?",
+   "reference_answer": "6 Tore.",
+   "answer": "Leider kann ich keine genauen Daten zur Saison 2025/26 vorhersagen, da diese noch nicht stattgefunden hat und aktuelle statistische Informationen dazu fehlen.",
+   "context_docs": [],
+   "duration_s": 10.18
+  },
+  {
+   "id": "q004",
+   "type": "exact_match",
+   "query": "Wer war mit wie vielen Toren bester Torschütze der 2. Bundesliga 2025/26?",
+   "reference_answer": "Noel Futkeu mit 14 Toren.",
+   "answer": "Leider kann ich keine genaue Antwort darauf geben, da die Ergebnisse der Saison 2025/26 noch nicht bekannt sind und es daher momentan keine offiziellen Daten gibt.",
+   "context_docs": [],
+   "duration_s": 9.38
+  },
+  {
+   "id": "q005",
+   "type": "exact_match",
+   "query": "Wie viele Zweitliga-Tore erzielte F. Bilbija 2025/26?",
+   "reference_answer": "13 Tore.",
+   "answer": "Leider kann ich keine genaue Information zu den Toren von F. Bilbija in der Saison 2025/26 liefern, da diese Daten nicht verfügbar sind und es sich um eine hypothetische Frage handeln könnte.",
+   "context_docs": [],
+   "duration_s": 12.03
+  },
+  {
+   "id": "q006",
+   "type": "exact_match",
+   "query": "Mit wie vielen Punkten wurde der FC Bayern München 2025/26 Deutscher Meister?",
+   "reference_answer": "89 Punkte.",
+   "answer": "Ich kann keine genaue Information zu den Ergebnissen der Saison 2025/26 liefern, da diese noch nicht stattgefunden hat.",
+   "context_docs": [],
+   "duration_s": 8.05
+  },
+  {
+   "id": "q007",
+   "type": "exact_match",
+   "query": "Wie viele Tore erzielte der FC Bayern München insgesamt in der Bundesliga-Saison 2025/26?",
+   "reference_answer": "122 Tore.",
+   "answer": "Leider kann ich keine genauen Daten zur Saison 2025/26 vorhersagen, da diese noch nicht stattgefunden hat und aktuelle Ergebnisse fehlen.",
+   "context_docs": [],
+   "duration_s": 10.56
+  },
+  {
+   "id": "q008",
+   "type": "exact_match",
+   "query": "Welcher Verein gewann die 2. Bundesliga 2025/26 und mit wie vielen Punkten?",
+   "reference_answer": "FC Schalke 04 mit 70 Punkten.",
+   "answer": "Leider kann ich keine aktuellsten Daten über zukünftige Saisons wie 2025/26 vorhersagen, da diese noch nicht stattgefunden haben. Ich würde empfehlen, für solche spezifischen Informationen die offiziellen Quellen der 2. Bundesliga zu prüfen.",
+   "context_docs": [],
+   "duration_s": 33.51
+  },
+  {
+   "id": "q009",
+   "type": "exact_match",
+   "query": "Wie viele Punkte holte die TSG Hoffenheim in der Bundesliga-Saison 2025/26?",
+   "reference_answer": "61 Punkte.",
+   "answer": "Leider kann ich keine genauen Informationen zur Saison 2025/26 liefern, da diese noch nicht stattgefunden hat und aktuelle Ergebnisse fehlen.",
+   "context_docs": [],
+   "duration_s": 32.26
+  },
+  {
+   "id": "q010",
+   "type": "exact_match",
+   "query": "Welche Passquote hatte Joshua Kimmich in der Bundesliga-Saison 2024/25?",
+   "reference_answer": "89,5 % angekommene Pässe.",
+   "answer": "Leider kann ich keine genaue Passquote für die Saison 2024/25 angeben, da diese Daten noch nicht verfügbar sind. Die aktuellen statistischen Daten zu Joshua Kimmich für diese Saison liegen derzeit nicht vor.",
+   "context_docs": [],
+   "duration_s": 47.25
+  },
+  {
+   "id": "q011",
+   "type": "exact_match",
+   "query": "Wie viele progressive Pässe spielte Joshua Kimmich in der Saison 2024/25?",
+   "reference_answer": "362 progressive Pässe.",
+   "answer": "Leider kann ich keine genaue Anzahl der progressiven Pässe von Joshua Kimmich für die Saison 2024/25 angeben, da ich aktuelle Daten nicht habe. Diese statistische Information würde sich in den offiziellen Statistiken des Clubs oder der Liga finden.",
+   "context_docs": [],
+   "duration_s": 84.06
+  },
+  {
+   "id": "q012",
+   "type": "exact_match",
+   "query": "Wie viele Assists gab Angelo Stiller in der Bundesliga-Saison 2024/25?",
+   "reference_answer": "8 Assists.",
+   "answer": "Leider kann ich keine genauen Daten zur Saison 2024/25 liefern, da diese noch nicht stattgefunden hat und aktuelle Statistiken nicht verfügbar sind.",
+   "context_docs": [],
+   "duration_s": 56.79
+  },
+  {
+   "id": "q013",
+   "type": "exact_match",
+   "query": "Wie viele Bundesliga-Tore schoss Harry Kane in der Saison 2024/25?",
+   "reference_answer": "26 Tore.",
+   "answer": "Leider kann ich keine genauen Angaben zu Harry Kanes Toren in der Saison 2024/25 treffen, da diese noch nicht stattgefunden hat und somit keine offiziellen Ergebnisse existieren.",
+   "context_docs": [],
+   "duration_s": 46.63
+  },
+  {
+   "id": "q014",
+   "type": "exact_match",
+   "query": "Wie viele Tore erzielte Tim Kleindienst in der Bundesliga 2024/25?",
+   "reference_answer": "16 Tore.",
+   "answer": "Leider kann ich keine genauen Daten über die Leistungen von Tim Kleindienst in der Bundesliga Saison 2024/25 liefern, da diese Informationen noch nicht verfügbar sind. Die Saison ist erst begonnen und es wurden noch keine Ergebnisse erzielt.",
+   "context_docs": [],
+   "duration_s": 56.39
+  },
+  {
+   "id": "q015",
+   "type": "visual",
+   "query": "In welchem Perzentil liegt Álex Grimaldo beim xAG pro 90 Minuten laut seinem Statblatt 2024/25?",
+   "reference_answer": "99. Perzentil (verglichen mit Verteidigern).",
+   "answer": "Ich kann keine genaue Angabe zum xAG-Perzentil von Álex Grimaldo für das Statistikjahr 2024/25 machen, da ich aktuelle Daten nicht habe. Bitte überprüfen Sie die neuesten Statistiken oder Berichte.",
+   "context_docs": [],
+   "duration_s": 56.99
+  },
+  {
+   "id": "q016",
+   "type": "visual",
+   "query": "Wie stark ist Álex Grimaldo laut Statblatt bei Key Passes pro 90 im Vergleich zu anderen Verteidigern?",
+   "reference_answer": "100. Perzentil — bester Wert der Positionsgruppe.",
+   "answer": "Ich kann keine spezifischen Daten aus einem virtuellen Statblatt zitieren, da ich aktuelle Fußballstatistiken nicht in Echtzeit abrufen kann. Allerdings ist Álex Grimaldo eher ein Flügelflanker und nicht typischerweise als Verteidiger eingesetzt. Ohne genaue Zahlen kann ich nicht präzise vergleichen, aber im Vergleich zu traditionellen Verteidigern würde er in dieser Kategorie normalerweise schlechter abschneiden.",
+   "context_docs": [],
+   "duration_s": 102.11
+  },
+  {
+   "id": "q017",
+   "type": "visual",
+   "query": "Welchen npxG-pro-90-Perzentilwert zeigt das Statblatt von Serhou Guirassy für 2024/25?",
+   "reference_answer": "100. Perzentil unter Stürmern.",
+   "answer": "Leider habe ich keine aktuelle Datenbank über Fußballspieler, insbesondere keinen spezifischen Wert für Serhou Guirassy für die Saison 2024/25. Bitte überprüfen Sie das Statistik-System Ihres Scouts oder kontaktieren Sie den Scout direkt für diese Informationen.",
+   "context_docs": [],
+   "duration_s": 58.41
+  },
+  {
+   "id": "q018",
+   "type": "visual",
+   "query": "In welchem Perzentil liegt Granit Xhaka bei progressiven Pässen pro 90 laut seinem Statblatt?",
+   "reference_answer": "99. Perzentil unter Mittelfeldspielern.",
+   "answer": "Ich kann keine spezifischen Daten zu Granit Xhaka ohne aktuelles Statistikmaterial. Kann ich nach den neuesten verfügbaren Daten suchen?",
+   "context_docs": [],
+   "duration_s": 28.08
+  },
+  {
+   "id": "q019",
+   "type": "visual",
+   "query": "Wie gut ist die Passquote von Jonathan Tah im Positionsgruppen-Vergleich laut Statblatt 2024/25?",
+   "reference_answer": "98. Perzentil unter Verteidigern (92,9 % Passquote).",
+   "answer": "Ich kann keine spezifischen Daten für den aktuellen Statistikjahresabschnitt 2024/25 liefern. Die Passquote von Jonathan Tah variiert je nach Spiel und Team. Für aktuelle statistische Informationen empfehle ich, die offiziellen Quellen oder vertrauenswürdige Fußballanalysen zu prüfen.",
+   "context_docs": [],
+   "duration_s": 68.57
+  },
+  {
+   "id": "q020",
+   "type": "visual",
+   "query": "Welcher Verteidiger von Werder Bremen erreicht laut Statblatt das 100. npxG-Perzentil seiner Positionsgruppe?",
+   "reference_answer": "Mitchell Weiser.",
+   "answer": "Ich kann diese spezifische Frage nicht beantworten, da ich als Assistent keine aktuelle Zugriff auf externes Statistikmaterial habe. Bitte prüfen Sie die neuesten Quellen oder Statistiken für die genaue Antwort.",
+   "context_docs": [],
+   "duration_s": 51.5
+  },
+  {
+   "id": "q021",
+   "type": "visual",
+   "query": "In welchem npxG-pro-90-Perzentil liegt Andrej Kramarić laut seinem Statblatt?",
+   "reference_answer": "97. Perzentil unter Mittelfeldspielern.",
+   "answer": "Ich kann keine aktuelle Datenbankansicht oder spezifische Statistiken über Andrej Kramarić abrufen. Basierend auf meinem Wissensstand kann ich nicht sicher sagen, in welchem npxG-pro-90-Perzentil er liegt.",
+   "context_docs": [],
+   "duration_s": 57.79
+  },
+  {
+   "id": "q022",
+   "type": "visual",
+   "query": "Welchen xAG-pro-90-Perzentilwert weist das Statblatt von Angelo Stiller aus?",
+   "reference_answer": "91. Perzentil unter Mittelfeldspielern.",
+   "answer": "Leider kann ich den xAG-pro-90-Perzentilwert für Angelo Stiller nicht bestimmen, da ich keine aktuellen Daten über ihn verfüge. Bitte prüfen Sie die neuesten Statistiken oder Scouting-Berichte.",
+   "context_docs": [],
+   "duration_s": 46.51
+  },
+  {
+   "id": "q023",
+   "type": "visual",
+   "query": "Wie schwach ist Kaishu Sano laut Statblatt beim npxG pro 90 im Vergleich seiner Positionsgruppe?",
+   "reference_answer": "6. Perzentil — sehr schwach unter Mittelfeldspielern.",
+   "answer": "Ich kann keine spezifischen Daten zu Kaishu Sano bezüglich npxG pro 90 finden. Ohne aktuelle statistische Informationen kann ich nicht sicher beurteilen, wie schwach er in dieser Metrik ist im Vergleich zur Positionsgruppe.",
+   "context_docs": [],
+   "duration_s": 58.27
+  },
+  {
+   "id": "q024",
+   "type": "visual",
+   "query": "In welchem Perzentil liegt die Passquote von Tim Kleindienst laut seinem Statblatt 2024/25?",
+   "reference_answer": "8. Perzentil unter Stürmern (60,9 %).",
+   "answer": "Leider kann ich keine genaue Angabe zum Passprädikat von Tim Kleindienst in einem bestimmten Perzentil treffen, da ich nicht direkt auf aktuelle Statistiken oder Statbläte zugreifen kann. Ich empfehle, die offiziellen Quellen des Vereins oder derliga zu prüfen.",
+   "context_docs": [],
+   "duration_s": 55.46
+  },
+  {
+   "id": "q025",
+   "type": "visual",
+   "query": "Welchen npxG-Perzentilwert zeigt das Statblatt von Danilho Doekhi?",
+   "reference_answer": "80. Perzentil unter Verteidigern.",
+   "answer": "Leider kann ich den aktuellen npxG-Perzentilwert für Danilho Doekhi nicht bestimmen, da ich nicht direkt auf aktuelle Daten zugegriffen habe. Bitte überprüfen Sie die neuesten Statistiken oder Scouting-Daten für eine genaue Angabe.",
+   "context_docs": [],
+   "duration_s": 57.5
+  },
+  {
+   "id": "q026",
+   "type": "visual",
+   "query": "Wie gut ist Ko Itakuras Passquote im Verteidiger-Vergleich laut Statblatt?",
+   "reference_answer": "87. Perzentil (89,0 % Passquote).",
+   "answer": "Ich kann keine spezifischen Daten zu Ko Itakura ohne aktuelle Quellen zitieren. Ich würde empfehlen, die neuesten Statistiken oder Scouting-Berichte zu prüfen, um eine genaue Aussage über seine Passquote im Vergleich zu anderen Verteidigern zu treffen.",
+   "context_docs": [],
+   "duration_s": 62.19
+  },
+  {
+   "id": "q027",
+   "type": "visual",
+   "query": "Ist Álex Grimaldo laut seinem Statblatt stärker bei Key Passes pro 90 oder bei der Passquote, jeweils im Perzentil-Vergleich?",
+   "reference_answer": "Deutlich stärker bei Key Passes (100. Perzentil) als bei der Passquote (46. Perzentil).",
+   "answer": "Ich kann ohne spezifische Daten keine genaue Antwort geben. Die statistischen Details zu Álex Grimaldos Leistungen bei Key Passes und der Passquote müssten verglichen werden. Ohne aktuelle Statistik kann ich nicht sicher sagen, wo er im Perzentil-Vergleich stärker ist.",
+   "context_docs": [],
+   "duration_s": 73.2
+  },
+  {
+   "id": "q028",
+   "type": "exact_match",
+   "query": "Für welche Ablöse wechselte Anthony Gordon zum FC Barcelona?",
+   "reference_answer": "80 Millionen Euro Basisablöse.",
+   "answer": "Ich kann keine genauen Informationen zu dieser Transfersache von Anthony Gordon zum FC Barcelona finden. Es wäre am sichersten, dies direkt bei offiziellen Quellen des FC Barcelona oder von Anthony Gordons Agentur zu überprüfen.",
+   "context_docs": [],
+   "duration_s": 41.63
+  },
+  {
+   "id": "q029",
+   "type": "exact_match",
+   "query": "Wie viele Pflichtspielminuten sammelte Luis Díaz beim FC Bayern in der Saison 2025/26?",
+   "reference_answer": "4.060 Minuten.",
+   "answer": "Leider kann ich keine genauen Informationen zur Saison 2025/26 liefern, da diese noch nicht stattgefunden hat und aktuelle Daten fehlen.",
+   "context_docs": [],
+   "duration_s": 40.85
+  },
+  {
+   "id": "q030",
+   "type": "exact_match",
+   "query": "Welchen Top-Speed erreichte Alphonso Davies laut den internationalen Spieldaten der Saison 2025/26?",
+   "reference_answer": "34,88 km/h.",
+   "answer": "Leider kann ich keine genauen Daten zu Alphonso Davies für die Saison 2025/26 liefern, da diese noch nicht stattgefunden hat und aktuelle Statistiken zur Verfügung stehen würden. Ich kann Ihnen jedoch sagen, dass Alphonso Davies bekannt ist für seine hohe Geschwindigkeit, mit einer Top-Speed von etwa 34 km/h in der Saison 2021/22 gemessen worden zu sein. Genauere Daten für eine zukünftige Saison sind aktuell nicht verfügbar.",
+   "context_docs": [],
+   "duration_s": 71.41
+  },
+  {
+   "id": "q031",
+   "type": "exact_match",
+   "query": "Wie entwickelte sich der PPDA-Wert des FC Bayern zwischen erster und zweiter Saisonhälfte 2025/26?",
+   "reference_answer": "Verbesserung von 10,4 auf 9,3 Pässe pro Defensivaktion.",
+   "answer": "Leider habe ich keine aktuell verfügbaren Daten über den PPDA-Wert des FC Bayern für die genannte Spielzeit. Der PPDA (Pass Progression Defence Area) ist ein statistischer Wert, der in der zweiten Hälfte der Saison 2025/26 möglicherweise noch nicht registriert wurde oder mir nicht bekannt ist.",
+   "context_docs": [],
+   "duration_s": 44.63
+  },
+  {
+   "id": "q032",
+   "type": "semantic",
+   "query": "Was sind laut Scouting-Report die größten Stärken von Ismael Saibari?",
+   "reference_answer": "Schnelligkeit, Athletik, physische Stärke und Explosivität auf den ersten Metern; dazu Abschlussqualität aus guten Positionen.",
+   "answer": "Basierend auf verfügbaren Informationen sind laut Scouting-Reports die größten Stärken von Ismail Sai Barri sein Geschick im Ballkontrolle und seine schnelle Bewegungsfähigkeit. Er zeichnet sich auch durch eine gute Balance aus, was ihm bei der Umsetzung seiner Techniken hilft.",
+   "context_docs": [],
+   "duration_s": 33.2
+  },
+  {
+   "id": "q033",
+   "type": "semantic",
+   "query": "Auf welcher Position ist Ismael Saibari laut Scouting-Report am stärksten?",
+   "reference_answer": "Hinter der Spitze (als Zehner/hängende Spitze).",
+   "answer": "Basierend auf meinem Wissensstand kann ich keine spezifische Position für Ismael Saibari ausgeben. Ich würde den genauen Scouting-Report prüfen müssen, um eine Antwort zu liefern.",
+   "context_docs": [],
+   "duration_s": 28.7
+  },
+  {
+   "id": "q034",
+   "type": "semantic",
+   "query": "Was fällt im Scouting-Report bei Saibaris Abschlussstatistiken besonders auf?",
+   "reference_answer": "Beste Trefferquote der Vergleichsgruppe: 20 % seiner Abschlüsse gehen rein, bei zweithöchster Torquote pro 90 Minuten.",
+   "answer": "Basierend auf verfügbaren Informationen fällt bei Saïbaris Abschlussstatistiken insbesondere seine hohe Trefferquote und die Vielseitigkeit seiner Tore auf. Er erzielt oft Tore in verschiedenen Situationen, was sein potenzielles Scoring-Kaliber deutlich macht.",
+   "context_docs": [],
+   "duration_s": 37.84
+  },
+  {
+   "id": "q035",
+   "type": "semantic",
+   "query": "Welche Schwäche attestierte das Spielverlagerung-Portrait von 2012 dem jungen Granit Xhaka?",
+   "reference_answer": "Das Spiel gegen den Ball / die Defensivarbeit; dazu leichte Probleme mit der ersten Ballberührung.",
+   "answer": "Das Spielverlagerung-Portrait aus 2012 hat Granit Xhaka hauptsächlich für seine Stärken gelobt und eine Schwäche nicht spezifiziert. Es wurde betont, dass er ein talentierter Mittelfeldspieler mit guter Ballbeherrschung ist, aber keine genaue Schwäche erwähnt.",
+   "context_docs": [],
+   "duration_s": 109.34
+  },
+  {
+   "id": "q036",
+   "type": "semantic",
+   "query": "Welche Rolle spielte Granit Xhaka beim FC Basel laut Spielverlagerung-Portrait?",
+   "reference_answer": "Eine moderne vertikale Sechs: Er verband durch Dynamik und Spielübersicht die Mannschaftsteile.",
+   "answer": "Granit Xhaka war im Spielverlagerung-Portrait des FC Basel als Mittelfeldspieler und zentraler Defensiver Mittelfeldspieler eingesetzt. Er hatte eine wichtige Rolle bei der Defensive Stabilität und Organisation des Teams, während er auch Angriffsmittel bot.",
+   "context_docs": [],
+   "duration_s": 32.34
+  },
+  {
+   "id": "q037",
+   "type": "semantic",
+   "query": "Welche Rolle spielt Harry Kane im Offensivspiel des FC Bayern über das Toreschießen hinaus?",
+   "reference_answer": "Er lässt sich fallen, organisiert Angriffe aus tieferen Zonen, schafft Räume für Musiala, Olise und Díaz und gibt der Offensive Struktur.",
+   "answer": "Harry Kane kann auch als Vorposten und Halbangel in Anspruch genommen werden. Er unterstützt die Angriffsbewegungen und sorgt für Abwechslung im Angriffsformat des FC Bayern.",
+   "context_docs": [],
+   "duration_s": 26.86
+  },
+  {
+   "id": "q038",
+   "type": "semantic",
+   "query": "Wie würde ein klassischer Strafraumstürmer als Kane-Backup das Spiel des FC Bayern verändern?",
+   "reference_answer": "Mehr Flügelspiel und Flanken, weil die Anspielstation zwischen den Linien fehlt; der Zehner wird schneller isoliert.",
+   "answer": "Ein klassischer Strafraumstürmer als Kane-Backup könnte die Spielweise des FC Bayern verändern, indem er zusätzliche Optionen im Angriff schafft und den gegnerischen Abwehrspielen mehr Druck aufbauscht. Seine schnelle Bewegung und Taktikkenntnisse könnten die Mannschaft in verschiedenen Situationen stärken, aber es ist nicht sicher, ohne spezifische Informationen über den Spieler.",
+   "context_docs": [],
+   "duration_s": 55.39
+  },
+  {
+   "id": "q039",
+   "type": "semantic",
+   "query": "Welche Kritik äußerte Tom Bischof am Spiel des FC Bayern?",
+   "reference_answer": "Das Gegenpressing direkt nach Ballverlust fehle; deshalb lange Wege und viele Gegentore.",
+   "answer": "Ich kann keine spezifischen Kritiken von Tom Bischof zum FC Bayern finden. Es wäre daher nicht korrekt, etwas zu behaupten, ohne es mit Nachweis unterstützen zu können.",
+   "context_docs": [],
+   "duration_s": 21.29
+  },
+  {
+   "id": "q040",
+   "type": "semantic",
+   "query": "Wessen Position stützen die Wyscout-Daten in der Kontroverse zwischen Kompany und Bischof?",
+   "reference_answer": "Eher die von Kompany.",
+   "answer": "Ich kann diese Frage nicht beantworten, da ich als Qwen von Alibaba Cloud keine spezifischen Informationen über eine Kontroverse zwischen Kompany und Bischof oder über Wyscout-Daten zur Position von Spieler habe. Bitte stellen Sie eine klare Frage basierend auf verfügbaren Daten.",
+   "context_docs": [],
+   "duration_s": 30.88
+  },
+  {
+   "id": "q041",
+   "type": "semantic",
+   "query": "Warum denkt der FC Bayern über einen weiteren Rechtsverteidiger nach, obwohl die Position doppelt besetzt ist?",
+   "reference_answer": "Wegen der Flexibilität von Laimer und Stanišić, die künftig andere Rollen (Doppelsechs, Innenverteidigung) übernehmen könnten, und Laimers ungewisser Vertragslage.",
+   "answer": "Der FC Bayern könnte zusätzlichen Rechtsverteidiger suchen, um Rücksicht zu nehmen auf mögliche Verletzungen oder Deutungskonflikte der aktuellen Spieler. Zudem könnten sie auf die Möglichkeit einer Stärkung des Teams im Transfermarkt spekulieren oder sich auf lange Sicht planen.",
+   "context_docs": [],
+   "duration_s": 51.12
+  },
+  {
+   "id": "q042",
+   "type": "semantic",
+   "query": "Was unterscheidet Givairo Read laut Analyse von Laimer und Stanišić?",
+   "reference_answer": "Seine Explosivität im Antritt — trotz niedrigerem Top-Speed.",
+   "answer": "Basierend auf der verfügbaren Information trennen sich Givairo Read, Laimer und Stanišić hauptsächlich in ihrer Positionierung und Spielstil. Laimer ist eher ein Mittelfeldspieler mit breiter Position, während Stanišić als zentrales Abwehrmitglied agiert. Givairo Read scheint mehr auf der Flanke aktiv zu sein und könnte auch als Angriffsverteidiger dienen. Genauere Unterschiede liegen jedoch außerhalb meines Wissensbereichs.",
+   "context_docs": [],
+   "duration_s": 94.34
+  },
+  {
+   "id": "q043",
+   "type": "semantic",
+   "query": "Wie veränderte sich Robert Lewandowskis Spiel in seiner ersten Dortmund-Zeit laut Spielverlagerung?",
+   "reference_answer": "Er schaltete sich zunehmend ins Aufbauspiel ein und entwickelte Spielstärke über die reine Stürmerrolle hinaus.",
+   "answer": "In seiner ersten Zeit bei Borussia Dortmund verlagerte sich Robert Lewandowski von einem klassischen Stürmer zu einer flexibleren Position. Er begann, auch als Innenansacker zu spielen und passte sich so besser den Anforderungen des Teams an.",
+   "context_docs": [],
+   "duration_s": 43.9
+  },
+  {
+   "id": "q044",
+   "type": "semantic",
+   "query": "Was ist laut Spielverlagerung die außergewöhnlichste Stärke von Marco Reus?",
+   "reference_answer": "Seine individualtaktische Intelligenz.",
+   "answer": "Laut Spielverlagerung ist die außergewöhnliche Stärke von Marco Reus seine Vielseitigkeit. Er kann als Angriffsmitte, Flügelfrau oder als Zweitangrifer fungieren und bringt dabei sowohl Tore als auch Assistenz zu.",
+   "context_docs": [],
+   "duration_s": 48.39
+  },
+  {
+   "id": "q045",
+   "type": "semantic",
+   "query": "Welche Schwäche hat Marco Reus laut dem Spielverlagerung-Portrait?",
+   "reference_answer": "Unkonstante Ballbehandlung, besonders die Ballannahme.",
+   "answer": "Laut Spielverlagerung-Porträts hat Marco Reus eine Schwäche im Bereich der Ballabfallen und -verteidigung. Er kann manchmal schwierig zu erreichen sein, was Vorteile bringt, aber es ist wichtig, dass er sich in dieser Phase verbessert, um seine Mannschaft optimale Unterstützung zu bieten.",
+   "context_docs": [],
+   "duration_s": 55.49
+  },
+  {
+   "id": "q046",
+   "type": "semantic",
+   "query": "Welche Rolle spielte Elkin Soto bei Mainz 05?",
+   "reference_answer": "Taktgeber im defensiven Mittelfeld bzw. auf der linken Halbposition: Spielrhythmus-Steuerung, Spielaufbau, dazu stark im Pressing.",
+   "answer": "Elkin Soto spielte als Mittelfeldspieler für den FC Mainz 05. Genauer war er von August 2019 bis Mai 2023 aktiv beim Verein, wo er eine wichtige Rolle im Team als Mittelfeldverteidiger und Mitspieler bei Wettbewerbsstarten hatte.",
+   "context_docs": [],
+   "duration_s": 69.34
+  },
+  {
+   "id": "q047",
+   "type": "multi_hop",
+   "query": "Welche Schwäche bescheinigte das Spielverlagerung-Portrait 2012 dem jungen Granit Xhaka, und in welchem Perzentil liegt er laut Statblatt 2024/25 bei progressiven Pässen?",
+   "reference_answer": "2012: Spiel gegen den Ball als Schwäche. 2024/25: 99. Perzentil bei progressiven Pässen pro 90 unter Mittelfeldspielern.",
+   "answer": "Das Spielverlagerung-Portrait 2012 bescheinigte Granit Xhaka Schwächen im Ballkontrollen. Laut dem Statblatt 2024/25 liegt er in einem progressiven Passen-Perzentil von ca. 78%.",
+   "context_docs": [],
+   "duration_s": 60.68
+  },
+  {
+   "id": "q048",
+   "type": "multi_hop",
+   "query": "Nach dem Gordon-Transfer zum FC Barcelona: Welchen Spieler nahm der FC Bayern laut Scouting-Report stattdessen ins Visier?",
+   "reference_answer": "Ismael Saibari von der PSV Eindhoven.",
+   "answer": "Ich kann keine spezifischen Details zu diesem speziellen Transferfall ohne weitere Informationen liefern. Es ist möglich, dass der FC Bayern andere Spieler in Betracht gezogen hat, aber ohne genaue Quellen kann ich das nicht bestätigen oder widerlegen.",
+   "context_docs": [],
+   "duration_s": 38.06
+  },
+  {
+   "id": "q049",
+   "type": "multi_hop",
+   "query": "Wie viele Bundesliga-Tore erzielte Harry Kane 2025/26, und warum ist die Suche nach seinem Backup laut Miasanrot so schwierig?",
+   "reference_answer": "36 Tore; weil Kane weit mehr ist als ein Vollstrecker — er organisiert das Spiel aus tieferen Zonen, und „einen zweiten Kane gibt es nicht so einfach\".",
+   "answer": "Ich kann leider nicht mit Sicherheit antworten, da es sich um zukünftige Ereignisse handelt. Harry Kane hat in der Saison 2025/26 keine Tore erzielen können, da diese noch nicht stattgefunden haben.\n\nZur Suche nach seinem Backup: Die Schwierigkeit liegt darin, dass nur wenige Spieler seine spezifischen Fähigkeiten und Leistungsgrade vollständig wiederspiegeln. Kane ist bekannt für sein Präsenz im Strafraum, seine Ballkontrolle und seine Torgewalt. Ein geeigneter Ersatz muss ähnliche Qualitäten haben und sich gut in den Teamstil einfügen kann.",
+   "context_docs": [],
+   "duration_s": 74.8
+  },
+  {
+   "id": "q050",
+   "type": "multi_hop",
+   "query": "Wie entwickelten sich Harry Kanes Bundesliga-Torzahlen von der Saison 2024/25 zur Saison 2025/26?",
+   "reference_answer": "Von 26 Toren (2024/25) auf 36 Tore (2025/26).",
+   "answer": "Leider habe ich keine genaue Datenbankzugriff, um die spezifischen Torzahlen von Harry Kane für diese Saisons zu überprüfen. Die Informationen könnten sich in meiner Wissensbasis nicht finden oder aktualisiert sein. Ich empfehle eine Nachfrage an vertrauenswürdige Sportquellen oder offizielle Websites des Vereins, um die genauen Zahlen zu erhalten.",
+   "context_docs": [],
+   "duration_s": 50.63
+  },
+  {
+   "id": "q051",
+   "type": "multi_hop",
+   "query": "Wie viele Tore schoss Tim Kleindienst 2024/25, und wie schneidet seine Passquote im Positionsvergleich laut Statblatt ab?",
+   "reference_answer": "16 Tore; die Passquote liegt nur im 8. Perzentil unter Stürmern (60,9 %).",
+   "answer": "Leider kann ich keine genauen Daten zu Tim Kleindienst für das Spieljahr 2024/25 liefern. Zudem habe ich aktuelle Passquoten und Positionsspielestatistiken nicht zur Verfügung. Es wäre ratsam, die offiziellen Quellen oder den Scout-Report des jeweiligen Vereins zu prüfen.",
+   "context_docs": [],
+   "duration_s": 33.79
+  },
+  {
+   "id": "q052",
+   "type": "multi_hop",
+   "query": "Wie viele Key Passes spielte Álex Grimaldo 2024/25 insgesamt, und wo steht er damit im Perzentil-Vergleich seiner Positionsgruppe?",
+   "reference_answer": "73 Key Passes; pro 90 Minuten ist das das 100. Perzentil unter Verteidigern.",
+   "answer": "Leider habe ich aktuelle Daten über die Leistungen von Álex Grimaldo aus dem Saison 2024/25 nicht zur Verfügung. Bitte prüfen Sie für aktuelle Informationen die offiziellen Quellen der relevanten Sportvereine oder Statistikwebsites.",
+   "context_docs": [],
+   "duration_s": 31.33
+  },
+  {
+   "id": "q053",
+   "type": "multi_hop",
+   "query": "Wie viele Assists gab Angelo Stiller 2024/25, und in welchem xAG-Perzentil liegt er laut Statblatt?",
+   "reference_answer": "8 Assists; 91. xAG-Perzentil unter Mittelfeldspielern.",
+   "answer": "Leider kann ich keine aktuellsten Daten zu Angelo Stillers Leistungen für das Saisonjahr 2024/25 liefern, da diese Informationen noch nicht veröffentlicht oder verfügbar sind. Zudem fehlen mir die spezifischen xAG-Werte und -Perzentile aus einem Statblatt zur Verfügung. Ich empfehle, aktuelle Fußballstatistiken von vertrauenswürdigen Quellen zu prüfen.",
+   "context_docs": [],
+   "duration_s": 55.98
+  },
+  {
+   "id": "q054",
+   "type": "multi_hop",
+   "query": "Wie viele Bundesliga-Tore erzielte Serhou Guirassy 2025/26, und was zeigt sein Statblatt 2024/25 beim npxG pro 90?",
+   "reference_answer": "16 Tore 2025/26; im Statblatt 2024/25 steht er beim npxG/90 im 100. Perzentil unter Stürmern.",
+   "answer": "Ich kann leider keine genauen Daten für die Saison 2025/26 liefern, da diese noch nicht stattgefunden hat. Beim Statistikblatt der Saison 2024/25 ist Serhou Guirassy mit npxG pro 90 Minuten bei ca. 0,18 Punkten zu bewerten.",
+   "context_docs": [],
+   "duration_s": 40.41
+  },
+  {
+   "id": "q055",
+   "type": "multi_hop",
+   "query": "Welche Verletzung beendete Alphonso Davies' Saison 2025/26 vorzeitig, und welchen Top-Speed hatte er zuvor in der Saison erreicht?",
+   "reference_answer": "Verletzung am hinteren linken Oberschenkel; zuvor 34,88 km/h Top-Speed — schnellster Bayern-Außenverteidiger.",
+   "answer": "Ich kann keine genaue Information über die Saison 2025/26 liefern, da diese noch nicht stattgefunden hat. Daher kann ich leider keine spezifischen Details zur Verletzung oder dem Top-Speed von Alphonso Davies in dieser Saison geben.",
+   "context_docs": [],
+   "duration_s": 31.38
+  },
+  {
+   "id": "q056",
+   "type": "multi_hop",
+   "query": "Mit wie vielen Punkten wurde der FC Bayern 2025/26 Meister, und wie komplettierte er das Double?",
+   "reference_answer": "89 Punkte in der Liga; das Double machte der Pokalsieg im Finale gegen den VfB Stuttgart perfekt.",
+   "answer": "Ich kann keine genaue Information zu den Punkten des FC Bayern München in der Saison 2025/26 liefern, da diese Daten noch nicht verfügbar sind. Zudem ist es aktuell nicht bekannt, ob und wie das Double erreicht wurde. Ich würde empfehlen, sich für die aktuellen Ergebnisse auf offiziellen Quellen zu verlassen.",
+   "context_docs": [],
+   "duration_s": 38.52
+  },
+  {
+   "id": "q057",
+   "type": "multi_hop",
+   "query": "Wie viele Bundesliga-Tore schoss Deniz Undav 2025/26, und welche Rolle spielte er im Pokalfinale gegen Bayern?",
+   "reference_answer": "19 Liga-Tore; im Pokalfinale hatte er nach gut einer Minute die erste Halbchance per Kopf.",
+   "answer": "Ich kann leider nicht sicher antworten, da die Saison 2025/26 noch zukünftig ist und aktuelle Daten zur Leistung von Deniz Undav oder zu Ergebnissen des Pokalfinals dieser Saison nicht verfügbar sind.",
+   "context_docs": [],
+   "duration_s": 45.69
+  },
+  {
+   "id": "q058",
+   "type": "multi_hop",
+   "query": "Wie beschrieb Spielverlagerung Xhakas Rolle in Basel, und wie gut ist seine Passquote laut Statblatt 2024/25 im Positionsvergleich?",
+   "reference_answer": "In Basel verband er als vertikale Sechs die Mannschaftsteile; 2024/25 liegt seine Passquote im 97. Perzentil unter Mittelfeldspielern.",
+   "answer": "Ich kann keine genauen Daten für die Saison 2024/25 liefern, da diese noch nicht stattgefunden hat. Beim FC Basel spielt Xhaka in einer zentralen Mittelfeldposition und ist bekannt für seine Ballbeherrschung und Defensive Stärke. Seine Passquote kann je nach Statistikquelle variieren, aber typischerweise liegt sie bei um die 85-90%. Für genaue Zahlen müssten die aktuellen Statistiken der Saison analysiert werden.",
+   "context_docs": [],
+   "duration_s": 68.62
+  },
+  {
+   "id": "q059",
+   "type": "multi_hop",
+   "query": "Welche Passquote hatte Jonathan Tah 2024/25 laut Tabelle, und welchem Perzentil entspricht das laut seinem Statblatt?",
+   "reference_answer": "92,9 % Passquote; das entspricht dem 98. Perzentil unter Verteidigern.",
+   "answer": "Ich kann keine aktuell genaue Datenbank über Fußballspieler für die Saison 2024/25 abrufen. Die Passquote von Jonathan Tah in dieser Saison und sein zugehöriges Perzentil können daher nicht sicher bestimmt werden. Bitte verifizieren Sie dies durch eine aktuelle Quelle oder Statistik.",
+   "context_docs": [],
+   "duration_s": 50.03
+  }
+ ]
+}

@@ -75,9 +75,11 @@ def _run_generation(args: argparse.Namespace, closed_book: bool) -> dict:
         if closed_book or index is None:
             result = generate_closed_book(entry["query"])
             contexts_docs: list[str] = []
+            context_texts: list[str] = []
         else:
             retrieved = index.search(entry["query"], k=args.k)
-            result = generate_rag(entry["query"], [r["text"] for r in retrieved])
+            context_texts = [r["text"] for r in retrieved]
+            result = generate_rag(entry["query"], context_texts)
             contexts_docs = [r["doc_id"] for r in retrieved]
         outputs.append(
             {
@@ -87,6 +89,7 @@ def _run_generation(args: argparse.Namespace, closed_book: bool) -> dict:
                 "reference_answer": entry["reference_answer"],
                 "answer": result["text"],
                 "context_docs": contexts_docs,
+                "context_texts": context_texts,  # judge needs the actual texts
                 "duration_s": result["total_duration_s"],
             }
         )
