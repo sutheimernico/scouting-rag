@@ -58,23 +58,53 @@ _Same table layout as Recall@5 — filled per cycle._
 |-------|-----------|--------|----------|-------------|-----------|--------|
 | 1 | Naive dense (BGE-M3) | 0.56 | 0.95 | 0.70 | 0.49 | 0.00 |
 
-## Secondary: generation quality (local judge + manual sample)
+## Secondary: generation quality (judge-free number-hit + local judge)
 
-| Cycle | Faithfulness (judge) | Faithfulness (manual n=10) | Answer quality (judge) | Notes |
-|-------|----------------------|----------------------------|------------------------|-------|
-| −1 | | | | closed-book reference line |
+Number-hit = all reference numbers appear in the answer (deterministic,
+exact-match subset). Faithful (strict) = judge says every claim is
+context-supported. Honest = supported OR honest refusal (the judge applied
+the refusal rule inconsistently, so both readings are reported).
 
-**Judge noise (test–retest on 10 queries, measured once in cycle 1):** _pending_
+| Cycle | Number-hit exact-match (n=18) | Faithful strict (n=59) | Honest (n=59) | Refusal rate | Manual check (n=13) |
+|-------|-------------------------------|------------------------|---------------|--------------|---------------------|
+| −1 | **0.00** | n/a (no context to be faithful to) | n/a | – | – |
+| 1 | **0.72** | 0.66 | 0.95 | 0.31 | pending (eval/FAITHFULNESS_SAMPLE.md) |
+
+**Judge noise (test–retest, n=10, temp 0.3, seeds 1/2):** agreement 1.00 —
+the judge is stable on this sample; n is small, treat as indicative.
+Known judge weaknesses found in cycle 1: refusal flag inconsistent
+(q001), one verdict contradicts a correct answer (q005), punishes honest
+source complexity once (q036) — all flagged in the manual sample.
 
 ## Cost & latency per cycle
 
 | Cycle | Indexing time (one-off) | Latency / query (CPU) | Extra infra | Notes |
 |-------|-------------------------|------------------------|-------------|-------|
 | −1 | – | ~48 s generation (measured under load, not representative) | Ollama | closed book |
-| 1 | 106 min (BGE-M3 encode, 4,318 chunks) | 0.43 s retrieval; generation TBD | Qdrant embedded | API cost: 0 € |
+| 1 | 106 min (BGE-M3 encode, 4,318 chunks) | 0.43 s retrieval + ~69 s generation (7B CPU) | Qdrant embedded | API cost: 0 €; judge run ~50 min one-off |
 
 ## Per-cycle deltas and verdicts
 
 _One short block per cycle after its run: delta vs. previous stage,
 interpretation, keep/drop decision. Honest: if a technique does not earn
 its delta, it goes, and that gets documented here._
+
+### Cycle 1 vs. cycle −1 (closed book)
+
+- Number-hit on exact-match: **0.00 → 0.72**. Without retrieval the
+  generator gets zero post-cutoff facts right (it refuses or treats
+  2025/26 as future); with naive RAG it answers 13/18 correctly.
+- Hallucination behavior: closed book invents player careers and
+  strengths; with context the model almost never free-hallucinates
+  (honest 0.95) — it errs toward over-cautious refusal instead.
+- Retrieval R@5 0.60 global against a 0.72 text-cycle ceiling;
+  semantic is saturated (1.00), the gaps are specific: season
+  disambiguation (q013 answered with the wrong season's number),
+  domain abbreviations (PPDA, q031), rank semantics not present in
+  row chunks (q004), and a weak 7B generator that misses values inside
+  long 30-column row chunks even when retrieval succeeded (q001, q011).
+- **Verdict: keep.** This is the baseline every later cycle must beat;
+  the exact-match and multi-hop gaps are exactly what cycles 2/3 target.
+- Limitations: golden-set annotations machine-validated only (human 20%
+  review skipped by owner decision, sample kept available); judge refusal
+  flag unreliable; latency figures are CPU numbers.
