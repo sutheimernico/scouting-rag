@@ -1,0 +1,13 @@
+{
+ "source": "cycle2_rag_hybrid_k5.json",
+ "number_hit_exact_match": {
+  "n": 18,
+  "hit_rate": 0.7778,
+  "misses": [
+   "q004",
+   "q008",
+   "q013",
+   "q030"
+  ]
+ }
+}

@@ -73,6 +73,7 @@ the refusal rule inconsistently, so both readings are reported).
 |-------|-------------------------------|------------------------|---------------|--------------|---------------------|
 | −1 | **0.00** | n/a (no context to be faithful to) | n/a | – | – |
 | 1 | **0.72** | 0.66 | 0.95 | 0.31 | done (Claude, not human — see below) |
+| 2 | **0.78** | judge pending | – | – | – |
 
 **Judge noise (test–retest, n=10, temp 0.3, seeds 1/2):** agreement 1.00 —
 the judge is stable on this sample; n is small, treat as indicative.
@@ -94,7 +95,7 @@ answer-quality signal.
 |-------|-------------------------|------------------------|-------------|-------|
 | −1 | – | ~48 s generation (measured under load, not representative) | Ollama | closed book |
 | 1 | 106 min (BGE-M3 encode, 4,318 chunks) | 0.43 s retrieval + ~69 s generation (7B CPU) | Qdrant embedded | API cost: 0 €; judge run ~50 min one-off |
-| 2 | + ~5 s BM25 build (in-memory) | 0.38 s retrieval | rank_bm25 | no re-encoding needed |
+| 2 | + ~5 s BM25 build (in-memory) | 0.38 s retrieval + ~70 s generation | rank_bm25 | no re-encoding needed |
 
 ## Per-cycle deltas and verdicts
 
@@ -121,3 +122,23 @@ its delta, it goes, and that gets documented here._
 - Limitations: golden-set annotations machine-validated only (human 20%
   review skipped by owner decision, sample kept available); judge refusal
   flag unreliable; latency figures are CPU numbers.
+
+### Cycle 2 (hybrid) vs. cycle 1 (dense)
+
+- R@5 per type: exact-match 0.83→0.89, multi-hop 0.42→0.50, semantic
+  1.00→0.87 (fully recovered at k=10), global unchanged at 0.60. With
+  n=13–18 per subset each delta is ±1–2 queries — indicative, not proof.
+- The pattern is clean and worth the study: **BM25 wins where the query
+  carries specific tokens** (PPDA q031, "4.060" q029, names in q048/q055),
+  **and loses where it doesn't** — "Welcher Verein gewann…" (q008) floods
+  top-10 with 18 interchangeable table rows because no row carries rank
+  semantics; the Schalke row drops out entirely. Same failure class as q004.
+- End-to-end confirms the chain: number-hit 0.72→0.78; the PPDA answer is
+  now perfect, the Schalke answer died with its retrieval. q001/q011
+  flipped to hits and q030 to a miss with unchanged retrieved content —
+  suggests (not proves) context-order sensitivity of the 7B generator.
+- Latency: retrieval 0.38 s/query, +~5 s one-off BM25 build. Negligible.
+- **Verdict: keep, conditionally.** Hybrid earns its target-subset delta
+  at zero meaningful cost, but the semantic@5 regression goes to cycle 3
+  (reranker over top-30 — every cycle-2 loss is still within top 30). If
+  reranking does not recover semantic@5 ≥ dense level, revisit the fusion.

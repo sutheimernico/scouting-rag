@@ -1,0 +1,1304 @@
+{
+ "mode": "rag_hybrid_k5",
+ "latency_per_query_s": 70.09,
+ "outputs": [
+  {
+   "id": "q001",
+   "type": "exact_match",
+   "query": "Wie viele Tore hat Harry Kane in der Bundesliga-Saison 2025/26 erzielt?",
+   "reference_answer": "36 Tore.",
+   "answer": "Harry Kane hat in der Bundesliga-Saison 2025/26 36 Tore erzielt.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/ace092ba411d8396.json"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Harry Kane | Nation: ENG | Pos: FW | Age: 31 | Born: 1993…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Harry Kane | Nation: ENG | Pos: FW | Age: 31 | Born: 1993.0 |…",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: H. Kane | goalCount: 36",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Harry Kane | Nation: ENG | Pos: FW | Age: 31 | Born: 1993.0 …",
+    "FC Bayern 2026: Der Unsung Hero hinter dem Spektakel\nMiasanrot Awards 2026 – Unsung Hero: Bessermacher Jonathan Tah\nWenn beim FC Bayern München über die Protagonisten einer erfolgreichen Saison gespro…"
+   ],
+   "duration_s": 71.8
+  },
+  {
+   "id": "q002",
+   "type": "exact_match",
+   "query": "Wie viele Bundesliga-Tore erzielte Deniz Undav in der Saison 2025/26?",
+   "reference_answer": "19 Tore.",
+   "answer": "19",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "articles/2f902c12f8ccfc7f.json"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Deniz Undav | Nation: GER | Pos: FW,MF | Age: 28 | Born: 1996.0 …",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Deniz Undav | Nation: GER | Pos: FW,MF | Age: 28 | Born: 1996…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Deniz Undav | Nation: GER | Pos: FW,MF | Age: 28 | Born: 1996.0 |…",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: D. Undav | goalCount: 19",
+    "FC Bayern im DFB-Pokalfinale: VfB Stuttgart im Gegnercheck\nFC Bayern: Vorsicht vor dem Offensiv-Duo\nIm Zentrum des Geschehens steht natürlich Deniz Undav, der mit einer beeindruckenden Bilanz von 19 T…"
+   ],
+   "duration_s": 58.24
+  },
+  {
+   "id": "q003",
+   "type": "exact_match",
+   "query": "Wie viele Tore hat A. Kade in der Bundesliga-Saison 2025/26 geschossen?",
+   "reference_answer": "6 Tore.",
+   "answer": "A. Kade hat in der Bundesliga-Saison 2025/26 6 Tore geschossen.",
+   "context_docs": [
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv"
+   ],
+   "context_texts": [
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: A. Kade | goalCount: 6",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: A. Kramaric | goalCount: 14",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: A. Balde | goalCount: 1",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: A. Nusa | goalCount: 4",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: A. Chaves | goalCount: 2"
+   ],
+   "duration_s": 11.51
+  },
+  {
+   "id": "q004",
+   "type": "exact_match",
+   "query": "Wer war mit wie vielen Toren bester Torschütze der 2. Bundesliga 2025/26?",
+   "reference_answer": "Noel Futkeu mit 14 Toren.",
+   "answer": "Dazu finde ich nichts im Korpus.",
+   "context_docs": [
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv"
+   ],
+   "context_texts": [
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: Maximilian Rohr | goalCount: 2",
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: Florent Muslija | goalCount: 2",
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: R. Ghrieb | goalCount: 2",
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: Hiroki Akiyama | goalCount: 2",
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: Mustapha Bundu | goalCount: 2"
+   ],
+   "duration_s": 9.71
+  },
+  {
+   "id": "q005",
+   "type": "exact_match",
+   "query": "Wie viele Zweitliga-Tore erzielte F. Bilbija 2025/26?",
+   "reference_answer": "13 Tore.",
+   "answer": "13",
+   "context_docs": [
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv"
+   ],
+   "context_texts": [
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: F. Bilbija | goalCount: 13",
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: Bilbija | goalCount: 1",
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: Filip Bilbija | goalCount: 1",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: F. Nmecha | goalCount: 2",
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: F. Muslija | goalCount: 1"
+   ],
+   "duration_s": 8.16
+  },
+  {
+   "id": "q006",
+   "type": "exact_match",
+   "query": "Mit wie vielen Punkten wurde der FC Bayern München 2025/26 Deutscher Meister?",
+   "reference_answer": "89 Punkte.",
+   "answer": "Mit 89 Punkten wurde der FC Bayern München 2025/26 Deutscher Meister.",
+   "context_docs": [
+    "stats/openligadb/bundesliga_2025_table.csv",
+    "articles/08806e33828d7cd4.json",
+    "articles/07cd1e46e84d7b05.json",
+    "articles/ec0d5096475a3005.json",
+    "articles/bb6af06c5303e3da.json"
+   ],
+   "context_texts": [
+    "Bundesliga Abschlusstabelle 2025/26 (final league table) | teamName: FC Bayern München | shortName: Bayern | points: 89 | opponentGoals: 36 | goals: 122 | matches: 34 | won: 28 | lost: 1 | draw: 5 | g…",
+    "Matchball versenkt: Der FC Bayern ist Meister!\nKahns Rat: „Wenn ich spüre, dass etwas in meinem Spiel nicht stimmt, dann muss ich an mir arbeiten.“\nWenn Oliver Kahn die erste Halbzeit gegen den VfB St…",
+    "FC Bayern: Sehnsucht nach dem DFB-Pokal so groß ist wie nie\nKaum ein Verein in Europa dominiert die nationale Liga wie der FC Bayern die höchste deutsche Spielklasse. Seit dem vergangenen Wochenende s…",
+    "BVB bald Rekordträger: FC Bayern muss endlich aufwachen! – Satire\nVize-Schock! Der FC Bayern muss endlich aufwachen – Satire\nAchtung, dieser Artikel könnte Satire enthalten. Der BVB ist zum zehnten Ma…",
+    "FC Bayern in der CL: Ist die Bundesliga das große Problem?\nChampions-League: Scheitert der FC Bayern an der eigenen Dominanz? Der Reflex nach dem Ausscheiden des FC Bayern München gegen Paris Saint-Ge…"
+   ],
+   "duration_s": 74.21
+  },
+  {
+   "id": "q007",
+   "type": "exact_match",
+   "query": "Wie viele Tore erzielte der FC Bayern München insgesamt in der Bundesliga-Saison 2025/26?",
+   "reference_answer": "122 Tore.",
+   "answer": "Der FC Bayern München erzielte insgesamt 122 Tore in der Bundesliga-Saison 2025/26.",
+   "context_docs": [
+    "articles/c0fd9ac7d4044dc4.json",
+    "articles/bb6af06c5303e3da.json",
+    "articles/def23d3dd8ade699.json",
+    "articles/543e285d9049496c.json",
+    "stats/openligadb/bundesliga_2025_table.csv"
+   ],
+   "context_texts": [
+    "FC Bayern, MSR Awards: Männer erstmals vor den Frauen\nMit 122 Ligatreffern stellte der Rekordmeister nicht nur einen neuen Bundesliga-Bestwert auf, sondern erzielte mehr Tore als jede andere Mannschaf…",
+    "FC Bayern in der CL: Ist die Bundesliga das große Problem?\nChampions-League: Scheitert der FC Bayern an der eigenen Dominanz? Der Reflex nach dem Ausscheiden des FC Bayern München gegen Paris Saint-Ge…",
+    "Der FC Bayern fliegt förmlich – doch eine Schwäche bleibt\nGerade in der Crunchtime entscheiden Details zwischen Sieg und Niederlage.\n- Werbung: Bis zu 50 Prozent Rabatt auf Trikots des FC Bayern bei K…",
+    "FC Bayern: Nochmal besser! Michael Olise verteidigt MSR-Award\nNochmal besser: Die irren Zahlen von Michael Olise beim FC Bayern\nNachdem Olise bereits in seiner Debütsaison für den FC Bayern voll einge…",
+    "Bundesliga Abschlusstabelle 2025/26 (final league table) | teamName: FC Bayern München | shortName: Bayern | points: 89 | opponentGoals: 36 | goals: 122 | matches: 34 | won: 28 | lost: 1 | draw: 5 | g…"
+   ],
+   "duration_s": 75.84
+  },
+  {
+   "id": "q008",
+   "type": "exact_match",
+   "query": "Welcher Verein gewann die 2. Bundesliga 2025/26 und mit wie vielen Punkten?",
+   "reference_answer": "FC Schalke 04 mit 70 Punkten.",
+   "answer": "Dazu finde ich nichts im Korpus.",
+   "context_docs": [
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv"
+   ],
+   "context_texts": [
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: Sylla | goalCount: 2",
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: Florent Muslija | goalCount: 2",
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: Hiroki Akiyama | goalCount: 2",
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: J. Ceka | goalCount: 2",
+    "2. Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: Mustapha Bundu | goalCount: 2"
+   ],
+   "duration_s": 9.04
+  },
+  {
+   "id": "q009",
+   "type": "exact_match",
+   "query": "Wie viele Punkte holte die TSG Hoffenheim in der Bundesliga-Saison 2025/26?",
+   "reference_answer": "61 Punkte.",
+   "answer": "Die TSG Hoffenheim holte in der Bundesliga-Saison 2025/26 61 Punkte.",
+   "context_docs": [
+    "stats/openligadb/bundesliga_2025_table.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/0bd65806db640d23.json",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv"
+   ],
+   "context_texts": [
+    "Bundesliga Abschlusstabelle 2025/26 (final league table) | teamName: TSG Hoffenheim | shortName: Hoffenheim | points: 61 | opponentGoals: 52 | goals: 65 | matches: 34 | won: 18 | lost: 9 | draw: 7 | g…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Hoffenheim | Comp: Bundesliga | Player: Umut Tohumcu | Nation: GER | Pos: MF,FW | Age: 19 | Born: 20…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Hoffenheim | Comp: Bundesliga | Player: Max Moerstedt | Nation: GER | Pos: FW | Mins_Per_90: 5.0 | Cmp_…",
+    "VW und Audi: FC Bayern mit pikanter Rolle im Abstiegskampf des VfL Wolfsburg?\nUnd in Frankfurt sollte man sich zudem die Frage stellen, wie man mit Multiclub-Ownership-Modellen umgeht. Die Audi AG ist…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Hoffenheim | Comp: Bundesliga | Player: Max Moerstedt | Nation: GER | Pos: FW | Mins_Per_90: 5.0 | G…"
+   ],
+   "duration_s": 52.01
+  },
+  {
+   "id": "q010",
+   "type": "exact_match",
+   "query": "Welche Passquote hatte Joshua Kimmich in der Bundesliga-Saison 2024/25?",
+   "reference_answer": "89,5 % angekommene Pässe.",
+   "answer": "Joshua Kimmich hatte eine Gesamtpassquote von 89,5% in der Bundesliga-Saison 2024/25.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/07286674767ae2af.json",
+    "articles/6f2640ce3489c621.json"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Joshua Kimmich | Nation: GER | Pos: MF | Age: 29 | Born: …",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Joshua Kimmich | Nation: GER | Pos: MF | Age: 29 | Born: 199…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Joshua Kimmich | Nation: GER | Pos: MF | Age: 29 | Born: 1995…",
+    "Türchen 22: Joshua Kimmich\nTürchen 22: Joshua Kimmich\nWeltklasse auf mehreren Positionen. Überragender Sechser. Spielt aber außen. Kimmich ist der Außenverteidiger der Zukunft. Der Spieler der Zukunft…",
+    "Mixed 11 des FC Bayern: Ohne Díaz und Pavlović\nSechser: Joshua Kimmich\nOb als Taktgeber im Ballbesitz, als Antreiber gegen den Ball oder als Führungsspieler in den entscheidenden Momenten: Joshua Kimm…"
+   ],
+   "duration_s": 78.54
+  },
+  {
+   "id": "q011",
+   "type": "exact_match",
+   "query": "Wie viele progressive Pässe spielte Joshua Kimmich in der Saison 2024/25?",
+   "reference_answer": "362 progressive Pässe.",
+   "answer": "Joshua Kimmich hat in der Saison 2024/25 362 progressive Pässe gespielt.",
+   "context_docs": [
+    "articles/07286674767ae2af.json",
+    "articles/07286674767ae2af.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "articles/07286674767ae2af.json"
+   ],
+   "context_texts": [
+    "Türchen 22: Joshua Kimmich\nTürchen 22: Joshua Kimmich\nWeltklasse auf mehreren Positionen. Überragender Sechser. Spielt aber außen. Kimmich ist der Außenverteidiger der Zukunft. Der Spieler der Zukunft…",
+    "Türchen 22: Joshua Kimmich\nDas wird mit besser werdendem Pressing immer schwieriger und deshalb benötigt man da eigentlich zunehmends Spieler, die pressingresistent und passstark sind. Wir diskutierte…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Joshua Kimmich | Nation: GER | Pos: MF | Age: 29 | Born: 199…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Joshua Kimmich | Nation: GER | Pos: MF | Age: 29 | Born: …",
+    "Türchen 22: Joshua Kimmich\nSo erzielte er in der laufenden Spielzeit schon drei Tore und zehn Vorlagen in 27 Pflichtspielen für Bayern. In der WM-Qualifikation kam er auf zwölf Torbeteiligungen in zeh…"
+   ],
+   "duration_s": 79.44
+  },
+  {
+   "id": "q012",
+   "type": "exact_match",
+   "query": "Wie viele Assists gab Angelo Stiller in der Bundesliga-Saison 2024/25?",
+   "reference_answer": "8 Assists.",
+   "answer": "8.0",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "articles/2f902c12f8ccfc7f.json"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Angelo Stiller | Nation: GER | Pos: MF | Age: 23 | Born: 2001.0 …",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Angelo Stiller | Nation: GER | Pos: MF | Age: 23 | Born: 2001…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Angelo Stiller | Nation: GER | Pos: MF | Age: 23 | Born: 2001.0 |…",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: A. Stiller | goalCount: 2",
+    "FC Bayern im DFB-Pokalfinale: VfB Stuttgart im Gegnercheck\nSeine Zahlen (Quellen: Sofascore) sprechen eine eindeutige Sprache: 15 kreierte Großchancen in dieser Bundesligasaison untermauern seinen eno…"
+   ],
+   "duration_s": 62.38
+  },
+  {
+   "id": "q013",
+   "type": "exact_match",
+   "query": "Wie viele Bundesliga-Tore schoss Harry Kane in der Saison 2024/25?",
+   "reference_answer": "26 Tore.",
+   "answer": "36",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/c0fd9ac7d4044dc4.json",
+    "stats/openligadb/bundesliga_2025_scorers.csv"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Harry Kane | Nation: ENG | Pos: FW | Age: 31 | Born: 1993…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Harry Kane | Nation: ENG | Pos: FW | Age: 31 | Born: 1993.0 …",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Harry Kane | Nation: ENG | Pos: FW | Age: 31 | Born: 1993.0 |…",
+    "FC Bayern, MSR Awards: Männer erstmals vor den Frauen\nFC Bayern: Die Miasanrot Awards 2026\n- Unsung Heroine der Saison: Von einer Abgangskandidatin zur Schlüsselspielerin\n- Unsung Hero der Saison: Ein…",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: H. Kane | goalCount: 36"
+   ],
+   "duration_s": 59.06
+  },
+  {
+   "id": "q014",
+   "type": "exact_match",
+   "query": "Wie viele Tore erzielte Tim Kleindienst in der Bundesliga 2024/25?",
+   "reference_answer": "16 Tore.",
+   "answer": "Tim Kleindienst erzielte 16 Tore in der Bundesliga 2024/25.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Tim Kleindienst | Nation: GER | Pos: FW | Age: 28 | Born: 1995.0 |…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Tim Kleindienst | Nation: GER | Pos: FW | Age: 28 | Born: 1995…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Tim Kleindienst | Nation: GER | Pos: FW | Age: 28 | Born: 1995.0 …",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Augsburg | Comp: Bundesliga | Player: Tim Breithaupt | Nation: GER | Pos: MF | Age: 22 | Born: 2002.0 | …",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Tomáš Čvančara | Nation: CZE | Pos: FW | Age: 23 | Born: 2000.0 | …"
+   ],
+   "duration_s": 71.62
+  },
+  {
+   "id": "q015",
+   "type": "visual",
+   "query": "In welchem Perzentil liegt Álex Grimaldo beim xAG pro 90 Minuten laut seinem Statblatt 2024/25?",
+   "reference_answer": "99. Perzentil (verglichen mit Verteidigern).",
+   "answer": "8.1 befindet sich im 50. Perzentil, da keine Angabe des Perzentils im gegebenen Statistikblatt zu Alex Grimaldos xAG pro 90 Minuten vorliegt.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/63a42bae552c31a9.json",
+    "articles/ace092ba411d8396.json"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Álex Grimaldo | Nation: ESP | Pos: DF | Age: 28 | Born: 1995.0 …",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Álex Grimaldo | Nation: ESP | Pos: DF | Age: 28 | Born: 1995…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Álex Grimaldo | Nation: ESP | Pos: DF | Age: 28 | Born: 1995.0 |…",
+    "FC Bayern: Passt das? Vlahović und Gordon in der Analyse\nGordon gilt aktuell als eines der Top-Transferziele für den kommenden Sommer. Laut Berichten soll es bereits positive Signale des Spielers in R…",
+    "FC Bayern 2026: Der Unsung Hero hinter dem Spektakel\nEgal in welchem Wettbewerb der FC Bayern gefordert war, Tah lieferte konstant auf höchstem Niveau. Er ist zugleich ein gutes Beispiel dafür, warum …"
+   ],
+   "duration_s": 81.19
+  },
+  {
+   "id": "q016",
+   "type": "visual",
+   "query": "Wie stark ist Álex Grimaldo laut Statblatt bei Key Passes pro 90 im Vergleich zu anderen Verteidigern?",
+   "reference_answer": "100. Perzentil — bester Wert der Positionsgruppe.",
+   "answer": "Álex Grimaldo hat laut Statistik 50 Key Passes pro 90 Minuten, was deutlich über dem Durchschnitt der anderen Verteidiger liegt.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/16c55275a9ed866f.json",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/ace092ba411d8396.json"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Álex Grimaldo | Nation: ESP | Pos: DF | Age: 28 | Born: 1995…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Álex Grimaldo | Nation: ESP | Pos: DF | Age: 28 | Born: 1995.0 …",
+    "Upamecano Ungenauigkeiten: eine individuelle Fehleranalyse und Reduktionsstrategien – MH\nSowohl der damalige Teamkollege De Ligt, als auch Tah, welcher in Leverkusen mit Trainer Xabi Alonso auf Ballbe…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Álex Grimaldo | Nation: ESP | Pos: DF | Age: 28 | Born: 1995.0 |…",
+    "FC Bayern 2026: Der Unsung Hero hinter dem Spektakel\nEgal in welchem Wettbewerb der FC Bayern gefordert war, Tah lieferte konstant auf höchstem Niveau. Er ist zugleich ein gutes Beispiel dafür, warum …"
+   ],
+   "duration_s": 79.66
+  },
+  {
+   "id": "q017",
+   "type": "visual",
+   "query": "Welchen npxG-pro-90-Perzentilwert zeigt das Statblatt von Serhou Guirassy für 2024/25?",
+   "reference_answer": "100. Perzentil unter Stürmern.",
+   "answer": "0.23",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "articles/57eeecd3ea2e49ba.json"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Dortmund | Comp: Bundesliga | Player: Serhou Guirassy | Nation: GUI | Pos: FW | Age: 28 | Born: 1996.0 …",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Dortmund | Comp: Bundesliga | Player: Serhou Guirassy | Nation: GUI | Pos: FW | Age: 28 | Born: 1996…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Dortmund | Comp: Bundesliga | Player: Serhou Guirassy | Nation: GUI | Pos: FW | Age: 28 | Born: 1996.0 |…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Nathan N'Goumou | Nation: CMR | Pos: FW | Age: 24 | Born: 2000…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nLópez, Palmer, Cherki, Yildiz, Trincão, B. Fernandes, Lee Kang-in, Wirtz, Simons, Güler, De Ketelaere, Maza und Saibari – sie soll eine Stich…"
+   ],
+   "duration_s": 69.46
+  },
+  {
+   "id": "q018",
+   "type": "visual",
+   "query": "In welchem Perzentil liegt Granit Xhaka bei progressiven Pässen pro 90 laut seinem Statblatt?",
+   "reference_answer": "99. Perzentil unter Mittelfeldspielern.",
+   "answer": "40%",
+   "context_docs": [
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ],
+   "context_texts": [
+    "Adventskalender, Türchen 5: Granit Xhaka\nAdventskalender, Türchen 5: Granit Xhaka\nBorussia Mönchengladbach griff vor dieser Saison tief in die Tasche: Insgesamt dreißig Millionen Euro gaben sie für fü…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nDas konnte bedeuten, dass er abwechselnd mit Huggel als abkippende Sechs agierte, aber auch, dass er am gegnerischen Strafraum Schnittstellenpässe spielte oder…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nHinzu kommt, dass Gladbach zu Beginn der Saison die stark raumorientierte Defensivstrategie der Vorsaison wählte. Xhaka hatte Probleme, in die Fußstapfen seine…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Granit Xhaka | Nation: SUI | Pos: MF | Age: 31 | Born: 1992.…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Granit Xhaka | Nation: SUI | Pos: MF | Age: 31 | Born: 1992.0 |…"
+   ],
+   "duration_s": 78.55
+  },
+  {
+   "id": "q019",
+   "type": "visual",
+   "query": "Wie gut ist die Passquote von Jonathan Tah im Positionsgruppen-Vergleich laut Statblatt 2024/25?",
+   "reference_answer": "98. Perzentil unter Verteidigern (92,9 % Passquote).",
+   "answer": "Jonathan Tah hatte eine Passquote von 92,9% in der Bundesliga Saison 2024/25.",
+   "context_docs": [
+    "articles/16c55275a9ed866f.json",
+    "articles/ace092ba411d8396.json",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv"
+   ],
+   "context_texts": [
+    "Upamecano Ungenauigkeiten: eine individuelle Fehleranalyse und Reduktionsstrategien – MH\nDie ausgewerteten individuellen Fehler wurden ausgewählt, da sie mehrfach zu spielentscheidenden Szenen in der …",
+    "FC Bayern 2026: Der Unsung Hero hinter dem Spektakel\nMiasanrot Awards 2026 – Unsung Hero: Bessermacher Jonathan Tah\nWenn beim FC Bayern München über die Protagonisten einer erfolgreichen Saison gespro…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Jonathan Tah | Nation: GER | Pos: DF | Age: 28 | Born: 1996.…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Jonathan Tah | Nation: GER | Pos: DF | Age: 28 | Born: 1996.0 |…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Jonathan Tah | Nation: GER | Pos: DF | Age: 28 | Born: 1996.0 | …"
+   ],
+   "duration_s": 81.4
+  },
+  {
+   "id": "q020",
+   "type": "visual",
+   "query": "Welcher Verteidiger von Werder Bremen erreicht laut Statblatt das 100. npxG-Perzentil seiner Positionsgruppe?",
+   "reference_answer": "Mitchell Weiser.",
+   "answer": "Dazu finde ich nichts im Korpus.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Werder Bremen | Comp: Bundesliga | Player: Michael Zetterer | Nation: GER | Pos: GK | Age: 29 | Born: 19…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Werder Bremen | Comp: Bundesliga | Player: Niklas Stark | Nation: GER | Pos: DF | Age: 29 | Born: 19…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Werder Bremen | Comp: Bundesliga | Player: Jens Stage | Nation: DEN | Pos: MF | Age: 27 | Born: 1996…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Werder Bremen | Comp: Bundesliga | Player: Felix Agu | Nation: NGA | Pos: DF | Age: 24 | Born: 1999.…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Werder Bremen | Comp: Bundesliga | Player: Justin Njinmah | Nation: GER | Pos: FW,MF | Age: 23 | Bor…"
+   ],
+   "duration_s": 62.74
+  },
+  {
+   "id": "q021",
+   "type": "visual",
+   "query": "In welchem npxG-pro-90-Perzentil liegt Andrej Kramarić laut seinem Statblatt?",
+   "reference_answer": "97. Perzentil unter Mittelfeldspielern.",
+   "answer": "Andrej Kramarić liegt im npxG-pro-90-Perzentil auf dem 15. Perzentil.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/726f418d4e33bf24.json",
+    "articles/57eeecd3ea2e49ba.json"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Hoffenheim | Comp: Bundesliga | Player: Andrej Kramarić | Nation: CRO | Pos: MF,FW | Age: 33 | Born: 199…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Hoffenheim | Comp: Bundesliga | Player: Andrej Kramarić | Nation: CRO | Pos: MF,FW | Age: 33 | Born:…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Hoffenheim | Comp: Bundesliga | Player: Andrej Kramarić | Nation: CRO | Pos: MF,FW | Age: 33 | Born: 19…",
+    "Borussia Dortmund auf Stürmersuche\nEin anderer taktisch flexibler Stürmer, der statistisch ebenfalls in die Kategorie von Alcácer fällt, ist Andrej Kramarić. In dieser Saison kam der Kroate aufgrund e…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nLópez, Palmer, Cherki, Yildiz, Trincão, B. Fernandes, Lee Kang-in, Wirtz, Simons, Güler, De Ketelaere, Maza und Saibari – sie soll eine Stich…"
+   ],
+   "duration_s": 84.69
+  },
+  {
+   "id": "q022",
+   "type": "visual",
+   "query": "Welchen xAG-pro-90-Perzentilwert weist das Statblatt von Angelo Stiller aus?",
+   "reference_answer": "91. Perzentil unter Mittelfeldspielern.",
+   "answer": "87.4%",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/2f902c12f8ccfc7f.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Angelo Stiller | Nation: GER | Pos: MF | Age: 23 | Born: 2001.0 …",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Angelo Stiller | Nation: GER | Pos: MF | Age: 23 | Born: 2001…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Angelo Stiller | Nation: GER | Pos: MF | Age: 23 | Born: 2001.0 |…",
+    "FC Bayern im DFB-Pokalfinale: VfB Stuttgart im Gegnercheck\nSeine Zahlen (Quellen: Sofascore) sprechen eine eindeutige Sprache: 15 kreierte Großchancen in dieser Bundesligasaison untermauern seinen eno…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Kevin Stöger | Nation: AUT | Pos: MF | Age: 30 | Born: 1993.0 | M…"
+   ],
+   "duration_s": 40.67
+  },
+  {
+   "id": "q023",
+   "type": "visual",
+   "query": "Wie schwach ist Kaishu Sano laut Statblatt beim npxG pro 90 im Vergleich seiner Positionsgruppe?",
+   "reference_answer": "6. Perzentil — sehr schwach unter Mittelfeldspielern.",
+   "answer": "Dazu finde ich nichts im Korpus.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/ace092ba411d8396.json",
+    "stats/openligadb/bundesliga_2025_scorers.csv"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Mainz 05 | Comp: Bundesliga | Player: Kaishu Sano | Nation: JPN | Pos: MF | Age: 23 | Born: 2000.0 | MP_…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Mainz 05 | Comp: Bundesliga | Player: Kaishu Sano | Nation: JPN | Pos: MF | Age: 23 | Born: 2000.0 |…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Mainz 05 | Comp: Bundesliga | Player: Kaishu Sano | Nation: JPN | Pos: MF | Age: 23 | Born: 2000.0 | Mi…",
+    "FC Bayern 2026: Der Unsung Hero hinter dem Spektakel\nEgal in welchem Wettbewerb der FC Bayern gefordert war, Tah lieferte konstant auf höchstem Niveau. Er ist zugleich ein gutes Beispiel dafür, warum …",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: Kaishu Sano | goalCount: 1"
+   ],
+   "duration_s": 62.69
+  },
+  {
+   "id": "q024",
+   "type": "visual",
+   "query": "In welchem Perzentil liegt die Passquote von Tim Kleindienst laut seinem Statblatt 2024/25?",
+   "reference_answer": "8. Perzentil unter Stürmern (60,9 %).",
+   "answer": "60,9%",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Tim Kleindienst | Nation: GER | Pos: FW | Age: 28 | Born: 1995.0 …",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Tim Kleindienst | Nation: GER | Pos: FW | Age: 28 | Born: 1995…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Tim Kleindienst | Nation: GER | Pos: FW | Age: 28 | Born: 1995.0 |…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Bochum | Comp: Bundesliga | Player: Tim Oermann | Nation: GER | Pos: DF | Age: 20 | Born: 2003.0 | Mins…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Union Berlin | Comp: Bundesliga | Player: Tim Skarke | Nation: GER | Pos: FW,MF | Age: 27 | Born: 1996.…"
+   ],
+   "duration_s": 66.27
+  },
+  {
+   "id": "q025",
+   "type": "visual",
+   "query": "Welchen npxG-Perzentilwert zeigt das Statblatt von Danilho Doekhi?",
+   "reference_answer": "80. Perzentil unter Verteidigern.",
+   "answer": "Dazu finde ich nichts im Korpus.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Union Berlin | Comp: Bundesliga | Player: Danilho Doekhi | Nation: NED | Pos: DF | Age: 26 | Born: 1998…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Union Berlin | Comp: Bundesliga | Player: Danilho Doekhi | Nation: NED | Pos: DF | Age: 26 | Born: 1…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Union Berlin | Comp: Bundesliga | Player: Danilho Doekhi | Nation: NED | Pos: DF | Age: 26 | Born: 1998.…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Raphaël Guerreiro | Nation: POR | Pos: DF,MF | Age: 30 | Bor…",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: D. Doekhi | goalCount: 6"
+   ],
+   "duration_s": 53.7
+  },
+  {
+   "id": "q026",
+   "type": "visual",
+   "query": "Wie gut ist Ko Itakuras Passquote im Verteidiger-Vergleich laut Statblatt?",
+   "reference_answer": "87. Perzentil (89,0 % Passquote).",
+   "answer": "Ko Itakuras Passquote beträgt 89%, was im Vergleich zu den anderen verteidigenden Spielern durchschnittlich ist.",
+   "context_docs": [
+    "articles/16c55275a9ed866f.json",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/54d1a9b7e80b550c.json"
+   ],
+   "context_texts": [
+    "Upamecano Ungenauigkeiten: eine individuelle Fehleranalyse und Reduktionsstrategien – MH\nDie ausgewerteten individuellen Fehler wurden ausgewählt, da sie mehrfach zu spielentscheidenden Szenen in der …",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Ko Itakura | Nation: JPN | Pos: DF | Age: 27 | Born: 1997.0 | …",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Ko Itakura | Nation: JPN | Pos: DF | Age: 27 | Born: 1997.0 | Min…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Ko Itakura | Nation: JPN | Pos: DF | Age: 27 | Born: 1997.0 | MP_P…",
+    "Türchen 9: Roman Weidenfeller\nIm Vergleich zu seinen DFB-Konkurrenten ist er kaum ins Spiel der Borussia eingebunden; ter Stegen spielt durchschnittlich doppelt so viele Pässe pro Spiel wie Weidenfell…"
+   ],
+   "duration_s": 63.77
+  },
+  {
+   "id": "q027",
+   "type": "visual",
+   "query": "Ist Álex Grimaldo laut seinem Statblatt stärker bei Key Passes pro 90 oder bei der Passquote, jeweils im Perzentil-Vergleich?",
+   "reference_answer": "Deutlich stärker bei Key Passes (100. Perzentil) als bei der Passquote (46. Perzentil).",
+   "answer": "Álex Grimaldo hat eine Passquote von 81.2%, was im Vergleich zu anderen Spielern in seiner Position relativ hoch ist. In Bezug auf Key Passes pro 90 Minuten beträgt es 73, was deutlich über dem Durchschnitt liegt und ihn in diesem Aspekt im Perzentil-Vergleich stärker macht als viele andere Spieler.\n\nZusammengefasst: Álex Grimaldo ist bei Key Passes pro 90 Minuten im Perzentil-Vergleich stärker, während seine Passquote von 81.2% ebenfalls über dem Durchschnitt liegt, aber nicht so beeindruckend wie seine Leistung in Bezug auf Key Passes.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/05a151c378243bff.json",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/16c55275a9ed866f.json"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Álex Grimaldo | Nation: ESP | Pos: DF | Age: 28 | Born: 1995…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Álex Grimaldo | Nation: ESP | Pos: DF | Age: 28 | Born: 1995.0 …",
+    "FC Bayern: Die besten Gordon-Alternativen in der Analyse\nUnd seine Qualität fällt gerade im Vergleich zu El Mala auf: Beide gehen oft in Dribblings – Diomande mehr als sechsmal pro 90 Minuten, El Mala…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Álex Grimaldo | Nation: ESP | Pos: DF | Age: 28 | Born: 1995.0 |…",
+    "Upamecano Ungenauigkeiten: eine individuelle Fehleranalyse und Reduktionsstrategien – MH\nSowohl der damalige Teamkollege De Ligt, als auch Tah, welcher in Leverkusen mit Trainer Xabi Alonso auf Ballbe…"
+   ],
+   "duration_s": 72.95
+  },
+  {
+   "id": "q028",
+   "type": "exact_match",
+   "query": "Für welche Ablöse wechselte Anthony Gordon zum FC Barcelona?",
+   "reference_answer": "80 Millionen Euro Basisablöse.",
+   "answer": "80 Millionen Euro",
+   "context_docs": [
+    "articles/05a151c378243bff.json",
+    "articles/63a42bae552c31a9.json",
+    "articles/e6bfb12325aeb51c.json",
+    "articles/05a151c378243bff.json",
+    "articles/05a151c378243bff.json"
+   ],
+   "context_texts": [
+    "FC Bayern: Die besten Gordon-Alternativen in der Analyse\nAnthony Gordon vom Markt: Wie geht die Linksaußen-Suche des FC Bayern weiter? Der Wechsel von Anthony Gordon zum FC Barcelona dürfte den FC Bay…",
+    "FC Bayern: Passt das? Vlahović und Gordon in der Analyse\nDušan Vlahović vs. Anthony Gordon: Wer passt besser zum FC Bayern? In München bleiben nach einer fußballerisch überzeugenden Saison nur wenige …",
+    "Problemzone Bank: Zahlt der FC Bayern jetzt den Preis?\nGenau dort sollte der Rekordmeister nachlegen. Aktuell gibt es auf vier Offensivpositionen nur zwei echte Top-Optionen. Zudem fehlt ein Profil, d…",
+    "FC Bayern: Die besten Gordon-Alternativen in der Analyse\nDer Kölner hat ebenfalls eine herausragende Saison gespielt, hat allerdings deutlich stärkere Schwankungen in seinem Spiel. Er kommt eher über …",
+    "FC Bayern: Die besten Gordon-Alternativen in der Analyse\n2024/25 waren es noch fast sieben bei einer Quote von 57 Prozent, in dieser Saison sind es nur noch vier bei rund 59 Prozent. Dass der 26-Jähri…"
+   ],
+   "duration_s": 86.67
+  },
+  {
+   "id": "q029",
+   "type": "exact_match",
+   "query": "Wie viele Pflichtspielminuten sammelte Luis Díaz beim FC Bayern in der Saison 2025/26?",
+   "reference_answer": "4.060 Minuten.",
+   "answer": "Luis Díaz sammelte 4.060 Minuten Pflichtspielzeit beim FC Bayern in der Saison 2025/26.",
+   "context_docs": [
+    "articles/66600c18c6e69701.json",
+    "articles/05a151c378243bff.json",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "articles/a7e863a657119508.json",
+    "articles/66600c18c6e69701.json"
+   ],
+   "context_texts": [
+    "FC Bayern: Der Newcomer der Saison veränderte alles\nMiasanrot Awards 2026 – Newcomer der Saison: Wie Luis Díaz den FC Bayern veränderte\nEs ist wieder Zeit, die wichtigen Titel zu vergeben. Die Miasanr…",
+    "FC Bayern: Die besten Gordon-Alternativen in der Analyse\nFC Bayern: Die Miasanrot Awards 2026\n- Unsung Heroine der Saison: Von einer Abgangskandidatin zur Schlüsselspielerin\n- Unsung Hero der Saison: …",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: Luis Díaz | goalCount: 15",
+    "FC Bayern: Zauber-Duo jetzt schon besser als Peak-\"Robbery\"!\nJetzt schon besser als Peak-„Robbery“: Luis Díaz und Michael Olise beflügeln den FC Bayern\nDieser Artikel wurde von Lennart geschrieben. Le…",
+    "FC Bayern: Der Newcomer der Saison veränderte alles\nGleichzeitig verliefen die Spielzeiten anderer Kandidaten wie Florian Wirtz oder Nico Williams deutlich weniger spektakulär. Nach einer solchen Sais…"
+   ],
+   "duration_s": 81.52
+  },
+  {
+   "id": "q030",
+   "type": "exact_match",
+   "query": "Welchen Top-Speed erreichte Alphonso Davies laut den internationalen Spieldaten der Saison 2025/26?",
+   "reference_answer": "34,88 km/h.",
+   "answer": "Laut den internationalen Spieldaten der Saison 2025/26 erreichte Alphonso Davies einen Top-Speed von über 36,5 km/h.",
+   "context_docs": [
+    "articles/07ead1864dd51dd3.json",
+    "articles/dd05f602823edd02.json",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "articles/2af7516fa6b8f1e8.json"
+   ],
+   "context_texts": [
+    "FC Bayern: Upgrade oder Luxus? Die große AV-Frage\nFC Bayern: Zu langsam für Europas Elite? Nach dem bitteren Ausscheiden gegen Paris Saint-Germain im Champions-League-Halbfinale wurde viel diskutiert.…",
+    "Erneut verletzt: Kann der FC Bayern noch mit Davies planen?\nAlphonso Davies und der FC Bayern: Eine Zukunft mit Fragezeichen\nAlphonso Davies gehört längst zu einem der wichtigsten Spieler des FC Bayer…",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: Alphonso Davies | goalCount: 1",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Alphonso Davies | Nation: CAN | Pos: DF | Age: 23 | Born:…",
+    "FC Bayern: Wieder Verletzt! Alphonso Davies erleidet nächsten Rückschlag\nFC Bayern: Wieder Verletzt! Alphonso Davies erleidet nächsten Rückschlag\nDer nächste Wermutstropfen für Alphonso Davies: Der Ka…"
+   ],
+   "duration_s": 70.36
+  },
+  {
+   "id": "q031",
+   "type": "exact_match",
+   "query": "Wie entwickelte sich der PPDA-Wert des FC Bayern zwischen erster und zweiter Saisonhälfte 2025/26?",
+   "reference_answer": "Verbesserung von 10,4 auf 9,3 Pässe pro Defensivaktion.",
+   "answer": "Der PPDA-Wert des FC Bayern sank von 10,4 in der ersten Jahreshälfte auf 9,3 in der zweiten Jahreshälfte 2025/26.",
+   "context_docs": [
+    "articles/227d796890c6973c.json",
+    "articles/c0fd9ac7d4044dc4.json",
+    "articles/df6444f51be126d0.json",
+    "articles/07cd1e46e84d7b05.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ],
+   "context_texts": [
+    "FC Bayern: Kompany vs. Bischof! Das sagen die Zahlen\nDabei haben wir uns mit der Scoutingplattform Wyscout folgende Statistiken in der Entwicklung angesehen:\n- Ballverluste – also jede Situation, in d…",
+    "FC Bayern, MSR Awards: Männer erstmals vor den Frauen\nMit 122 Ligatreffern stellte der Rekordmeister nicht nur einen neuen Bundesliga-Bestwert auf, sondern erzielte mehr Tore als jede andere Mannschaf…",
+    "FC Bayern mit bekannten Problemen in der Champions League\nDie Bundesliga ist kein Maßstab\nEine Niederlage, 116 Tore, potenziell 89 Punkte. Zahlen, die beinahe historisch wirken. In ihrer Gesamtheit ka…",
+    "FC Bayern: Sehnsucht nach dem DFB-Pokal so groß ist wie nie\nKaum ein Verein in Europa dominiert die nationale Liga wie der FC Bayern die höchste deutsche Spielklasse. Seit dem vergangenen Wochenende s…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Alphonso Davies | Nation: CAN | Pos: DF | Age: 23 | Born: 20…"
+   ],
+   "duration_s": 88.34
+  },
+  {
+   "id": "q032",
+   "type": "semantic",
+   "query": "Was sind laut Scouting-Report die größten Stärken von Ismael Saibari?",
+   "reference_answer": "Schnelligkeit, Athletik, physische Stärke und Explosivität auf den ersten Metern; dazu Abschlussqualität aus guten Positionen.",
+   "answer": "Laut Scouting-Report sind die größten Stärken von Ismael Saibari seine hohe Trefferquote (20 %), sein hoher Expected-Goals-Wert von 0,39 xG pro 90 Minuten, seine Geschwindigkeit und Athletik sowie seine taktische Flexibilität. Er kann in verschiedenen Positionen agieren, wie angriffslustiger Acht, klassischer Zehner oder Halbraumzehner sowie Schattenstürmer.",
+   "context_docs": [
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json"
+   ],
+   "context_texts": [
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nDazu aber später mehr. Beim Blick auf die Werte gibt es dann aber doch eine Sache die herausragt: Nicht nur hat er die zweithöchste Torquote …",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nGradlinigkeit, Abschlussqualität und Physis sind etwas, was der Bayern-Offensive manchmal abgeht. All das könnte der potenzielle Neuzugang li…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nIsmael Saibari: Der perfekte Backup für den FC Bayern? Die Karriere von Ismael Saibari verlief bisher ein wenig unter dem Radar. Das könnte s…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nSchon oft sind Spieler in den Top-5-Ligen gescheitert, die in Portugal oder den Niederlanden groß aufgespielt haben. Insofern ist eine Einord…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nTaktische Flexibilität kann in einer Offensive, in der nicht jede Position eindeutig mit einem klaren Backup besetzt ist, sondern immer wiede…"
+   ],
+   "duration_s": 87.93
+  },
+  {
+   "id": "q033",
+   "type": "semantic",
+   "query": "Auf welcher Position ist Ismael Saibari laut Scouting-Report am stärksten?",
+   "reference_answer": "Hinter der Spitze (als Zehner/hängende Spitze).",
+   "answer": "Ismael Saibari ist laut Scouting-Report am stärksten hinter der Spitze als Schattenstürmer oder hängende Spitze.",
+   "context_docs": [
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json"
+   ],
+   "context_texts": [
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nSchon oft sind Spieler in den Top-5-Ligen gescheitert, die in Portugal oder den Niederlanden groß aufgespielt haben. Insofern ist eine Einord…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nTaktische Flexibilität kann in einer Offensive, in der nicht jede Position eindeutig mit einem klaren Backup besetzt ist, sondern immer wiede…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nDazu aber später mehr. Beim Blick auf die Werte gibt es dann aber doch eine Sache die herausragt: Nicht nur hat er die zweithöchste Torquote …",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nGradlinigkeit, Abschlussqualität und Physis sind etwas, was der Bayern-Offensive manchmal abgeht. All das könnte der potenzielle Neuzugang li…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nFC Bayern: Die Miasanrot Awards 2026\n- Unsung Heroine der Saison: Von einer Abgangskandidatin zur Schlüsselspielerin\n- Unsung Hero der Saison…"
+   ],
+   "duration_s": 74.44
+  },
+  {
+   "id": "q034",
+   "type": "semantic",
+   "query": "Was fällt im Scouting-Report bei Saibaris Abschlussstatistiken besonders auf?",
+   "reference_answer": "Beste Trefferquote der Vergleichsgruppe: 20 % seiner Abschlüsse gehen rein, bei zweithöchster Torquote pro 90 Minuten.",
+   "answer": "Im Scouting-Report fällt bei Saibaris Abschlussstatistiken insbesondere seine hohe Trefferquote auf. Mit 20 Prozent seiner Abschlüsse landen direkt im Tor, was den zweithöchsten Wert in der Vergleichsgruppe darstellt. Zudem hat er einen sehr guten Expected-Goals-Wert von 0,39 xG pro 90 Minuten, was darauf hinweist, dass seine vielen Tore nicht zufällig sind und aus guter Position abgeschossen werden.",
+   "context_docs": [
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json"
+   ],
+   "context_texts": [
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nGradlinigkeit, Abschlussqualität und Physis sind etwas, was der Bayern-Offensive manchmal abgeht. All das könnte der potenzielle Neuzugang li…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nLópez, Palmer, Cherki, Yildiz, Trincão, B. Fernandes, Lee Kang-in, Wirtz, Simons, Güler, De Ketelaere, Maza und Saibari – sie soll eine Stich…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nTaktische Flexibilität kann in einer Offensive, in der nicht jede Position eindeutig mit einem klaren Backup besetzt ist, sondern immer wiede…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nAuf den ersten Metern ist er explosiv, dann kann er eine gute Endgeschwindigkeit halten. Wobei es hier nicht über gut hinausgeht – sein Top S…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nDazu aber später mehr. Beim Blick auf die Werte gibt es dann aber doch eine Sache die herausragt: Nicht nur hat er die zweithöchste Torquote …"
+   ],
+   "duration_s": 86.69
+  },
+  {
+   "id": "q035",
+   "type": "semantic",
+   "query": "Welche Schwäche attestierte das Spielverlagerung-Portrait von 2012 dem jungen Granit Xhaka?",
+   "reference_answer": "Das Spiel gegen den Ball / die Defensivarbeit; dazu leichte Probleme mit der ersten Ballberührung.",
+   "answer": "Das Spielverlagerung-Portrait von 2012 attestierte Granit Xhakas Schwäche in der \"Spiel gegen den Ball\" als Defensivspieler. Das heißt, er hatte Probleme mit der ersten Ballberührung und passte sich noch nicht ideal dem Passspiel des FC Mönchengladbach an.",
+   "context_docs": [
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json"
+   ],
+   "context_texts": [
+    "Adventskalender, Türchen 5: Granit Xhaka\nAdventskalender, Türchen 5: Granit Xhaka\nBorussia Mönchengladbach griff vor dieser Saison tief in die Tasche: Insgesamt dreißig Millionen Euro gaben sie für fü…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nDas konnte bedeuten, dass er abwechselnd mit Huggel als abkippende Sechs agierte, aber auch, dass er am gegnerischen Strafraum Schnittstellenpässe spielte oder…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nHinzu kommt, dass Gladbach zu Beginn der Saison die stark raumorientierte Defensivstrategie der Vorsaison wählte. Xhaka hatte Probleme, in die Fußstapfen seine…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nMan darf nicht vergessen, dass er gerade einmal 20 Jahre alt ist. Es war daher vermessen zu glauben, dass er es auf Anhieb Topleistungen in der Bundesliga brin…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nEr durchlief alle Jugendstationen des Rekordmeisters und der Schweizer Jugend-Auswahlteams. 2009 gewann er mit der U17 seines Landes die Weltmeisterschaft – vö…"
+   ],
+   "duration_s": 39.98
+  },
+  {
+   "id": "q036",
+   "type": "semantic",
+   "query": "Welche Rolle spielte Granit Xhaka beim FC Basel laut Spielverlagerung-Portrait?",
+   "reference_answer": "Eine moderne vertikale Sechs: Er verband durch Dynamik und Spielübersicht die Mannschaftsteile.",
+   "answer": "Granit Xhaka war bei FC Basel als abkippende Sechs und flexibler Mittelfeldspieler aktiv. Er konnte Schnittstellenpässe spielen und zu gefährlichen Fernschüssen ansetzen. In allen Spielbereichen war er ein wichtiger Motor der Mannschaft.",
+   "context_docs": [
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/549af55eeb879ce1.json"
+   ],
+   "context_texts": [
+    "Adventskalender, Türchen 5: Granit Xhaka\nEr durchlief alle Jugendstationen des Rekordmeisters und der Schweizer Jugend-Auswahlteams. 2009 gewann er mit der U17 seines Landes die Weltmeisterschaft – vö…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nAdventskalender, Türchen 5: Granit Xhaka\nBorussia Mönchengladbach griff vor dieser Saison tief in die Tasche: Insgesamt dreißig Millionen Euro gaben sie für fü…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nDas konnte bedeuten, dass er abwechselnd mit Huggel als abkippende Sechs agierte, aber auch, dass er am gegnerischen Strafraum Schnittstellenpässe spielte oder…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nHinzu kommt, dass Gladbach zu Beginn der Saison die stark raumorientierte Defensivstrategie der Vorsaison wählte. Xhaka hatte Probleme, in die Fußstapfen seine…",
+    "Türchen 11: Lars Stindl\nEr sieht also trotz seiner spielmachenden Anlagen eher als Passspieler für die Situation, der eher eingebunden werden muss, als dass er seine Mitspieler einbindet. Eine Gegenth…"
+   ],
+   "duration_s": 96.0
+  },
+  {
+   "id": "q037",
+   "type": "semantic",
+   "query": "Welche Rolle spielt Harry Kane im Offensivspiel des FC Bayern über das Toreschießen hinaus?",
+   "reference_answer": "Er lässt sich fallen, organisiert Angriffe aus tieferen Zonen, schafft Räume für Musiala, Olise und Díaz und gibt der Offensive Struktur.",
+   "answer": "Harry Kane spielt im Offensivspiel des FC Bayern eine vielseitige Rolle über das Toreschießen hinaus. Er organisiert viele Angriffe aus tieferen Zonen, schafft Räume für andere Spieler und gibt der Offensive Struktur. Er ist flexibel in verschiedenen Spielsituationen und liefert taktische und spielerische Mehrwerte. Kane hat die Fähigkeit, selbst bei klaren Führungen sein Pensum bis zum Ende herunterspult und bleibt aktiv im eigenen Strafraum, auch wenn das Spiel 2:0 geführt ist.",
+   "context_docs": [
+    "articles/d763d5ab0065ec84.json",
+    "articles/d763d5ab0065ec84.json",
+    "articles/f596b9c35add4b7e.json",
+    "articles/d763d5ab0065ec84.json",
+    "articles/2f902c12f8ccfc7f.json"
+   ],
+   "context_texts": [
+    "Stürmer-Puzzle des FC Bayern: Wie geht es hinter Harry Kane weiter?\nStürmer-Puzzle des FC Bayern: Wie geht es hinter Harry Kane weiter? Harry Kane ist beim FC Bayern der zentrale Bezugspunkt im Angrif…",
+    "Stürmer-Puzzle des FC Bayern: Wie geht es hinter Harry Kane weiter?\nDer FC Bayern braucht nicht zwangsläufig die eine „eierlegende Wollmilchsau“, die alles gleichzeitig kann. Die sinnvollere Frage lau…",
+    "Kane nimmt VfB auseinander: FC Bayern gewinnt den Pokal!\nSebastian Hoeneß versuchte im Finale den Aufbau der Münchner zu stören, in dem man Joshua Kimmich und Harry Kane beinahe in Manndeckung nahm. D…",
+    "Stürmer-Puzzle des FC Bayern: Wie geht es hinter Harry Kane weiter?\nZiel ist es, kompakte Defensiven durch präzises Passspiel und kurze Kombinationen auseinanderzuziehen – ein Ansatz, der stark an kla…",
+    "FC Bayern im DFB-Pokalfinale: VfB Stuttgart im Gegnercheck\nFC Bayern: Vorsicht vor dem Offensiv-Duo\nIm Zentrum des Geschehens steht natürlich Deniz Undav, der mit einer beeindruckenden Bilanz von 19 T…"
+   ],
+   "duration_s": 101.4
+  },
+  {
+   "id": "q038",
+   "type": "semantic",
+   "query": "Wie würde ein klassischer Strafraumstürmer als Kane-Backup das Spiel des FC Bayern verändern?",
+   "reference_answer": "Mehr Flügelspiel und Flanken, weil die Anspielstation zwischen den Linien fehlt; der Zehner wird schneller isoliert.",
+   "answer": "Ein klassischer Strafraumstürmer wie Vlahović würde die Box umsetzen und Tore schießen, aber die dynamische Angriffsbewegung und die Passverbindungen von Kane in tieferen Zonen verändern. Dies könnte die Spielstruktur beeinträchtigen und den Passfluss verlangsamen.",
+   "context_docs": [
+    "articles/d763d5ab0065ec84.json",
+    "articles/63a42bae552c31a9.json",
+    "articles/d763d5ab0065ec84.json",
+    "articles/d763d5ab0065ec84.json",
+    "articles/e6bfb12325aeb51c.json"
+   ],
+   "context_texts": [
+    "Stürmer-Puzzle des FC Bayern: Wie geht es hinter Harry Kane weiter?\nStürmer-Puzzle des FC Bayern: Wie geht es hinter Harry Kane weiter? Harry Kane ist beim FC Bayern der zentrale Bezugspunkt im Angrif…",
+    "FC Bayern: Passt das? Vlahović und Gordon in der Analyse\nDie Ausgangslage wäre diesmal allerdings eine andere. Der Serbe käme klar als Backup hinter Kane – und wäre dabei sogar ablösefrei zu haben. Di…",
+    "Stürmer-Puzzle des FC Bayern: Wie geht es hinter Harry Kane weiter?\nEs bedeutet auch, dass Weltklasse-Spieler rausfallen, weil sie selbst Spielzeit sammeln wollen und sich mit einer Backup-Rolle nicht…",
+    "Stürmer-Puzzle des FC Bayern: Wie geht es hinter Harry Kane weiter?\nZiel ist es, kompakte Defensiven durch präzises Passspiel und kurze Kombinationen auseinanderzuziehen – ein Ansatz, der stark an kla…",
+    "Problemzone Bank: Zahlt der FC Bayern jetzt den Preis?\nSeine Einwechslungen machen das Team trotz frischer Beine häufig nicht besser – und das ist weit weg von dem, was man von der ersten Alternative …"
+   ],
+   "duration_s": 80.38
+  },
+  {
+   "id": "q039",
+   "type": "semantic",
+   "query": "Welche Kritik äußerte Tom Bischof am Spiel des FC Bayern?",
+   "reference_answer": "Das Gegenpressing direkt nach Ballverlust fehle; deshalb lange Wege und viele Gegentore.",
+   "answer": "Tom Bischof kritisierte das bayerische Pressing und meinte, es fehle dem Team ein bisschen an diesem Gegenpressing direkt nach dem Ballverlust. Er fand, dass dadurch das Team häufiger langere Wege zurücklegen musste und so viele Gegentore einnahm.",
+   "context_docs": [
+    "articles/227d796890c6973c.json",
+    "articles/e69c6959bc65fa17.json",
+    "articles/e6bfb12325aeb51c.json",
+    "articles/227d796890c6973c.json",
+    "articles/fe3089aeb45abd74.json"
+   ],
+   "context_texts": [
+    "FC Bayern: Kompany vs. Bischof! Das sagen die Zahlen\nKontroverse zwischen Kompany und Bischof: Was sagen die Daten des FC Bayern? Am Samstagabend ist etwas passiert, was unter Vincent Kompany beim FC …",
+    "FC Bayern zähmt die Wölfe: Nach Halbzeitsteigerung zum 1:0\nFC Bayern wechselt und zweigt ein ganz anderes Gesicht\nKompany reagierte auf die schwache erste Halbzeit mit einem Doppelwechsel: Upamecano u…",
+    "Problemzone Bank: Zahlt der FC Bayern jetzt den Preis?\nDoch gezeigt hat der aus Vancouver gekommene Linksverteidiger trotzdem genug, um ihm zu attestieren, dass er absolut das Niveau der ganz Großen m…",
+    "FC Bayern: Kompany vs. Bischof! Das sagen die Zahlen\nUnd wer die Bälle häufig verliert, kann Gefahr laufen, zu viel Kraft zu verlieren. Daraus wiederum entstehen Präzisionsprobleme. Liegt Tom Bischof …",
+    "Mittelfeld des FC Bayern: Campus-Chance oder Neuzugang?\nDer 20-Jährige bringt nicht ganz die physische Wucht seines Vorgängers mit, überzeugt aber als extrem wendiger, pressingresistenter Akteur mit S…"
+   ],
+   "duration_s": 96.68
+  },
+  {
+   "id": "q040",
+   "type": "semantic",
+   "query": "Wessen Position stützen die Wyscout-Daten in der Kontroverse zwischen Kompany und Bischof?",
+   "reference_answer": "Eher die von Kompany.",
+   "answer": "Die Wyscout-Daten stützen eher die Analyse von Vincent Kompany. Sie zeigen mehr Ballverluste in der zweiten Jahreshälfte, was Kompanys Aussage über häufigere Ballbesitz-Arbeit zutrifft. Obwohl es qualitative Verbesserungen im Pressing gab, deutet das Datenmaterial insgesamt eher darauf hin, dass die Bayern in den letzten Monaten mehr an Ballarbeiten gehen mussten und damit möglicherweise ihre Präzision verloren haben.",
+   "context_docs": [
+    "articles/227d796890c6973c.json",
+    "articles/227d796890c6973c.json",
+    "articles/227d796890c6973c.json",
+    "articles/227d796890c6973c.json",
+    "articles/227d796890c6973c.json"
+   ],
+   "context_texts": [
+    "FC Bayern: Kompany vs. Bischof! Das sagen die Zahlen\nKontroverse zwischen Kompany und Bischof: Was sagen die Daten des FC Bayern? Am Samstagabend ist etwas passiert, was unter Vincent Kompany beim FC …",
+    "FC Bayern: Kompany vs. Bischof! Das sagen die Zahlen\nDas passiert nicht so. Wir haben 10 Minuten gut angefangen, haben dann ein bisschen unsere Geduld verloren und dann wird es halt schwieriger.“\nDoch…",
+    "FC Bayern: Kompany vs. Bischof! Das sagen die Zahlen\nDie statistischen Verbesserungen im Pressing sagen also nicht zwingend aus, dass das Pressing qualitativ besser wurde. Sie sagen in vielen Bereiche…",
+    "FC Bayern: Kompany vs. Bischof! Das sagen die Zahlen\nDabei haben wir uns mit der Scoutingplattform Wyscout folgende Statistiken in der Entwicklung angesehen:\n- Ballverluste – also jede Situation, in d…",
+    "FC Bayern: Kompany vs. Bischof! Das sagen die Zahlen\nUnd wer die Bälle häufig verliert, kann Gefahr laufen, zu viel Kraft zu verlieren. Daraus wiederum entstehen Präzisionsprobleme. Liegt Tom Bischof …"
+   ],
+   "duration_s": 88.09
+  },
+  {
+   "id": "q041",
+   "type": "semantic",
+   "query": "Warum denkt der FC Bayern über einen weiteren Rechtsverteidiger nach, obwohl die Position doppelt besetzt ist?",
+   "reference_answer": "Wegen der Flexibilität von Laimer und Stanišić, die künftig andere Rollen (Doppelsechs, Innenverteidigung) übernehmen könnten, und Laimers ungewisser Vertragslage.",
+   "answer": "Der FC Bayern denkt über einen weiteren Rechtsverteidiger nach, weil Laimer und Stanišić flexibel eingesetzt werden können – sowohl als Rechtsverteidiger als auch als Innenverteidiger oder linke Außenverteidiger. Dies bietet die Möglichkeit, verschiedene Strategien anzuwenden und Verletzungsprobleme besser zu bewältigen. Zudem könnte eine zusätzliche Option nützlich sein, um den Stil des Spiels variieren zu können.",
+   "context_docs": [
+    "articles/07ead1864dd51dd3.json",
+    "articles/07ead1864dd51dd3.json",
+    "articles/6f2640ce3489c621.json",
+    "articles/40e31cc2b51c23fa.json",
+    "articles/aecef61d96cbff59.json"
+   ],
+   "context_texts": [
+    "FC Bayern: Upgrade oder Luxus? Die große AV-Frage\nWer Read auf dem Platz beobachtet, wird seine Explosivität im Antritt als einen entscheidenden Unterschied zu Laimer und Stanišić ausmachen. Eine Eige…",
+    "FC Bayern: Upgrade oder Luxus? Die große AV-Frage\nDie große AV-Frage beim FC Bayern: Upgrade oder unnötiger Luxus? In der jüngsten Vergangenheit wurde bereits mehr als einmal über ein mögliches Transf…",
+    "Mixed 11 des FC Bayern: Ohne Díaz und Pavlović\nUnd am Verteidigen. Seine präzisen langen Bälle und seine Coolness in schwierigen Momenten zeichnen ihn aus. Zur Auswahl standen außerdem Manuel Neuer, E…",
+    "Giulia Gwinn: Droht ihr beim FC Bayern bald das Schüller-Schicksal?\nAuch Barbara Dunst, die nach Verletzung noch etwas mit dem Münchner Spiel fremdelt, ist auf dieser Position noch kein Upgrade. Die V…",
+    "Tempo oder Konstanz? Wer verteidigt die Außenbahnen des FC Bayern gegen PSG?\nTempo oder Konstanz? Wer verteidigt die Außenbahnen des FC Bayern gegen PSG? Dieser Artikel wurde von Lennart geschrieben. …"
+   ],
+   "duration_s": 101.39
+  },
+  {
+   "id": "q042",
+   "type": "semantic",
+   "query": "Was unterscheidet Givairo Read laut Analyse von Laimer und Stanišić?",
+   "reference_answer": "Seine Explosivität im Antritt — trotz niedrigerem Top-Speed.",
+   "answer": "Givairo Read unterscheidet sich von Konrad Laimer und Josip Stanišić hauptsächlich durch seine Explosivität im Antritt. Diese Eigenschaft ist besonders für die intensive Spielweise unter Vincent Kompany gefragt, während die gemessenen Top-Speed-Werte der Spieler vergleichbar sind.",
+   "context_docs": [
+    "articles/07ead1864dd51dd3.json",
+    "articles/07ead1864dd51dd3.json",
+    "articles/07ead1864dd51dd3.json",
+    "articles/07ead1864dd51dd3.json",
+    "articles/3c2eee5a416ecf96.json"
+   ],
+   "context_texts": [
+    "FC Bayern: Upgrade oder Luxus? Die große AV-Frage\nDie große AV-Frage beim FC Bayern: Upgrade oder unnötiger Luxus? In der jüngsten Vergangenheit wurde bereits mehr als einmal über ein mögliches Transf…",
+    "FC Bayern: Upgrade oder Luxus? Die große AV-Frage\nWer Read auf dem Platz beobachtet, wird seine Explosivität im Antritt als einen entscheidenden Unterschied zu Laimer und Stanišić ausmachen. Eine Eige…",
+    "FC Bayern: Upgrade oder Luxus? Die große AV-Frage\nEine baldige Einigung auf eine Vertragsverlängerung ist derzeit nicht in Sicht. Laimer selbst erklärte jedoch im Rahmen des Pokalfinals, dass er gern …",
+    "FC Bayern: Upgrade oder Luxus? Die große AV-Frage\nFC Bayern: Zu langsam für Europas Elite? Nach dem bitteren Ausscheiden gegen Paris Saint-Germain im Champions-League-Halbfinale wurde viel diskutiert.…",
+    "FC Bayern: Mehr als Upamecano! Dieses Gegentor hat Struktur\nUnsere Analyse zum 1:1 gegen PSG im Podcast\nMehr als Dayot Upamecano: Bayern mit einer Einladung an PSG\nUmso wichtiger ist es, dass man dies…"
+   ],
+   "duration_s": 87.78
+  },
+  {
+   "id": "q043",
+   "type": "semantic",
+   "query": "Wie veränderte sich Robert Lewandowskis Spiel in seiner ersten Dortmund-Zeit laut Spielverlagerung?",
+   "reference_answer": "Er schaltete sich zunehmend ins Aufbauspiel ein und entwickelte Spielstärke über die reine Stürmerrolle hinaus.",
+   "answer": "Robert Lewandowskis Spiel in seiner ersten Zeit bei Borussia Dortmund änderte sich, indem er seine Flexibilität und Spielstärke verbesserte. Er gewann an Ballbeherrschung und verlor weniger Ball. Seine laufintensive Positionierung erschuf immer wieder Löcher in der gegnerischen Abwehr. Zudem wurde er ein wichtiger Anspielstation im Aufbauspiel, was ihn zu einem der spielstärksten Stürmer der Liga machen konnte.",
+   "context_docs": [
+    "articles/b1b4b107bb9b360d.json",
+    "articles/b1b4b107bb9b360d.json",
+    "articles/b1b4b107bb9b360d.json",
+    "articles/a2b19984d15cce1e.json",
+    "articles/9093b57fb392435e.json"
+   ],
+   "context_texts": [
+    "Adventskalender, Türchen 6: Robert Lewandowski\nAdventskalender, Türchen 6: Robert Lewandowski\nDas Leben eines Angreifers ist nicht immer einfach: In den Medien werden sie oft nur an Toren gemessen. Au…",
+    "Adventskalender, Türchen 6: Robert Lewandowski\nVielmehr verkörpert er das Modell eines mitarbeitenden Stürmers: Er bietet sich als Anspielstation in der Tiefe an, weicht immer wieder auf die Flügel au…",
+    "Adventskalender, Türchen 6: Robert Lewandowski\nDie BVB-Fanseite schwatzgelb.de sah sich daher sogar veranlasst, ihn gegenüber der Kritik einiger Fans („Fehleinkauf“) in Schutz zu nehmen: „Diejenigen, …",
+    "Türchen 17: Renato Augusto\nEr forderte viel den Ball, aber nicht permanent. Ebenso häufig bewegte er sich hinter Gegenspieler, um dem Ballführenden Mitspieler oder der nächsten Passoption Raum zu öffn…",
+    "Türchen 17: Oliver Kirch\nTürchen 17: Oliver Kirch\nMit 30 Jahren vom absurden Billigtransfer aus dem Abstiegskampf zum Leistungsträger in der Champions League: Oliver Kirch ist ein Musterbeispiel für e…"
+   ],
+   "duration_s": 98.61
+  },
+  {
+   "id": "q044",
+   "type": "semantic",
+   "query": "Was ist laut Spielverlagerung die außergewöhnlichste Stärke von Marco Reus?",
+   "reference_answer": "Seine individualtaktische Intelligenz.",
+   "answer": "Die außergewöhnlichste Stärke von Marco Reus laut der Spielverlagerung ist seine individualtaktische Intelligenz.",
+   "context_docs": [
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json"
+   ],
+   "context_texts": [
+    "Adventskalender Türchen 23: Marco Reus\nDie außergewöhnlichste Stärke von ihm ist dabei wohl seine individualtaktische Intelligenz. Favre sagte über ihn, er „versteht alles“ und tatsächlich versteht es…",
+    "Adventskalender Türchen 23: Marco Reus\nAdventskalender Türchen 23: Marco Reus\nDer Kagawa-Ersatz, der Spieler der Saison, der Königstransfer, der die höchste BVB-Ablöse seit den „fetten Jahren“ verschl…",
+    "Adventskalender Türchen 23: Marco Reus\nSomit hatte der BVB aber Probleme, ihn in das Pressingkonzept zu integrieren. Zu Saisonbeginn sollte Reus seine Sturzflüge auf die Gegner aus dem Zentrum hinter …",
+    "Adventskalender Türchen 23: Marco Reus\nDie schwarzgelben Borussen hingegen erschließen erst Räume, um von dort die finalen Aktionen zu setzen, anstatt so schnell zu spielen, dass sie keinen Raum für d…",
+    "Adventskalender Türchen 23: Marco Reus\nZwar konnte der BVB nicht zuletzt durch Reus‘ geniale Einzelaktionen einige Spiele trotz ausgeglichenerer Kräftebalance gewinnen, aber das kollektive Erspielen d…"
+   ],
+   "duration_s": 81.31
+  },
+  {
+   "id": "q045",
+   "type": "semantic",
+   "query": "Welche Schwäche hat Marco Reus laut dem Spielverlagerung-Portrait?",
+   "reference_answer": "Unkonstante Ballbehandlung, besonders die Ballannahme.",
+   "answer": "Marco Reus' Hauptschwäche liegt in seiner Passquote von 76%, was die niedrigste der Dortmunder Dreierreihe ist. Er neigt dazu, zu viele Schnittstellenpässe durchzuführen, ohne den richtigen Moment zu warten oder gegebene Räume konsequent auszunutzen.",
+   "context_docs": [
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json",
+    "articles/d7bd4f97a4f8d2fd.json"
+   ],
+   "context_texts": [
+    "Adventskalender Türchen 23: Marco Reus\nSomit hatte der BVB aber Probleme, ihn in das Pressingkonzept zu integrieren. Zu Saisonbeginn sollte Reus seine Sturzflüge auf die Gegner aus dem Zentrum hinter …",
+    "Adventskalender Türchen 23: Marco Reus\nDie schwarzgelben Borussen hingegen erschließen erst Räume, um von dort die finalen Aktionen zu setzen, anstatt so schnell zu spielen, dass sie keinen Raum für d…",
+    "Adventskalender Türchen 23: Marco Reus\nAdventskalender Türchen 23: Marco Reus\nDer Kagawa-Ersatz, der Spieler der Saison, der Königstransfer, der die höchste BVB-Ablöse seit den „fetten Jahren“ verschl…",
+    "Adventskalender Türchen 23: Marco Reus\nImmer und immer wieder versucht er seine brillanten Fähigkeiten zum Spiel in den Strafraum durchzudrücken, ohne dabei auf den richtigen Moment zu warten und gege…",
+    "Adventskalender, Türchen 3: Mike Hanke\nUnter dem Schweizer ist Hanke zum Stammspieler, Leistungsträger und unumstrittenem Puzzleteil im Mannschaftskonstrukt geworden. Er spult zahlreiche Kilometer ab …"
+   ],
+   "duration_s": 95.8
+  },
+  {
+   "id": "q046",
+   "type": "semantic",
+   "query": "Welche Rolle spielte Elkin Soto bei Mainz 05?",
+   "reference_answer": "Taktgeber im defensiven Mittelfeld bzw. auf der linken Halbposition: Spielrhythmus-Steuerung, Spielaufbau, dazu stark im Pressing.",
+   "answer": "Elkin Soto spielte bei Mainz 05 im defensiven Mittelfeld oder auf der linken Halbposition und war Taktgeber des Teams. Er bestimmt den Spielrhythmus, beschleunigt oder verlangsamt die Offensivbemühungen und füllt eine entscheidende Rolle im Spielaufbau aus. Soto zeigte sich auch in der Defensivarbeit aktiv und war ein wichtiger Ballgewinner. Er bewies ein gutes Gespür für risikoreiche Passentscheidungen und hatte eine hohe Passgenauigkeit von 79,9%.",
+   "context_docs": [
+    "articles/205f0c5b7b1f810c.json",
+    "articles/205f0c5b7b1f810c.json",
+    "articles/205f0c5b7b1f810c.json",
+    "articles/205f0c5b7b1f810c.json",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv"
+   ],
+   "context_texts": [
+    "Adventskalender, Türchen 8: Elkin Soto\nAdventskalender, Türchen 8: Elkin Soto\nNicht bloß feiner Techniker, sondern auch Stratege und Balleroberer. Das ist Elkin Soto, der aktuell wohl beste Spieler de…",
+    "Adventskalender, Türchen 8: Elkin Soto\nNach den Ballgewinnen zeichnet es ihn darüber hinaus aus, dass er ein gutes Gespür dafür hat, in welcher Situation ein risikoreicher, vertikaler Pass sinnvoll is…",
+    "Adventskalender, Türchen 8: Elkin Soto\nBis 2013 ist die Zusammenarbeit der beiden Parteien sicher, eine weitere Vertragsverlängerung erscheint bei der derzeitigen Verfassung des 31-Jährigen durchaus v…",
+    "Adventskalender, Türchen 8: Elkin Soto\nEr holt von seiner Position im defensiven Mittelfeld oder der linken Halbposition die Bälle aus der Innenverteidigung ab, verteilt diese auf die Außen oder setzt…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Mainz 05 | Comp: Bundesliga | Player: Marco Richter | Nation: GER | Pos: FW,MF | Age: 26 | Born: 1997.0 …"
+   ],
+   "duration_s": 78.92
+  },
+  {
+   "id": "q047",
+   "type": "multi_hop",
+   "query": "Welche Schwäche bescheinigte das Spielverlagerung-Portrait 2012 dem jungen Granit Xhaka, und in welchem Perzentil liegt er laut Statblatt 2024/25 bei progressiven Pässen?",
+   "reference_answer": "2012: Spiel gegen den Ball als Schwäche. 2024/25: 99. Perzentil bei progressiven Pässen pro 90 unter Mittelfeldspielern.",
+   "answer": "Die Schwäche des jungen Granit Xhaka, wie sie das Spielverlagerung-Portrait 2012 bescheinigte, war die erste Ballberührung beim Ein-Kontakt-Fußball. Laut Statblatt 2024/25 liegt er in(progressiven Pässen) im 31.8%-Perzentil (318 von 1000 progressiven Pässen).",
+   "context_docs": [
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv"
+   ],
+   "context_texts": [
+    "Adventskalender, Türchen 5: Granit Xhaka\nDas konnte bedeuten, dass er abwechselnd mit Huggel als abkippende Sechs agierte, aber auch, dass er am gegnerischen Strafraum Schnittstellenpässe spielte oder…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nHinzu kommt, dass Gladbach zu Beginn der Saison die stark raumorientierte Defensivstrategie der Vorsaison wählte. Xhaka hatte Probleme, in die Fußstapfen seine…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nAdventskalender, Türchen 5: Granit Xhaka\nBorussia Mönchengladbach griff vor dieser Saison tief in die Tasche: Insgesamt dreißig Millionen Euro gaben sie für fü…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Granit Xhaka | Nation: SUI | Pos: MF | Age: 31 | Born: 1992.0 |…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Granit Xhaka | Nation: SUI | Pos: MF | Age: 31 | Born: 1992.…"
+   ],
+   "duration_s": 90.34
+  },
+  {
+   "id": "q048",
+   "type": "multi_hop",
+   "query": "Nach dem Gordon-Transfer zum FC Barcelona: Welchen Spieler nahm der FC Bayern laut Scouting-Report stattdessen ins Visier?",
+   "reference_answer": "Ismael Saibari von der PSV Eindhoven.",
+   "answer": "Anthony Gordon und Dušan Vlahović wurden als mögliche Ersatzspieler für Anthony Gordon in Betracht gezogen. Laut dem Scouting-Report im Kontext wurde Dušan Vlahović ins Visier des FC Bayern genommen.",
+   "context_docs": [
+    "articles/63a42bae552c31a9.json",
+    "articles/8a381010e119d8d9.json",
+    "articles/05a151c378243bff.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json"
+   ],
+   "context_texts": [
+    "FC Bayern: Passt das? Vlahović und Gordon in der Analyse\nDušan Vlahović vs. Anthony Gordon: Wer passt besser zum FC Bayern? In München bleiben nach einer fußballerisch überzeugenden Saison nur wenige …",
+    "Scouting Report: Hat der FC Bayern eine Bühl-Erbin gefunden?\nIhre Aussagen klangen weniger nach Verbleib, sondern eher nach Abschied – ohne, dass sie dabei allzu viel verraten hätte. Bühls Vertrag läu…",
+    "FC Bayern: Die besten Gordon-Alternativen in der Analyse\nAnthony Gordon vom Markt: Wie geht die Linksaußen-Suche des FC Bayern weiter? Der Wechsel von Anthony Gordon zum FC Barcelona dürfte den FC Bay…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nIsmael Saibari: Der perfekte Backup für den FC Bayern? Die Karriere von Ismael Saibari verlief bisher ein wenig unter dem Radar. Das könnte s…",
+    "Ismael Saibari im Scouting Report: Passt er zum FC Bayern?\nIm Vergleich zu Nicolas Jackson gibt es für Saibari deutlich mehr Einsatzszenarien – auch auf hohem Niveau. Kalkuliertes Risiko für den FC Ba…"
+   ],
+   "duration_s": 102.24
+  },
+  {
+   "id": "q049",
+   "type": "multi_hop",
+   "query": "Wie viele Bundesliga-Tore erzielte Harry Kane 2025/26, und warum ist die Suche nach seinem Backup laut Miasanrot so schwierig?",
+   "reference_answer": "36 Tore; weil Kane weit mehr ist als ein Vollstrecker — er organisiert das Spiel aus tieferen Zonen, und „einen zweiten Kane gibt es nicht so einfach\".",
+   "answer": "Harry Kane erzielte in der Saison 2024/25 26 Bundesliga-Tore. Die Suche nach seinem Backup ist so schwierig, weil der FC Bayern nicht zwangsläufig die eine „eierlegende Wollmilchsau“ braucht, sondern Spieler mit spezifischen Profilen für verschiedene Spielsituationen und Saisonphasen. Kane besetzt viele dieser Rollen perfekt, was seine Ersatzspieler erschwert.",
+   "context_docs": [
+    "articles/d763d5ab0065ec84.json",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "articles/c0fd9ac7d4044dc4.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/d763d5ab0065ec84.json"
+   ],
+   "context_texts": [
+    "Stürmer-Puzzle des FC Bayern: Wie geht es hinter Harry Kane weiter?\nStürmer-Puzzle des FC Bayern: Wie geht es hinter Harry Kane weiter? Harry Kane ist beim FC Bayern der zentrale Bezugspunkt im Angrif…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Harry Kane | Nation: ENG | Pos: FW | Age: 31 | Born: 1993…",
+    "FC Bayern, MSR Awards: Männer erstmals vor den Frauen\nFC Bayern: Die Miasanrot Awards 2026\n- Unsung Heroine der Saison: Von einer Abgangskandidatin zur Schlüsselspielerin\n- Unsung Hero der Saison: Ein…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Harry Kane | Nation: ENG | Pos: FW | Age: 31 | Born: 1993.0 …",
+    "Stürmer-Puzzle des FC Bayern: Wie geht es hinter Harry Kane weiter?\nDer FC Bayern braucht nicht zwangsläufig die eine „eierlegende Wollmilchsau“, die alles gleichzeitig kann. Die sinnvollere Frage lau…"
+   ],
+   "duration_s": 89.59
+  },
+  {
+   "id": "q050",
+   "type": "multi_hop",
+   "query": "Wie entwickelten sich Harry Kanes Bundesliga-Torzahlen von der Saison 2024/25 zur Saison 2025/26?",
+   "reference_answer": "Von 26 Toren (2024/25) auf 36 Tore (2025/26).",
+   "answer": "Dazu finde ich nichts im Korpus.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/543e285d9049496c.json",
+    "articles/543e285d9049496c.json"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Harry Kane | Nation: ENG | Pos: FW | Age: 31 | Born: 1993…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Harry Kane | Nation: ENG | Pos: FW | Age: 31 | Born: 1993.0 …",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Bayern Munich | Comp: Bundesliga | Player: Harry Kane | Nation: ENG | Pos: FW | Age: 31 | Born: 1993.0 |…",
+    "FC Bayern: Nochmal besser! Michael Olise verteidigt MSR-Award\nMiasanrot Awards 2026 – Spieler der Saison: Nonchalant auf die 1 – Michael Olise räumt erneut ab\nDie Miasanrot-Awards sind zurück! Auch 20…",
+    "FC Bayern: Nochmal besser! Michael Olise verteidigt MSR-Award\nFC Bayern: Die Miasanrot Awards 2026\n- Unsung Heroine der Saison: Von einer Abgangskandidatin zur Schlüsselspielerin\n- Unsung Hero der Sai…"
+   ],
+   "duration_s": 41.54
+  },
+  {
+   "id": "q051",
+   "type": "multi_hop",
+   "query": "Wie viele Tore schoss Tim Kleindienst 2024/25, und wie schneidet seine Passquote im Positionsvergleich laut Statblatt ab?",
+   "reference_answer": "16 Tore; die Passquote liegt nur im 8. Perzentil unter Stürmern (60,9 %).",
+   "answer": "Tim Kleindienst schoss in der Saison 2024/25 16 Tore. Seine Passquote liegt bei insgesamt 60,9%, was im Vergleich zu anderen Spielern mittelmäßig ist, ohne dass eine spezifische Positionskomponente genannt wird.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/050f26eb897f5a0a.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Tim Kleindienst | Nation: GER | Pos: FW | Age: 28 | Born: 1995.0 …",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Tim Kleindienst | Nation: GER | Pos: FW | Age: 28 | Born: 1995…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Tim Kleindienst | Nation: GER | Pos: FW | Age: 28 | Born: 1995.0 |…",
+    "Adventskalender Türchen 24: Lukas Podolski\nWeicht also Gervinho, oder der mittlerweile häufig im Zentrum spielende Walcott, auf seine Stammposition auf den rechten Flügel, ist Podolski dafür verantwor…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Tomáš Čvančara | Nation: CZE | Pos: FW | Age: 23 | Born: 2000.0 |…"
+   ],
+   "duration_s": 41.3
+  },
+  {
+   "id": "q052",
+   "type": "multi_hop",
+   "query": "Wie viele Key Passes spielte Álex Grimaldo 2024/25 insgesamt, und wo steht er damit im Perzentil-Vergleich seiner Positionsgruppe?",
+   "reference_answer": "73 Key Passes; pro 90 Minuten ist das das 100. Perzentil unter Verteidigern.",
+   "answer": "Álex Grimaldo spielte in der Saison 2024/25 insgesamt 7 Key Passes. Dazu finde ich nichts im Korpus, wo er sich im Perzentil-Vergleich seiner Positionsgruppe platzieren würde.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/bcbde1005d48b525.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Álex Grimaldo | Nation: ESP | Pos: DF | Age: 28 | Born: 1995.0 …",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Álex Grimaldo | Nation: ESP | Pos: DF | Age: 28 | Born: 1995…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Álex Grimaldo | Nation: ESP | Pos: DF | Age: 28 | Born: 1995.0 |…",
+    "SV-Scouting: Johannes Eggestein\nSV-Scouting: Johannes Eggestein\nJohannes Eggestein ist ein 17-jähriger Angreifer des SV Werder Bremen. Aktuell stürmt er für die deutsche Nationalmannschaft bei der lau…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Holstein Kiel | Comp: Bundesliga | Player: Marco Komenda | Nation: CRO | Pos: DF | Age: 27 | Born: 1996…"
+   ],
+   "duration_s": 40.14
+  },
+  {
+   "id": "q053",
+   "type": "multi_hop",
+   "query": "Wie viele Assists gab Angelo Stiller 2024/25, und in welchem xAG-Perzentil liegt er laut Statblatt?",
+   "reference_answer": "8 Assists; 91. xAG-Perzentil unter Mittelfeldspielern.",
+   "answer": "Angelo Stiller gab 8 Assists in der Saison 2024/25. Sein xAG-Perzentil lag bei 7.2.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/b6f011fefa47e0b0.json",
+    "articles/63a42bae552c31a9.json"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Angelo Stiller | Nation: GER | Pos: MF | Age: 23 | Born: 2001.0 …",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Angelo Stiller | Nation: GER | Pos: MF | Age: 23 | Born: 2001…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Angelo Stiller | Nation: GER | Pos: MF | Age: 23 | Born: 2001.0 |…",
+    "Türchen 24: Cristiano Ronaldo\nDarum habe ich diese Statistik als Erfolg gewertet. Immerhin enden ja viele Dribblings in Fouls und diese Fouls sorgen für Ballbesitzbeibehaltung, nicht wahr? Dennoch lie…",
+    "FC Bayern: Passt das? Vlahović und Gordon in der Analyse\nGordon gilt aktuell als eines der Top-Transferziele für den kommenden Sommer. Laut Berichten soll es bereits positive Signale des Spielers in R…"
+   ],
+   "duration_s": 41.64
+  },
+  {
+   "id": "q054",
+   "type": "multi_hop",
+   "query": "Wie viele Bundesliga-Tore erzielte Serhou Guirassy 2025/26, und was zeigt sein Statblatt 2024/25 beim npxG pro 90?",
+   "reference_answer": "16 Tore 2025/26; im Statblatt 2024/25 steht er beim npxG/90 im 100. Perzentil unter Stürmern.",
+   "answer": "Serhou Guirassy erzielte 16 Bundesligatore in der Saison 2025/26. Sein Statblatt 2024/25 zeigt, dass sein npxG pro 90 Minuten 0.23 beträgt.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Dortmund | Comp: Bundesliga | Player: Serhou Guirassy | Nation: GUI | Pos: FW | Age: 28 | Born: 1996…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Dortmund | Comp: Bundesliga | Player: Serhou Guirassy | Nation: GUI | Pos: FW | Age: 28 | Born: 1996.0 …",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Dortmund | Comp: Bundesliga | Player: Serhou Guirassy | Nation: GUI | Pos: FW | Age: 28 | Born: 1996.0 |…",
+    "Bundesliga Torschützenliste 2025/26 (top scorers) | goalGetterName: S. Guirassy | goalCount: 16",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Gladbach | Comp: Bundesliga | Player: Florian Neuhaus | Nation: GER | Pos: MF | Age: 27 | Born: 1997…"
+   ],
+   "duration_s": 60.09
+  },
+  {
+   "id": "q055",
+   "type": "multi_hop",
+   "query": "Welche Verletzung beendete Alphonso Davies' Saison 2025/26 vorzeitig, und welchen Top-Speed hatte er zuvor in der Saison erreicht?",
+   "reference_answer": "Verletzung am hinteren linken Oberschenkel; zuvor 34,88 km/h Top-Speed — schnellster Bayern-Außenverteidiger.",
+   "answer": "Alphonso Davies' Saison 2025/26 wurde durch eine Verletzung im Februar beendet. Vor seiner Verletzung hatte Davies einen Top-Speed von 34,88 km/h erreicht.",
+   "context_docs": [
+    "articles/2af7516fa6b8f1e8.json",
+    "articles/dd05f602823edd02.json",
+    "articles/2af7516fa6b8f1e8.json",
+    "articles/07ead1864dd51dd3.json",
+    "articles/e6bfb12325aeb51c.json"
+   ],
+   "context_texts": [
+    "FC Bayern: Wieder Verletzt! Alphonso Davies erleidet nächsten Rückschlag\nFC Bayern: Wieder Verletzt! Alphonso Davies erleidet nächsten Rückschlag\nDer nächste Wermutstropfen für Alphonso Davies: Der Ka…",
+    "Erneut verletzt: Kann der FC Bayern noch mit Davies planen?\nAlphonso Davies und der FC Bayern: Eine Zukunft mit Fragezeichen\nAlphonso Davies gehört längst zu einem der wichtigsten Spieler des FC Bayer…",
+    "FC Bayern: Wieder Verletzt! Alphonso Davies erleidet nächsten Rückschlag\nDer aus Vancouver gekommene Verteidiger ist in der Kaderplanung, wie auch im Gehaltsgefüge, als feste Größe beim Rekordmeister …",
+    "FC Bayern: Upgrade oder Luxus? Die große AV-Frage\nFC Bayern: Zu langsam für Europas Elite? Nach dem bitteren Ausscheiden gegen Paris Saint-Germain im Champions-League-Halbfinale wurde viel diskutiert.…",
+    "Problemzone Bank: Zahlt der FC Bayern jetzt den Preis?\nTrotzdem ist Kim noch eine Alternative, der man zutrauen kann, von der Bank kommend seinen Job zu machen – hier ist es vor allem das Gesamtpaket …"
+   ],
+   "duration_s": 96.27
+  },
+  {
+   "id": "q056",
+   "type": "multi_hop",
+   "query": "Mit wie vielen Punkten wurde der FC Bayern 2025/26 Meister, und wie komplettierte er das Double?",
+   "reference_answer": "89 Punkte in der Liga; das Double machte der Pokalsieg im Finale gegen den VfB Stuttgart perfekt.",
+   "answer": "Dazu finde ich nichts im Korpus.",
+   "context_docs": [
+    "articles/543e285d9049496c.json",
+    "articles/bac6defb40d515f1.json",
+    "articles/0ba7a61b74c1f9dd.json",
+    "articles/ace092ba411d8396.json",
+    "articles/07cd1e46e84d7b05.json"
+   ],
+   "context_texts": [
+    "FC Bayern: Nochmal besser! Michael Olise verteidigt MSR-Award\nFC Bayern: Die Miasanrot Awards 2026\n- Unsung Heroine der Saison: Von einer Abgangskandidatin zur Schlüsselspielerin\n- Unsung Hero der Sai…",
+    "FC Bayern: So geht es gegen PSG ins Finale\nPraktisch jeder wichtige Akteur kam als großer Transfer für viel Geld und brachte bereits zuvor ein beachtliches Renommee mit. Es ist ein mit mehr Verstand z…",
+    "FC Bayern Frauen: Hai vs. Killerwale! Das große Investitionsdilemma\nFC Bayern Frauen: Zu gut für die Bundesliga, zu schlecht für die Champions League? Auf die Meisterschaft folgte der Pokalsieg. Die F…",
+    "FC Bayern 2026: Der Unsung Hero hinter dem Spektakel\nDas Vertrauen geht mittlerweile so weit, dass er – als neulich gegen Heidenheim die Achse um Neuer, Kimmich und Kane fehlte – den FC Bayern als Kap…",
+    "FC Bayern: Sehnsucht nach dem DFB-Pokal so groß ist wie nie\nKaum ein Verein in Europa dominiert die nationale Liga wie der FC Bayern die höchste deutsche Spielklasse. Seit dem vergangenen Wochenende s…"
+   ],
+   "duration_s": 79.5
+  },
+  {
+   "id": "q057",
+   "type": "multi_hop",
+   "query": "Wie viele Bundesliga-Tore schoss Deniz Undav 2025/26, und welche Rolle spielte er im Pokalfinale gegen Bayern?",
+   "reference_answer": "19 Liga-Tore; im Pokalfinale hatte er nach gut einer Minute die erste Halbchance per Kopf.",
+   "answer": "Deniz Undav schoss in der Saison 2024/25 insgesamt 19 Bundesliga-Tore. Im DFB-Pokalfinale gegen FC Bayern spielte er eine wichtige Rolle, da er mit seiner beeindruckenden Bilanz von 19 Toren und sechs Vorlagen als Teil des offensiven Duos gefährlich werden konnte.",
+   "context_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/2f902c12f8ccfc7f.json",
+    "articles/2f902c12f8ccfc7f.json",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv"
+   ],
+   "context_texts": [
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Deniz Undav | Nation: GER | Pos: FW,MF | Age: 28 | Born: 1996.0 …",
+    "FC Bayern im DFB-Pokalfinale: VfB Stuttgart im Gegnercheck\nFC Bayern: Warum der VfB Stuttgart im DFB-Pokalfinale gefährlich werden kann\nDie Zahlen zeigen: Sebastian Hoeneß hat eine Mannschaft geformt,…",
+    "FC Bayern im DFB-Pokalfinale: VfB Stuttgart im Gegnercheck\nFC Bayern: Vorsicht vor dem Offensiv-Duo\nIm Zentrum des Geschehens steht natürlich Deniz Undav, der mit einer beeindruckenden Bilanz von 19 T…",
+    "Bundesliga Spieler-Einsatzzeiten 2024/25 (player playing time) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Deniz Undav | Nation: GER | Pos: FW,MF | Age: 28 | Born: 1996.0 |…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Stuttgart | Comp: Bundesliga | Player: Deniz Undav | Nation: GER | Pos: FW,MF | Age: 28 | Born: 1996…"
+   ],
+   "duration_s": 75.19
+  },
+  {
+   "id": "q058",
+   "type": "multi_hop",
+   "query": "Wie beschrieb Spielverlagerung Xhakas Rolle in Basel, und wie gut ist seine Passquote laut Statblatt 2024/25 im Positionsvergleich?",
+   "reference_answer": "In Basel verband er als vertikale Sechs die Mannschaftsteile; 2024/25 liegt seine Passquote im 97. Perzentil unter Mittelfeldspielern.",
+   "answer": "In Basel spielte Xhaka flexibel als Sechser, wobei er abwechselnd mit Huggel als abkippende Sechs agierte oder am gegnerischen Strafraum Schnittstellenpässe und gefährliche Fernschüsse ansetzte.\n\nSeine Passquote lautet 89,7% im Positionsvergleich.",
+   "context_docs": [
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/02c4b1ffc87f1c90.json"
+   ],
+   "context_texts": [
+    "Adventskalender, Türchen 5: Granit Xhaka\nEr durchlief alle Jugendstationen des Rekordmeisters und der Schweizer Jugend-Auswahlteams. 2009 gewann er mit der U17 seines Landes die Weltmeisterschaft – vö…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nAdventskalender, Türchen 5: Granit Xhaka\nBorussia Mönchengladbach griff vor dieser Saison tief in die Tasche: Insgesamt dreißig Millionen Euro gaben sie für fü…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nDas konnte bedeuten, dass er abwechselnd mit Huggel als abkippende Sechs agierte, aber auch, dass er am gegnerischen Strafraum Schnittstellenpässe spielte oder…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Granit Xhaka | Nation: SUI | Pos: MF | Age: 31 | Born: 1992.0 |…",
+    "Adventskalender, Türchen 5: Granit Xhaka\nHinzu kommt, dass Gladbach zu Beginn der Saison die stark raumorientierte Defensivstrategie der Vorsaison wählte. Xhaka hatte Probleme, in die Fußstapfen seine…"
+   ],
+   "duration_s": 44.76
+  },
+  {
+   "id": "q059",
+   "type": "multi_hop",
+   "query": "Welche Passquote hatte Jonathan Tah 2024/25 laut Tabelle, und welchem Perzentil entspricht das laut seinem Statblatt?",
+   "reference_answer": "92,9 % Passquote; das entspricht dem 98. Perzentil unter Verteidigern.",
+   "answer": "Jonathan Tah hatte eine Passquote von 92.9% in der Bundesliga-Saison 2024/25, was ihm im Perzentil 92.9% entspricht.",
+   "context_docs": [
+    "articles/16c55275a9ed866f.json",
+    "articles/ace092ba411d8396.json",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/ace092ba411d8396.json"
+   ],
+   "context_texts": [
+    "Upamecano Ungenauigkeiten: eine individuelle Fehleranalyse und Reduktionsstrategien – MH\nDie ausgewerteten individuellen Fehler wurden ausgewählt, da sie mehrfach zu spielentscheidenden Szenen in der …",
+    "FC Bayern 2026: Der Unsung Hero hinter dem Spektakel\nMiasanrot Awards 2026 – Unsung Hero: Bessermacher Jonathan Tah\nWenn beim FC Bayern München über die Protagonisten einer erfolgreichen Saison gespro…",
+    "Bundesliga Spieler-Schussstatistik 2024/25 (player shooting stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Jonathan Tah | Nation: GER | Pos: DF | Age: 28 | Born: 1996.…",
+    "Bundesliga Spieler-Passstatistik 2024/25 (player passing stats) | Season_End_Year: 2025 | Squad: Leverkusen | Comp: Bundesliga | Player: Jonathan Tah | Nation: GER | Pos: DF | Age: 28 | Born: 1996.0 |…",
+    "FC Bayern 2026: Der Unsung Hero hinter dem Spektakel\nEs wirkt bisweilen so, als würde der 30-Jährige schon seit Ewigkeiten das Münchner Trikot tragen. Dabei kam er erst im vergangenen Sommer ablösefre…"
+   ],
+   "duration_s": 67.03
+  }
+ ]
+}
