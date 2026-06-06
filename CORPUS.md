@@ -84,6 +84,10 @@ numbers, with source attribution in the image footer.
   2024/25. Documented per golden-set query.
 - 3 extraction stubs (<100 words, index pages) remain in the corpus as
   realistic noise; median article is 1,152 words.
+- OpenLigaDB scorer lists contain duplicate entries for the same player
+  under name variants with separate counters (found in cycle 1: "F.
+  Bilbija" 13 goals vs. "Bilbija"/"Filip Bilbija" 1 each). Kept as-is —
+  realistic dirty data; golden-set keys reference the correct variant.
 - Article length p90 is 2,177 words; max 11,962 (in-depth analyses).
 
 ## Article volume by year

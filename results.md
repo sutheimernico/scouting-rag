@@ -68,13 +68,21 @@ the refusal rule inconsistently, so both readings are reported).
 | Cycle | Number-hit exact-match (n=18) | Faithful strict (n=59) | Honest (n=59) | Refusal rate | Manual check (n=13) |
 |-------|-------------------------------|------------------------|---------------|--------------|---------------------|
 | −1 | **0.00** | n/a (no context to be faithful to) | n/a | – | – |
-| 1 | **0.72** | 0.66 | 0.95 | 0.31 | pending (eval/FAITHFULNESS_SAMPLE.md) |
+| 1 | **0.72** | 0.66 | 0.95 | 0.31 | done (Claude, not human — see below) |
 
 **Judge noise (test–retest, n=10, temp 0.3, seeds 1/2):** agreement 1.00 —
 the judge is stable on this sample; n is small, treat as indicative.
-Known judge weaknesses found in cycle 1: refusal flag inconsistent
-(q001), one verdict contradicts a correct answer (q005), punishes honest
-source complexity once (q036) — all flagged in the manual sample.
+
+**Manual sample result (n=13, reviewed by Claude — owner delegated; not an
+independent human check):** agreement with the 8B judge: strict 7/13,
+honest-reading 10/13. Confirmed weaknesses: refusal rule applied
+inconsistently (q001/q016/q018 — honest refusals scored unsupported); one
+verdict wrong against a correctly grounded answer (q005 — duplicate name
+variants in the scorer table confused the judge); two verdicts too lenient
+where answers twisted context after retrieval misses (q048, q056). Takeaway:
+the strict rate can err in both directions; aggregates are usable, single
+verdicts are not. The deterministic number-hit metric remains the hardest
+answer-quality signal.
 
 ## Cost & latency per cycle
 
