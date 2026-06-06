@@ -34,3 +34,8 @@ def test_miss_refusal_answer():
 
 def test_all_reference_numbers_required():
     assert not answer_number_hit("70 Punkte.", "FC Schalke 04 mit 70 Punkten und 50 Toren.")
+
+
+def test_hit_raw_float_form_matches_integer_reference():
+    assert answer_number_hit("Er spielte 362.0 progressive Pässe.", "362 progressive Pässe.")
+    assert answer_number_hit("26 Tore.", "26.0 Tore.")

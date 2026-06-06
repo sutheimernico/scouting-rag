@@ -61,6 +61,12 @@ def answer_number_hit(answer: str, reference_answer: str) -> bool:
         out.add(num.replace(".", ""))  # thousands dot
         out.add(num.replace(",", "."))  # decimal comma -> dot
         out.add(num.replace(".", ","))
+        # raw source floats: "362.0" must match a reference "362" and vice versa
+        for sep in (".", ","):
+            if num.endswith(f"{sep}0"):
+                out.add(num[: -2])
+        if "." not in num and "," not in num:
+            out.add(f"{num}.0")
         return out
 
     refs = extract_numbers(reference_answer)
