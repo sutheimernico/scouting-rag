@@ -25,7 +25,7 @@ against these ceilings, not against 1.0.
 | −1 | Closed book (no retrieval) | – | – | – | – | – |
 | 1 | Naive dense (BGE-M3) | 0.60 | **1.00** | 0.83 | 0.42 | 0.00 |
 | 2 | + Hybrid (sparse + RRF) | 0.60 | 0.87 | **0.89** | **0.50** | 0.00 |
-| 3 | + Reranking (cross-encoder) | | | | | |
+| 3 | + Reranking (cross-encoder) | **0.67** | **1.00** | **0.94** | **0.58** | 0.00 |
 | 4 | + Contextual retrieval | | | | | |
 | 5 | Visual (ColQwen) | | | | | |
 | 6 | Agentic (optional) | | | | | |
@@ -40,6 +40,7 @@ _Same table layout as Recall@5 — filled per cycle._
 |-------|-----------|--------|----------|-------------|-----------|--------|
 | 1 | Naive dense (BGE-M3) | 0.66 | 1.00 | 0.89 | 0.62 | 0.00 |
 | 2 | + Hybrid (sparse + RRF) | 0.66 | 1.00 | 0.89 | 0.62 | 0.00 |
+| 3 | + Reranking (cross-encoder) | 0.69 | 1.00 | 0.94 | 0.65 | 0.00 |
 
 ### Precision@5
 
@@ -47,6 +48,7 @@ _Same table layout as Recall@5 — filled per cycle._
 |-------|-----------|--------|----------|-------------|-----------|--------|
 | 1 | Naive dense (BGE-M3) | 0.15 | 0.24 | 0.17 | 0.17 | 0.00 |
 | 2 | + Hybrid (sparse + RRF) | 0.16 | 0.20 | 0.18 | 0.20 | 0.00 |
+| 3 | + Reranking (cross-encoder) | 0.18 | 0.25 | 0.19 | 0.22 | 0.00 |
 
 ### MRR
 
@@ -54,6 +56,7 @@ _Same table layout as Recall@5 — filled per cycle._
 |-------|-----------|--------|----------|-------------|-----------|--------|
 | 1 | Naive dense (BGE-M3) | 0.53 | 0.79 | 0.64 | 0.62 | 0.00 |
 | 2 | + Hybrid (sparse + RRF) | 0.52 | 0.69 | 0.65 | 0.65 | 0.00 |
+| 3 | + Reranking (cross-encoder) | 0.63 | 0.86 | 0.84 | 0.69 | 0.00 |
 
 ### nDCG@10
 
@@ -61,6 +64,7 @@ _Same table layout as Recall@5 — filled per cycle._
 |-------|-----------|--------|----------|-------------|-----------|--------|
 | 1 | Naive dense (BGE-M3) | 0.56 | 0.95 | 0.70 | 0.49 | 0.00 |
 | 2 | + Hybrid (sparse + RRF) | 0.55 | 0.86 | 0.72 | 0.51 | 0.00 |
+| 3 | + Reranking (cross-encoder) | 0.65 | 1.00 | 0.89 | 0.56 | 0.00 |
 
 ## Secondary: generation quality (judge-free number-hit + local judge)
 
@@ -96,6 +100,7 @@ answer-quality signal.
 | −1 | – | ~48 s generation (measured under load, not representative) | Ollama | closed book |
 | 1 | 106 min (BGE-M3 encode, 4,318 chunks) | 0.43 s retrieval + ~69 s generation (7B CPU) | Qdrant embedded | API cost: 0 €; judge run ~50 min one-off |
 | 2 | + ~5 s BM25 build (in-memory) | 0.38 s retrieval + ~70 s generation | rank_bm25 | no re-encoding needed |
+| 3 | – (reuses index) | **29.6 s retrieval** + generation | bge-reranker-v2-m3 (2.3 GB) | 30 cross-encoder passes/query on CPU — the measured cost of this cycle |
 
 ## Per-cycle deltas and verdicts
 
@@ -142,3 +147,25 @@ its delta, it goes, and that gets documented here._
   at zero meaningful cost, but the semantic@5 regression goes to cycle 3
   (reranker over top-30 — every cycle-2 loss is still within top 30). If
   reranking does not recover semantic@5 ≥ dense level, revisit the fusion.
+
+### Cycle 3 (+ cross-encoder reranking) vs. cycle 2 (hybrid)
+
+- R@5: global 0.60→**0.67** (ceiling 0.72), semantic 0.87→**1.00** (cycle-2
+  regression fully healed), exact-match 0.89→**0.94** (the rank-semantics
+  victim q008 recovered from top-30), multi-hop 0.50→**0.58**. MRR global
+  0.52→0.63, nDCG 0.55→0.65. Strongest cycle so far; n caveats apply.
+- Remaining text-cycle misses are structural: q004 (rank semantics nowhere
+  in any chunk), q047/q048 multi-hop second sources that only cover half
+  the query's information need — reranker correctly scores them low
+  against the full query. Agentic decomposition (cycle 6) is the designed
+  answer; the trigger condition keeps building.
+- **Ablation (documented extra): dense+rerank ≡ hybrid+rerank** on every
+  metric. Under a cross-encoder, the BM25/RRF fusion adds nothing at this
+  corpus size — dense top-30 already contains everything BM25 contributed.
+  Hybrid's standalone value (cycle 2) is real but only without reranking.
+- Cost: retrieval latency 0.38 s → **29.6 s**/query (30 CPU cross-encoder
+  passes). On GPU this would be sub-second; our numbers are honest CPU.
+- **Verdict: keep reranking; recommended stack becomes dense+rerank**
+  (drop the fusion when reranking — one component less, same quality).
+  Hybrid stays documented as the latency-constrained alternative
+  (0.38 s, exact-match 0.89) for setups that cannot afford a reranker.
