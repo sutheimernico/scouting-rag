@@ -43,6 +43,10 @@ def make_retriever(name: str):
         from src.embed_index import DenseIndex
 
         return DenseIndex(collection=CTX_COLLECTION)
+    if name == "visual":
+        from src.visual_index import VisualIndex
+
+        return VisualIndex()
     if name.endswith("_rerank"):
         from src.rerank import RerankedRetriever
 
@@ -126,7 +130,10 @@ def main() -> None:
     parser.add_argument(
         "--retriever",
         default="dense",
-        choices=["dense", "hybrid", "hybrid_rerank", "dense_rerank", "dense_ctx", "dense_ctx_rerank"],
+        choices=[
+            "dense", "hybrid", "hybrid_rerank", "dense_rerank",
+            "dense_ctx", "dense_ctx_rerank", "visual",
+        ],
     )
     args = parser.parse_args()
 
