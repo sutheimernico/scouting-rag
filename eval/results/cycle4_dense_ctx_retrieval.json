@@ -1,0 +1,1056 @@
+{
+ "mode": "retrieval_dense_ctx",
+ "latency_per_query_s": 0.4,
+ "metrics": {
+  "global": {
+   "n": 59,
+   "recall@5": 0.5932,
+   "precision@5": 0.1492,
+   "recall@10": 0.661,
+   "precision@10": 0.0847,
+   "mrr": 0.5289,
+   "ndcg@10": 0.561
+  },
+  "exact_match": {
+   "n": 18,
+   "recall@5": 0.7778,
+   "precision@5": 0.1556,
+   "recall@10": 0.8889,
+   "precision@10": 0.0889,
+   "mrr": 0.6047,
+   "ndcg@10": 0.6721
+  },
+  "multi_hop": {
+   "n": 13,
+   "recall@5": 0.4615,
+   "precision@5": 0.1846,
+   "recall@10": 0.6154,
+   "precision@10": 0.1231,
+   "mrr": 0.5758,
+   "ndcg@10": 0.4651
+  },
+  "semantic": {
+   "n": 15,
+   "recall@5": 1.0,
+   "precision@5": 0.24,
+   "recall@10": 1.0,
+   "precision@10": 0.12,
+   "mrr": 0.8556,
+   "ndcg@10": 0.997
+  },
+  "visual": {
+   "n": 13,
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0
+  }
+ },
+ "details": [
+  {
+   "id": "q001",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv"
+   ]
+  },
+  {
+   "id": "q002",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 0.25,
+   "ndcg@10": 0.4307,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "articles/2f902c12f8ccfc7f.json"
+   ]
+  },
+  {
+   "id": "q003",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv"
+   ]
+  },
+  {
+   "id": "q004",
+   "type": "exact_match",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv"
+   ]
+  },
+  {
+   "id": "q005",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv",
+    "stats/openligadb/2_bundesliga_2025_scorers.csv"
+   ]
+  },
+  {
+   "id": "q006",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 0.5,
+   "ndcg@10": 0.6309,
+   "top_docs": [
+    "articles/df6444f51be126d0.json",
+    "stats/openligadb/bundesliga_2025_table.csv",
+    "articles/08806e33828d7cd4.json",
+    "articles/df6444f51be126d0.json",
+    "articles/08806e33828d7cd4.json"
+   ]
+  },
+  {
+   "id": "q007",
+   "type": "exact_match",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 0.125,
+   "ndcg@10": 0.3155,
+   "top_docs": [
+    "articles/df6444f51be126d0.json",
+    "articles/c0fd9ac7d4044dc4.json",
+    "articles/df6444f51be126d0.json",
+    "articles/bb6af06c5303e3da.json",
+    "articles/71f40a574f1c57a6.json"
+   ]
+  },
+  {
+   "id": "q008",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 0.3333,
+   "ndcg@10": 0.5,
+   "top_docs": [
+    "stats/openligadb/2_bundesliga_2025_table.csv",
+    "stats/openligadb/2_bundesliga_2025_table.csv",
+    "stats/openligadb/2_bundesliga_2025_table.csv",
+    "stats/openligadb/2_bundesliga_2025_table.csv",
+    "stats/openligadb/2_bundesliga_2025_table.csv"
+   ]
+  },
+  {
+   "id": "q009",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "stats/openligadb/bundesliga_2025_table.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/openligadb/bundesliga_2025_table.csv"
+   ]
+  },
+  {
+   "id": "q010",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ]
+  },
+  {
+   "id": "q011",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/07286674767ae2af.json",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/07286674767ae2af.json",
+    "articles/07286674767ae2af.json"
+   ]
+  },
+  {
+   "id": "q012",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ]
+  },
+  {
+   "id": "q013",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv"
+   ]
+  },
+  {
+   "id": "q014",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 0.3333,
+   "ndcg@10": 0.5,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv"
+   ]
+  },
+  {
+   "id": "q015",
+   "type": "visual",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/05a151c378243bff.json"
+   ]
+  },
+  {
+   "id": "q016",
+   "type": "visual",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/d14c63f2a05240e3.json",
+    "articles/7eb71f8b34165e0b.json"
+   ]
+  },
+  {
+   "id": "q017",
+   "type": "visual",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv"
+   ]
+  },
+  {
+   "id": "q018",
+   "type": "visual",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "articles/02c4b1ffc87f1c90.json",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/02c4b1ffc87f1c90.json"
+   ]
+  },
+  {
+   "id": "q019",
+   "type": "visual",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/ace092ba411d8396.json",
+    "articles/ace092ba411d8396.json"
+   ]
+  },
+  {
+   "id": "q020",
+   "type": "visual",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/7e3a69345f533f2c.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ]
+  },
+  {
+   "id": "q021",
+   "type": "visual",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv"
+   ]
+  },
+  {
+   "id": "q022",
+   "type": "visual",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/f4aa50734f6827c5.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ]
+  },
+  {
+   "id": "q023",
+   "type": "visual",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/ace092ba411d8396.json",
+    "articles/7eb71f8b34165e0b.json"
+   ]
+  },
+  {
+   "id": "q024",
+   "type": "visual",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ]
+  },
+  {
+   "id": "q025",
+   "type": "visual",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv"
+   ]
+  },
+  {
+   "id": "q026",
+   "type": "visual",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/16c55275a9ed866f.json",
+    "articles/eb1eb26818c52b7c.json"
+   ]
+  },
+  {
+   "id": "q027",
+   "type": "visual",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/05a151c378243bff.json",
+    "articles/8cf79f95a274251d.json"
+   ]
+  },
+  {
+   "id": "q028",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "articles/05a151c378243bff.json",
+    "articles/63a42bae552c31a9.json",
+    "articles/63a42bae552c31a9.json",
+    "articles/63a42bae552c31a9.json",
+    "articles/05a151c378243bff.json"
+   ]
+  },
+  {
+   "id": "q029",
+   "type": "exact_match",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 0.1429,
+   "ndcg@10": 0.3333,
+   "top_docs": [
+    "articles/66600c18c6e69701.json",
+    "articles/66600c18c6e69701.json",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "articles/66600c18c6e69701.json",
+    "articles/a7e863a657119508.json"
+   ]
+  },
+  {
+   "id": "q030",
+   "type": "exact_match",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 0.2,
+   "ndcg@10": 0.3869,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/dd05f602823edd02.json",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/07ead1864dd51dd3.json"
+   ]
+  },
+  {
+   "id": "q031",
+   "type": "exact_match",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
+   "top_docs": [
+    "articles/df6444f51be126d0.json",
+    "articles/df6444f51be126d0.json",
+    "articles/66600c18c6e69701.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "articles/c643ac230b55063e.json"
+   ]
+  },
+  {
+   "id": "q032",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json"
+   ]
+  },
+  {
+   "id": "q033",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json"
+   ]
+  },
+  {
+   "id": "q034",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json",
+    "articles/57eeecd3ea2e49ba.json"
+   ]
+  },
+  {
+   "id": "q035",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 0.3333,
+   "ndcg@10": 0.5,
+   "top_docs": [
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ]
+  },
+  {
+   "id": "q036",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "articles/02c4b1ffc87f1c90.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ]
+  },
+  {
+   "id": "q037",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "articles/d763d5ab0065ec84.json",
+    "articles/d763d5ab0065ec84.json",
+    "articles/d763d5ab0065ec84.json",
+    "articles/d763d5ab0065ec84.json",
+    "articles/f596b9c35add4b7e.json"
+   ]
+  },
+  {
+   "id": "q038",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 0.5,
+   "ndcg@10": 0.6309,
+   "top_docs": [
+    "articles/d763d5ab0065ec84.json",
+    "articles/d763d5ab0065ec84.json",
+    "articles/d763d5ab0065ec84.json",
+    "articles/d763d5ab0065ec84.json",
+    "articles/d763d5ab0065ec84.json"
+   ]
+  },
+  {
+   "id": "q039",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "articles/227d796890c6973c.json",
+    "articles/e6bfb12325aeb51c.json",
+    "articles/227d796890c6973c.json",
+    "articles/227d796890c6973c.json",
+    "articles/def23d3dd8ade699.json"
+   ]
+  },
+  {
+   "id": "q040",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "articles/227d796890c6973c.json",
+    "articles/227d796890c6973c.json",
+    "articles/227d796890c6973c.json",
+    "articles/227d796890c6973c.json",
+    "articles/227d796890c6973c.json"
+   ]
+  },
+  {
+   "id": "q041",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "articles/07ead1864dd51dd3.json",
+    "articles/07ead1864dd51dd3.json",
+    "articles/e6bfb12325aeb51c.json",
+    "articles/07ead1864dd51dd3.json",
+    "articles/48d8fa0963ac2df9.json"
+   ]
+  },
+  {
+   "id": "q042",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.4,
+   "recall@10": 1.0,
+   "precision@10": 0.2,
+   "mrr": 0.5,
+   "ndcg@10": 1.0616,
+   "top_docs": [
+    "articles/07ead1864dd51dd3.json",
+    "articles/07ead1864dd51dd3.json",
+    "articles/07ead1864dd51dd3.json",
+    "articles/07ead1864dd51dd3.json",
+    "articles/3c2eee5a416ecf96.json"
+   ]
+  },
+  {
+   "id": "q043",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.4,
+   "recall@10": 1.0,
+   "precision@10": 0.2,
+   "mrr": 1.0,
+   "ndcg@10": 1.5,
+   "top_docs": [
+    "articles/b1b4b107bb9b360d.json",
+    "articles/b1b4b107bb9b360d.json",
+    "articles/b1b4b107bb9b360d.json",
+    "articles/622199d2cd9b67c6.json",
+    "articles/b1b4b107bb9b360d.json"
+   ]
+  },
+  {
+   "id": "q044",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.4,
+   "recall@10": 1.0,
+   "precision@10": 0.2,
+   "mrr": 1.0,
+   "ndcg@10": 1.6309,
+   "top_docs": [
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json"
+   ]
+  },
+  {
+   "id": "q045",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 0.5,
+   "ndcg@10": 0.6309,
+   "top_docs": [
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json",
+    "articles/6f7505c9d0f61def.json"
+   ]
+  },
+  {
+   "id": "q046",
+   "type": "semantic",
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 1.0,
+   "top_docs": [
+    "articles/205f0c5b7b1f810c.json",
+    "articles/205f0c5b7b1f810c.json",
+    "articles/205f0c5b7b1f810c.json",
+    "articles/205f0c5b7b1f810c.json",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv"
+   ]
+  },
+  {
+   "id": "q047",
+   "type": "multi_hop",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.5,
+   "precision@10": 0.1,
+   "mrr": 0.1429,
+   "ndcg@10": 0.2044,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/02c4b1ffc87f1c90.json",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "articles/02c4b1ffc87f1c90.json"
+   ]
+  },
+  {
+   "id": "q048",
+   "type": "multi_hop",
+   "recall@5": 0.5,
+   "precision@5": 0.2,
+   "recall@10": 0.5,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 0.6131,
+   "top_docs": [
+    "articles/05a151c378243bff.json",
+    "articles/05a151c378243bff.json",
+    "articles/63a42bae552c31a9.json",
+    "articles/05a151c378243bff.json",
+    "articles/63a42bae552c31a9.json"
+   ]
+  },
+  {
+   "id": "q049",
+   "type": "multi_hop",
+   "recall@5": 0.5,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.2,
+   "mrr": 0.25,
+   "ndcg@10": 0.4685,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "articles/66600c18c6e69701.json"
+   ]
+  },
+  {
+   "id": "q050",
+   "type": "multi_hop",
+   "recall@5": 1.0,
+   "precision@5": 0.4,
+   "recall@10": 1.0,
+   "precision@10": 0.2,
+   "mrr": 1.0,
+   "ndcg@10": 0.8772,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv"
+   ]
+  },
+  {
+   "id": "q051",
+   "type": "multi_hop",
+   "recall@5": 0.5,
+   "precision@5": 0.2,
+   "recall@10": 0.5,
+   "precision@10": 0.1,
+   "mrr": 0.5,
+   "ndcg@10": 0.3869,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/05a151c378243bff.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ]
+  },
+  {
+   "id": "q052",
+   "type": "multi_hop",
+   "recall@5": 0.5,
+   "precision@5": 0.2,
+   "recall@10": 0.5,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 0.6131,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "articles/05a151c378243bff.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ]
+  },
+  {
+   "id": "q053",
+   "type": "multi_hop",
+   "recall@5": 0.5,
+   "precision@5": 0.2,
+   "recall@10": 0.5,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 0.6131,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ]
+  },
+  {
+   "id": "q054",
+   "type": "multi_hop",
+   "recall@5": 0.5,
+   "precision@5": 0.2,
+   "recall@10": 0.5,
+   "precision@10": 0.1,
+   "mrr": 0.25,
+   "ndcg@10": 0.2641,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv"
+   ]
+  },
+  {
+   "id": "q055",
+   "type": "multi_hop",
+   "recall@5": 0.5,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.2,
+   "mrr": 0.5,
+   "ndcg@10": 0.5641,
+   "top_docs": [
+    "articles/dd05f602823edd02.json",
+    "articles/2af7516fa6b8f1e8.json",
+    "articles/2af7516fa6b8f1e8.json",
+    "articles/dd05f602823edd02.json",
+    "stats/fbref_wfr/bundesliga_2425_passing.csv"
+   ]
+  },
+  {
+   "id": "q056",
+   "type": "multi_hop",
+   "recall@5": 0.5,
+   "precision@5": 0.2,
+   "recall@10": 0.5,
+   "precision@10": 0.1,
+   "mrr": 0.5,
+   "ndcg@10": 0.3869,
+   "top_docs": [
+    "articles/df6444f51be126d0.json",
+    "stats/openligadb/bundesliga_2025_table.csv",
+    "articles/df6444f51be126d0.json",
+    "articles/c0fd9ac7d4044dc4.json",
+    "articles/66600c18c6e69701.json"
+   ]
+  },
+  {
+   "id": "q057",
+   "type": "multi_hop",
+   "recall@5": 0.5,
+   "precision@5": 0.2,
+   "recall@10": 0.5,
+   "precision@10": 0.1,
+   "mrr": 0.2,
+   "ndcg@10": 0.2372,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/2f902c12f8ccfc7f.json",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/openligadb/bundesliga_2025_scorers.csv"
+   ]
+  },
+  {
+   "id": "q058",
+   "type": "multi_hop",
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.5,
+   "precision@10": 0.1,
+   "mrr": 0.1429,
+   "ndcg@10": 0.2044,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/02c4b1ffc87f1c90.json",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "articles/02c4b1ffc87f1c90.json"
+   ]
+  },
+  {
+   "id": "q059",
+   "type": "multi_hop",
+   "recall@5": 0.5,
+   "precision@5": 0.2,
+   "recall@10": 0.5,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 0.6131,
+   "top_docs": [
+    "stats/fbref_wfr/bundesliga_2425_passing.csv",
+    "stats/fbref_wfr/bundesliga_2425_shooting.csv",
+    "stats/fbref_wfr/bundesliga_2425_playing_time.csv",
+    "articles/ace092ba411d8396.json",
+    "articles/ace092ba411d8396.json"
+   ]
+  }
+ ]
+}

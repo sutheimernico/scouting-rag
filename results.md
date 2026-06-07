@@ -26,7 +26,7 @@ against these ceilings, not against 1.0.
 | 1 | Naive dense (BGE-M3) | 0.60 | **1.00** | 0.83 | 0.42 | 0.00 |
 | 2 | + Hybrid (sparse + RRF) | 0.60 | 0.87 | **0.89** | **0.50** | 0.00 |
 | 3 | + Reranking (cross-encoder) | **0.67** | **1.00** | **0.94** | **0.58** | 0.00 |
-| 4 | + Contextual retrieval | | | | | |
+| 4 | + Contextual retrieval | 0.67 (±0) | 1.00 | 0.94 | 0.58 | 0.00 |
 | 5 | Visual (ColQwen) | | | | | |
 | 6 | Agentic (optional) | | | | | |
 
@@ -41,6 +41,7 @@ _Same table layout as Recall@5 — filled per cycle._
 | 1 | Naive dense (BGE-M3) | 0.66 | 1.00 | 0.89 | 0.62 | 0.00 |
 | 2 | + Hybrid (sparse + RRF) | 0.66 | 1.00 | 0.89 | 0.62 | 0.00 |
 | 3 | + Reranking (cross-encoder) | 0.69 | 1.00 | 0.94 | 0.65 | 0.00 |
+| 4 | + Contextual retrieval | 0.69 | 1.00 | 0.94 | 0.65 | 0.00 |
 
 ### Precision@5
 
@@ -49,6 +50,7 @@ _Same table layout as Recall@5 — filled per cycle._
 | 1 | Naive dense (BGE-M3) | 0.15 | 0.24 | 0.17 | 0.17 | 0.00 |
 | 2 | + Hybrid (sparse + RRF) | 0.16 | 0.20 | 0.18 | 0.20 | 0.00 |
 | 3 | + Reranking (cross-encoder) | 0.18 | 0.25 | 0.19 | 0.22 | 0.00 |
+| 4 | + Contextual retrieval | 0.18 | 0.25 | 0.19 | 0.22 | 0.00 |
 
 ### MRR
 
@@ -57,6 +59,7 @@ _Same table layout as Recall@5 — filled per cycle._
 | 1 | Naive dense (BGE-M3) | 0.53 | 0.79 | 0.64 | 0.62 | 0.00 |
 | 2 | + Hybrid (sparse + RRF) | 0.52 | 0.69 | 0.65 | 0.65 | 0.00 |
 | 3 | + Reranking (cross-encoder) | 0.63 | 0.86 | 0.84 | 0.69 | 0.00 |
+| 4 | + Contextual retrieval | 0.63 | 0.87 | 0.86 | 0.69 | 0.00 |
 
 ### nDCG@10
 
@@ -65,6 +68,7 @@ _Same table layout as Recall@5 — filled per cycle._
 | 1 | Naive dense (BGE-M3) | 0.56 | 0.95 | 0.70 | 0.49 | 0.00 |
 | 2 | + Hybrid (sparse + RRF) | 0.55 | 0.86 | 0.72 | 0.51 | 0.00 |
 | 3 | + Reranking (cross-encoder) | 0.65 | 1.00 | 0.89 | 0.56 | 0.00 |
+| 4 | + Contextual retrieval | 0.65 | 1.00 | 0.89 | 0.56 | 0.00 |
 
 ## Secondary: generation quality (judge-free number-hit + local judge)
 
@@ -102,6 +106,7 @@ answer-quality signal.
 | 1 | 106 min (BGE-M3 encode, 4,318 chunks) | 0.43 s retrieval + ~69 s generation (7B CPU) | Qdrant embedded | API cost: 0 €; judge run ~50 min one-off |
 | 2 | + ~5 s BM25 build (in-memory) | 0.38 s retrieval + ~70 s generation | rank_bm25 | no re-encoding needed |
 | 3 | – (reuses index) | **29.6 s retrieval** + ~65 s generation (95 s total) | bge-reranker-v2-m3 (2.3 GB) | 30 cross-encoder passes/query on CPU — the measured cost of this cycle |
+| 4 | ~6 h context generation (2,127 chunks, qwen2.5:1.5b) + 100 min re-encode | unchanged | – | the cost bought nothing — see verdict |
 
 ## Per-cycle deltas and verdicts
 
@@ -180,3 +185,18 @@ the end-to-end bottleneck, not retrieval.** Honest rate stays high (0.98).
 This is a finding, not a failure: retrieval improvements beyond cycle 3
 cannot show up in answer quality unless the generator improves too —
 relevant context for interpreting cycle 4.
+
+### Cycle 4 (contextual retrieval) vs. cycle 3 — the plan's ablation question
+
+- Standalone (no reranker): dense_ctx R@5 0.59 vs dense 0.60 — within
+  ±1-query noise, exact-match slightly down, multi-hop slightly up.
+- Under the reranker: **ctx+rerank ≡ rerank on every metric and subset.**
+- Cost: ~6 h CPU context generation (2,127 article chunks, qwen2.5:1.5b
+  after the documented model-size deviation) + ~100 min re-encoding.
+- **Answer to the plan's question ("rechtfertigt der Mehraufwand?"): No.**
+- **Verdict: drop.** Two fairness caveats for the write-up: (1) our chunks
+  were never truly context-less — articles carry titles, table rows carry
+  header labels; contextual retrieval against genuinely naked chunks may
+  behave differently. (2) The 1.5b context generator caps context quality
+  (the 7b would have taken days on CPU). Both documented, neither changes
+  the verdict for THIS corpus and pipeline.
