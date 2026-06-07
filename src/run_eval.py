@@ -38,10 +38,15 @@ def make_retriever(name: str):
         from src.hybrid import HybridRetriever
 
         return HybridRetriever()
-    if name in ("hybrid_rerank", "dense_rerank"):
+    if name == "dense_ctx":
+        from src.build_ctx_index import CTX_COLLECTION
+        from src.embed_index import DenseIndex
+
+        return DenseIndex(collection=CTX_COLLECTION)
+    if name.endswith("_rerank"):
         from src.rerank import RerankedRetriever
 
-        return RerankedRetriever(make_retriever(name.split("_")[0]))
+        return RerankedRetriever(make_retriever(name.removesuffix("_rerank")))
     raise SystemExit(f"unknown retriever: {name}")
 
 
@@ -119,7 +124,9 @@ def main() -> None:
     parser.add_argument("--name", required=True, help="output file name (eval/results/<name>.json)")
     parser.add_argument("--k", type=int, default=5, help="contexts for rag mode")
     parser.add_argument(
-        "--retriever", default="dense", choices=["dense", "hybrid", "hybrid_rerank", "dense_rerank"]
+        "--retriever",
+        default="dense",
+        choices=["dense", "hybrid", "hybrid_rerank", "dense_rerank", "dense_ctx", "dense_ctx_rerank"],
     )
     args = parser.parse_args()
 

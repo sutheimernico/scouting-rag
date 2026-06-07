@@ -45,14 +45,15 @@ def encode_dense(texts: list[str]) -> list[list[float]]:
 
 
 class DenseIndex:
-    def __init__(self, path: Path = INDEX_DIR) -> None:
+    def __init__(self, path: Path = INDEX_DIR, collection: str = COLLECTION) -> None:
         self.client = QdrantClient(path=str(path))
+        self.collection = collection
 
     def build(self, chunks: list[Chunk]) -> None:
-        if self.client.collection_exists(COLLECTION):
-            self.client.delete_collection(COLLECTION)
+        if self.client.collection_exists(self.collection):
+            self.client.delete_collection(self.collection)
         self.client.create_collection(
-            COLLECTION,
+            self.collection,
             vectors_config=VectorParams(size=EMB_DIM, distance=Distance.COSINE),
         )
         t0 = time.monotonic()
@@ -72,14 +73,14 @@ class DenseIndex:
                 )
                 for i, c in enumerate(batch)
             ]
-            self.client.upsert(COLLECTION, points)
+            self.client.upsert(self.collection, points)
             done = start + len(batch)
             rate = done / (time.monotonic() - t0)
             print(f"  indexed {done}/{len(chunks)} ({rate:.1f} chunks/s)", flush=True)
 
     def search(self, query: str, k: int = 10) -> list[dict]:
         [vector] = encode_dense([query])
-        hits = self.client.query_points(COLLECTION, query=vector, limit=k).points
+        hits = self.client.query_points(self.collection, query=vector, limit=k).points
         return [{**(h.payload or {}), "score": h.score} for h in hits]
 
 
