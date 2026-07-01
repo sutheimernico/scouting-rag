@@ -85,10 +85,15 @@ def run_retrieval(retriever_name: str) -> dict:
 
 
 def _run_generation(args: argparse.Namespace, closed_book: bool) -> dict:
-    from src.rag import generate_closed_book, generate_rag
+    from src.rag import generate_closed_book, generate_rag, generate_visual
 
+    visual = args.retriever == "visual"
     entries = load_golden()
     index = None if closed_book else make_retriever(args.retriever)
+    # The visual cycle only generates over the visual subset: text queries have
+    # no image ground truth, and the VLM has nothing to read for them.
+    if visual:
+        entries = [e for e in entries if e["type"] == "visual"]
     outputs = []
     t0 = time.monotonic()
     for entry in entries:
@@ -96,6 +101,13 @@ def _run_generation(args: argparse.Namespace, closed_book: bool) -> dict:
             result = generate_closed_book(entry["query"])
             contexts_docs: list[str] = []
             context_texts: list[str] = []
+        elif visual:
+            retrieved = index.search(entry["query"], k=args.k)
+            contexts_docs = [r["page_id"] for r in retrieved]
+            # page_id is "statsheets/<file>"; the VLM reads the image files directly
+            image_paths = [str(REPO_ROOT / "data" / d) for d in contexts_docs]
+            result = generate_visual(entry["query"], image_paths)
+            context_texts = []  # no text context; faithfulness judge N/A, number-hit applies
         else:
             retrieved = index.search(entry["query"], k=args.k)
             context_texts = [r["text"] for r in retrieved]

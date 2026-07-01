@@ -24,8 +24,18 @@ from src.judge import answer_number_hit, judge_faithfulness
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
-def number_hit_rate(outputs: list[dict]) -> dict:
-    subset = [o for o in outputs if o["type"] == "exact_match"]
+def number_hit_rate(outputs: list[dict], subset_type: str = "exact_match") -> dict:
+    """Deterministic number-hit over a question-type subset.
+
+    Only queries whose reference answer actually contains a number are scored
+    (e.g. the visual subset has name-only references like "Mitchell Weiser").
+    """
+    from src.judge import extract_numbers
+
+    subset = [
+        o for o in outputs
+        if o["type"] == subset_type and extract_numbers(o["reference_answer"])
+    ]
     hits = [answer_number_hit(o["answer"], o["reference_answer"]) for o in subset]
     return {
         "n": len(subset),
@@ -74,11 +84,17 @@ def main() -> None:
 
     data = json.loads(args.result_file.read_text(encoding="utf-8"))
     outputs = data["outputs"]
-    summary: dict = {"source": args.result_file.name, "number_hit_exact_match": number_hit_rate(outputs)}
+    # The visual run generates over the visual subset only; number-hit applies
+    # there (numeric reference answers), but the text-context faithfulness judge
+    # does not — the VLM reads images, there is no retrieved text to be faithful to.
+    visual = "visual" in data["mode"]
+    subset_type = "visual" if visual else "exact_match"
+    key = f"number_hit_{subset_type}"
+    summary: dict = {"source": args.result_file.name, key: number_hit_rate(outputs, subset_type)}
 
-    if args.judge and data["mode"].startswith("rag"):
+    if args.judge and not visual and data["mode"].startswith("rag"):
         summary["faithfulness"] = faithfulness(outputs, chunk_texts=None)
-    if args.noise and data["mode"].startswith("rag"):
+    if args.noise and not visual and data["mode"].startswith("rag"):
         summary["judge_noise"] = judge_noise(outputs)
 
     out_path = args.result_file.with_name(args.result_file.stem + "_secondary.json")
