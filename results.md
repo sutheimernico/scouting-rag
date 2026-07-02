@@ -335,3 +335,58 @@ relevant context for interpreting cycle 4.
   behave differently. (2) The 1.5b context generator caps context quality
   (the 7b would have taken days on CPU). Both documented, neither changes
   the verdict for THIS corpus and pipeline.
+
+### Cycle 5 (visual retrieval, ColQwen2) — status: blocked on hardware, needs Nico
+
+- **Code is done** (`src/visual_index.py`: ColQwen2 late-interaction
+  retriever, brute-force torch MaxSim over 84 self-rendered stat sheets;
+  `src/rag.py:generate_visual`: VLM answer generation over the retrieved
+  page images). `tests/test_visual_index.py` covers the MaxSim scoring
+  core. Wired into `src/run_eval.py --retriever visual` for both the
+  `retrieval` and `rag` modes.
+- **Infra check (per LOOP.md, before attempting any eval):** Ollama
+  reachable at `localhost:11434` with `qwen2.5vl:7b` pulled ✓. ColQwen2
+  weights (`vidore/colqwen2-v1.0` + base) present in the local HF cache ✓.
+  No cached `data/visual_index.pt` yet — the index has never been built.
+- **Timing smoke test (per the task's own gate: measure before committing
+  to a full run):** loaded the model and timed a single page embedding on
+  this machine (16-core CPU, no GPU, fp32 — bf16 matmul unsupported here,
+  see `visual_index.py:get_model`'s fallback). Two independent cold-start
+  runs measured **346.15s and 350.95s** for the *same* stat-sheet page —
+  reproducible, not a one-off fluke. A third page (same warm model, second
+  run) was still running past 235s without finishing before the smoke test
+  was stopped, ruling out any large speedup from warmup/kernel-dispatch
+  caching within a run. Model load itself is cheap (47-63s, one-off).
+- **Extrapolation:** ~350s/page × 84 pages ≈ **8.2 hours** for the index
+  build alone — before any of the 59 retrieval queries or 13 VLM
+  generations. This is roughly 16x the task's ~30-minute unattended-run
+  budget. Per README, this project treats long-running steps as accepted
+  overnight batches (cycle 4's context generation took ~6h CPU) — an
+  8h index build could fit that pattern, but crosses the explicit
+  threshold for what an agent should start without asking first.
+- **Not run.** No retrieval or generation metrics exist for cycle 5; the
+  Recall/Precision/MRR/nDCG tables above correctly show it as empty
+  rather than estimated or invented — per the project's iron principle,
+  no cycle-5 number should ever appear without an actual run behind it.
+- **Needs Nico — pick one:**
+  1. Run it anyway as an accepted overnight batch on this machine:
+     `.venv/bin/python -m src.visual_index build` (~8h), then
+     `.venv/bin/python -m src.run_eval retrieval --name cycle5_visual --retriever visual`
+     (59 queries × ~350s embedding each ≈ 5.7h more — dominates total time,
+     since only the *query* embedding cost is unmeasured but is the same
+     model doing the same kind of forward pass), then
+     `.venv/bin/python -m src.run_eval rag --name cycle5_visual_rag_k5 --retriever visual --k 5`
+     (13 VLM generations only, likely ~15-20 min based on cycles 1-3's
+     generation cost) and
+     `.venv/bin/python -m src.run_secondary eval/results/cycle5_visual_rag_k5.json`.
+     Total: on the order of **14-15 hours**, CPU-only, no paid cost.
+  2. Run it on GPU hardware (own or rented) — ColQwen2/Qwen2-VL-2B-class
+     models are fast on any CUDA GPU; this would very plausibly fit the
+     original ~30-minute budget and is the recommended path if available.
+  3. Accept the study as closed at cycle 4 and document cycle 5 as "built,
+     evaluated infeasible on available hardware" — a legitimate, honest
+     stopping point per PLAN.md's own iron principles (nothing here
+     changes if the answer is "we didn't have the hardware").
+- Per PLAN.md §2's working mode, this is where the cycle stops and waits
+  for Nico's decision before either running the overnight batch or closing
+  the study at cycle 4.
