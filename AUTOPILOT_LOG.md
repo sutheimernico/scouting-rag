@@ -26,3 +26,25 @@ One line per iteration: date, what was done, gate result.
   `PLAN.md` has no checkbox syntax (verbatim prose, "never silently
   edited" per its own header) — task tracking for this session lives here
   and in the commit history instead.
+
+- 2026-07-02 — Ran the cycle-5 (visual) eval against the newly-built
+  `data/visual_index.pt` (84 pages), on `autopilot/work` (88/88 tests
+  green at start). Retrieval (59 golden-set queries) and generation (13
+  visual-subset VLM answers) both actually ran — no estimated numbers.
+  Found and root-caused a real bug: ColQwen2's language-model backbone
+  loads with embed_tokens/norm weights randomly initialized instead of
+  from the pretrained checkpoint (`colpali_engine==0.3.16` vs.
+  `transformers==5.10.2` internal module-naming mismatch; confirmed by
+  inspecting the loaded state dict directly, reproduced twice
+  independently). This corrupts the index build and every query
+  embedding — Recall@5 0.15 (2/13) is a real number but measures a broken
+  model, not the retrieval technique. Separately, the intended `--k 5`
+  generation run crashed immediately (`rag.py`'s `NUM_CTX=4096` sized for
+  text, overflows at ~7,873 tokens for 5 images); used the
+  already-supported `--k 1` flag instead for an honest end-to-end signal
+  (number-hit 0.00, consistent with 0-of-13 correct top-1 retrievals).
+  Wrote the full verdict into `results.md` (`1e3ec76`) and synced
+  `PROJECT.md`'s cycle overview row (`47be2d3`). Gate: pytest green
+  throughout (88/88), `scripts/render_results.py --check` clean. Needs
+  Nico: sign off on a `colpali_engine`/`transformers` dependency fix
+  before cycle 5 can be re-run for a real (not tooling-broken) verdict.
