@@ -11,6 +11,7 @@ everything that IS mechanically derivable from the JSON files:
 
 - the five primary IR-metric tables (Recall@5, Recall@10, Precision@5,
   MRR, nDCG@10)
+- retrieval failure rate (1 - Recall@k), single-hop vs. multi-hop vs. visual
 - the number-hit / faithful / honest / refusal-rate columns of the
   secondary generation-quality table
 
@@ -75,6 +76,8 @@ METRIC_TABLES = [
 ]
 
 SUBSET_LABEL = {"global": "global", "exact_match": "exact-match", "semantic": "semantic", "multi_hop": "multi-hop", "visual": "visual"}
+
+SINGLE_HOP_TYPES = {"semantic", "exact_match"}
 
 # Not derivable from any JSON — a one-off human/Claude review sample.
 # Update by hand if a new manual review is done for another cycle.
@@ -150,8 +153,39 @@ def render_secondary_table() -> str:
     return "\n".join(rows)
 
 
+def query_type_map(data: dict) -> dict[str, str]:
+    return {d["id"]: d["type"] for d in data["details"]}
+
+
+def render_failure_rate_table(k: int) -> str:
+    header = "| Cycle | Technique | global | single-hop (semantic+exact-match) | multi-hop | visual |"
+    sep = "|---|---|---|---|---|---|"
+    rows = [header, sep]
+    metric_key = f"recall@{k}"
+    for cid in CYCLE_ORDER:
+        cfg = CYCLES[cid]
+        data = load_json(cfg["retrieval_file"])
+        if data is None:
+            continue
+        types = query_type_map(data)
+        by_id = {d["id"]: d[metric_key] for d in data["details"]}
+
+        def failure(ids: list[str]) -> float:
+            return round(1 - sum(by_id[i] for i in ids) / len(ids), 4)
+
+        all_ids = list(by_id.keys())
+        single_hop_ids = [i for i in all_ids if types[i] in SINGLE_HOP_TYPES]
+        multi_hop_ids = [i for i in all_ids if types[i] == "multi_hop"]
+        visual_ids = [i for i in all_ids if types[i] == "visual"]
+        cells = [fmt(failure(all_ids)), fmt(failure(single_hop_ids)), fmt(failure(multi_hop_ids)), fmt(failure(visual_ids))]
+        rows.append(f"| {cid} | {cfg['label']} | " + " | ".join(cells) + " |")
+    return "\n".join(rows)
+
+
 SECTION_RENDERERS = {f"auto:{name}": (lambda mk=metric_key, all_=always: render_metric_table(mk, all_)) for name, metric_key, always in METRIC_TABLES}
 SECTION_RENDERERS["auto:secondary"] = render_secondary_table
+SECTION_RENDERERS["auto:failure_rate_5"] = lambda: render_failure_rate_table(5)
+SECTION_RENDERERS["auto:failure_rate_10"] = lambda: render_failure_rate_table(10)
 
 
 def splice(content: str, marker: str, body: str) -> str:

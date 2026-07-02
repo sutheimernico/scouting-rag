@@ -126,6 +126,46 @@ rounded per-query metrics, not the full `covers` matrix) — out of scope
 for a results-rendering script and too consequential to do without
 sign-off. Flagged for Nico as a follow-up decision, not silently patched.
 
+## Primary: Retrieval failure rate (1 − Recall@k)
+
+Framing borrowed from Anthropic's Contextual Retrieval write-up: the
+inverse view of the same recall numbers, read as "how often does retrieval
+fail outright" rather than "how often does it succeed" — a reduction from
+40% to 33% failure reads differently than 60%→67% recall, even though it's
+the same delta. Single-hop combines the `semantic` + `exact_match` subsets
+(both look up one fact); `multi-hop` and `visual` stay separate because
+their failure modes are structurally different (see `eval/SCHEMA.md`).
+
+### Failure@5
+
+<!-- auto:failure_rate_5:start -->
+| Cycle | Technique | global | single-hop (semantic+exact-match) | multi-hop | visual |
+|---|---|---|---|---|---|
+| 1 | Naive dense (BGE-M3) | 0.40 | 0.09 | 0.58 | 1.00 |
+| 2 | + Hybrid (sparse + RRF) | 0.40 | 0.12 | 0.50 | 1.00 |
+| 3 | + Reranking (cross-encoder) | 0.33 | 0.03 | 0.42 | 1.00 |
+| 4 | + Contextual retrieval | 0.33 | 0.03 | 0.42 | 1.00 |
+<!-- auto:failure_rate_5:end -->
+
+### Failure@10
+
+<!-- auto:failure_rate_10:start -->
+| Cycle | Technique | global | single-hop (semantic+exact-match) | multi-hop | visual |
+|---|---|---|---|---|---|
+| 1 | Naive dense (BGE-M3) | 0.34 | 0.06 | 0.38 | 1.00 |
+| 2 | + Hybrid (sparse + RRF) | 0.34 | 0.06 | 0.38 | 1.00 |
+| 3 | + Reranking (cross-encoder) | 0.31 | 0.03 | 0.35 | 1.00 |
+| 4 | + Contextual retrieval | 0.32 | 0.03 | 0.38 | 1.00 |
+<!-- auto:failure_rate_10:end -->
+
+Global failure@5 drops from 40% (cycle 1) to 33% (cycle 3) — a 7-point,
+roughly one-sixth relative reduction in outright retrieval misses, entirely
+from reranking (hybrid alone does not move the global failure rate; see the
+cycle-2 verdict). Multi-hop failure stays the highest of any non-visual
+subset even after reranking (42%) — consistent with the cycle-3 finding
+that the residual misses are structural (the needed information is in no
+single chunk), not a ranking problem reranking can fix.
+
 ## Secondary: generation quality (judge-free number-hit + local judge)
 
 Number-hit = all reference numbers appear in the answer (deterministic,

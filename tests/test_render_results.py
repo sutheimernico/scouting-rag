@@ -8,7 +8,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
-from render_results import fmt, render, render_metric_table, render_secondary_table, splice
+from render_results import fmt, render, render_failure_rate_table, render_metric_table, render_secondary_table, splice
 
 
 class TestFmt:
@@ -81,6 +81,37 @@ class TestRenderSecondaryTable:
         table = render_secondary_table()
         line = next(line for line in table.splitlines() if line.startswith("| 1 |"))
         assert "done (Claude, not human" in line
+
+
+class TestRenderFailureRateTable:
+    def test_failure_is_one_minus_recall(self):
+        table = render_failure_rate_table(5)
+        data = json.loads((Path(__file__).resolve().parent.parent / "eval/results/cycle1_dense_retrieval.json").read_text())
+        expected = f"{1 - data['metrics']['global']['recall@5']:.2f}"
+        line = next(line for line in table.splitlines() if line.startswith("| 1 |"))
+        assert f"| {expected} |" in line
+
+    def test_visual_failure_is_total_in_text_only_cycles(self):
+        # visual ground truth is unreachable by design in text cycles (SCHEMA.md)
+        table = render_failure_rate_table(5)
+        line = next(line for line in table.splitlines() if line.startswith("| 1 |"))
+        assert line.rstrip("|").rsplit("|", 1)[-1].strip() == "1.00"
+
+    def test_cycles_without_retrieval_data_are_skipped(self):
+        table = render_failure_rate_table(5)
+        assert "Closed book" not in table
+        assert "Agentic" not in table
+
+    def test_single_hop_combines_semantic_and_exact_match(self):
+        data = json.loads((Path(__file__).resolve().parent.parent / "eval/results/cycle1_dense_retrieval.json").read_text())
+        by_id = {d["id"]: d["recall@5"] for d in data["details"]}
+        by_type = {d["id"]: d["type"] for d in data["details"]}
+        single_hop_ids = [i for i, t in by_type.items() if t in ("semantic", "exact_match")]
+        expected_failure = 1 - sum(by_id[i] for i in single_hop_ids) / len(single_hop_ids)
+        table = render_failure_rate_table(5)
+        line = next(line for line in table.splitlines() if line.startswith("| 1 |"))
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        assert cells[3] == f"{expected_failure:.2f}"
 
 
 class TestRenderIsIdempotent:
