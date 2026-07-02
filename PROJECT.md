@@ -44,7 +44,7 @@ invented, estimated, or extrapolated.
 | 2 | + Hybrid (BM25 + RRF) | **keep, conditionally** | wins on exact-match/multi-hop where tokens are specific; semantic@5 regresses (recovers at k=10); superseded once reranking lands |
 | 3 | + Cross-encoder reranking | **keep — recommended stack** | strongest cycle; heals the cycle-2 semantic regression; ablation shows dense+rerank ≡ hybrid+rerank, so the fusion adds nothing once a reranker is present |
 | 4 | + Contextual retrieval | **drop** | zero measurable delta over hybrid+rerank despite ~6h CPU cost for context generation; documented as a negative result, not a failure to reach the bar |
-| 5 | Visual (ColQwen2 late interaction) | see `results.md` | see cycle-5 section for status and, if run, verdict |
+| 5 | Visual (ColQwen2 late interaction) | **inconclusive — tooling bug, not a technique verdict** | index built and evaluated (Recall@5 0.15, n=13), but the ColQwen2 checkpoint loads with its language-model backbone randomly initialized (`colpali_engine`/`transformers` version mismatch) — the run measured a broken model, not the technique; see `results.md` cycle-5 section |
 | 6 | Agentic RAG (optional) | **not built** | trigger condition (multi-hop demonstrably weak) is met, but the cycle-3 finding is that the generator, not retrieval, is the end-to-end bottleneck past cycle 3 — decomposition would not move the measured metric (`docs/adr/2026-06-26-visual-cycle-metrics-and-agentic-skip.md`) |
 | 7 | GraphRAG (optional) | **not built** | trigger condition (global cross-corpus provenance queries) does not occur in the golden set |
 
