@@ -12,6 +12,7 @@ everything that IS mechanically derivable from the JSON files:
 - the five primary IR-metric tables (Recall@5, Recall@10, Precision@5,
   MRR, nDCG@10)
 - retrieval failure rate (1 - Recall@k), single-hop vs. multi-hop vs. visual
+- paired-bootstrap confidence intervals for the core cycle-over-cycle deltas
 - the number-hit / faithful / honest / refusal-rate columns of the
   secondary generation-quality table
 
@@ -46,6 +47,10 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO_ROOT))
+
+from src.bootstrap import paired_bootstrap_delta  # noqa: E402
+
 RESULTS_DIR = REPO_ROOT / "eval" / "results"
 RESULTS_MD = REPO_ROOT / "results.md"
 
@@ -78,6 +83,26 @@ METRIC_TABLES = [
 SUBSET_LABEL = {"global": "global", "exact_match": "exact-match", "semantic": "semantic", "multi_hop": "multi-hop", "visual": "visual"}
 
 SINGLE_HOP_TYPES = {"semantic", "exact_match"}
+
+# Core cycle-over-cycle comparisons already narrated in the per-cycle
+# verdict blocks below the tables — hardened here with a paired bootstrap
+# CI instead of a bare point estimate. Deliberately curated, not
+# exhaustive (metric x subset x cycle-pair would be >100 rows and most
+# combinations are not referenced by any claim in the write-up).
+CORE_COMPARISONS = [
+    ("Cycle 1 -> 2 (dense -> hybrid)", "cycle1_dense_retrieval.json", "cycle2_hybrid_retrieval.json", "recall@5", "global"),
+    ("Cycle 1 -> 2 (dense -> hybrid)", "cycle1_dense_retrieval.json", "cycle2_hybrid_retrieval.json", "recall@5", "exact_match"),
+    ("Cycle 1 -> 2 (dense -> hybrid)", "cycle1_dense_retrieval.json", "cycle2_hybrid_retrieval.json", "recall@5", "semantic"),
+    ("Cycle 1 -> 2 (dense -> hybrid)", "cycle1_dense_retrieval.json", "cycle2_hybrid_retrieval.json", "recall@5", "multi_hop"),
+    ("Cycle 2 -> 3 (hybrid -> +reranking)", "cycle2_hybrid_retrieval.json", "cycle3_hybrid_rerank_retrieval.json", "recall@5", "global"),
+    ("Cycle 2 -> 3 (hybrid -> +reranking)", "cycle2_hybrid_retrieval.json", "cycle3_hybrid_rerank_retrieval.json", "recall@5", "semantic"),
+    ("Cycle 2 -> 3 (hybrid -> +reranking)", "cycle2_hybrid_retrieval.json", "cycle3_hybrid_rerank_retrieval.json", "recall@5", "multi_hop"),
+    ("Cycle 3 -> 4 (+reranking -> +contextual)", "cycle3_hybrid_rerank_retrieval.json", "cycle4_dense_ctx_rerank_retrieval.json", "recall@5", "global"),
+    ("Cycle-3 ablation: dense+rerank vs. hybrid+rerank", "cycle3_dense_rerank_ablation.json", "cycle3_hybrid_rerank_retrieval.json", "recall@5", "global"),
+    ("Cycle 1 -> 2 (dense -> hybrid)", "cycle1_dense_retrieval.json", "cycle2_hybrid_retrieval.json", "mrr", "global"),
+    ("Cycle 2 -> 3 (hybrid -> +reranking)", "cycle2_hybrid_retrieval.json", "cycle3_hybrid_rerank_retrieval.json", "mrr", "global"),
+    ("Cycle 3 -> 4 (+reranking -> +contextual)", "cycle3_hybrid_rerank_retrieval.json", "cycle4_dense_ctx_rerank_retrieval.json", "mrr", "global"),
+]
 
 # Not derivable from any JSON — a one-off human/Claude review sample.
 # Update by hand if a new manual review is done for another cycle.
@@ -157,6 +182,33 @@ def query_type_map(data: dict) -> dict[str, str]:
     return {d["id"]: d["type"] for d in data["details"]}
 
 
+def values_by_ids(data: dict, metric_key: str, ids: list[str]) -> list[float]:
+    by_id = {d["id"]: d[metric_key] for d in data["details"]}
+    return [by_id[i] for i in ids]
+
+
+def render_bootstrap_table() -> str:
+    header = "| Comparison | Metric | Subset | n | delta (mean) | 95% CI | Note |"
+    sep = "|---|---|---|---|---|---|---|"
+    rows = [header, sep]
+    for label, file_a, file_b, metric_key, subset in CORE_COMPARISONS:
+        data_a, data_b = load_json(file_a), load_json(file_b)
+        if data_a is None or data_b is None:
+            continue
+        types = query_type_map(data_a)
+        ids = [i for i in types if subset == "global" or types[i] == subset]
+        values_a = values_by_ids(data_a, metric_key, ids)
+        values_b = values_by_ids(data_b, metric_key, ids)
+        result = paired_bootstrap_delta(values_a, values_b)
+        delta = result["mean"]
+        note = "CI excludes 0 (deutet auf realem Effekt)" if result["excludes_zero"] else "CI includes 0 (nicht von Null unterscheidbar bei diesem n)"
+        rows.append(
+            f"| {label} | {metric_key} | {SUBSET_LABEL[subset]} | {result['n']} | {delta:+.2f} "
+            f"| [{result['ci_low']:+.2f}, {result['ci_high']:+.2f}] | {note} |"
+        )
+    return "\n".join(rows)
+
+
 def render_failure_rate_table(k: int) -> str:
     header = "| Cycle | Technique | global | single-hop (semantic+exact-match) | multi-hop | visual |"
     sep = "|---|---|---|---|---|---|"
@@ -186,6 +238,7 @@ SECTION_RENDERERS = {f"auto:{name}": (lambda mk=metric_key, all_=always: render_
 SECTION_RENDERERS["auto:secondary"] = render_secondary_table
 SECTION_RENDERERS["auto:failure_rate_5"] = lambda: render_failure_rate_table(5)
 SECTION_RENDERERS["auto:failure_rate_10"] = lambda: render_failure_rate_table(10)
+SECTION_RENDERERS["auto:bootstrap"] = render_bootstrap_table
 
 
 def splice(content: str, marker: str, body: str) -> str:

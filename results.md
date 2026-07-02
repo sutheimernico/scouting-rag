@@ -166,6 +166,43 @@ subset even after reranking (42%) — consistent with the cycle-3 finding
 that the residual misses are structural (the needed information is in no
 single chunk), not a ranking problem reranking can fix.
 
+## Primary: Bootstrap confidence intervals (core comparisons)
+
+Paired percentile bootstrap (10,000 resamples, fixed seed, see
+`src/bootstrap.py`) over the per-query values already in each cycle's
+`details` array — no new eval runs. Resampling is paired by golden-set id,
+which is the statistically correct way to compare two retrievers on the
+*same* queries (it isolates the within-query variance instead of treating
+the two cycles as independent samples). Read the "CI excludes 0" column
+as "deutet auf" at these sample sizes (n=13–59 per subset), not as a
+significance test in the classical sense — PLAN.md's hedging principle
+applies here too.
+
+<!-- auto:bootstrap:start -->
+| Comparison | Metric | Subset | n | delta (mean) | 95% CI | Note |
+|---|---|---|---|---|---|---|
+| Cycle 1 -> 2 (dense -> hybrid) | recall@5 | global | 59 | +0.00 | [-0.08, +0.08] | CI includes 0 (nicht von Null unterscheidbar bei diesem n) |
+| Cycle 1 -> 2 (dense -> hybrid) | recall@5 | exact-match | 18 | +0.06 | [-0.11, +0.22] | CI includes 0 (nicht von Null unterscheidbar bei diesem n) |
+| Cycle 1 -> 2 (dense -> hybrid) | recall@5 | semantic | 15 | -0.13 | [-0.33, +0.00] | CI includes 0 (nicht von Null unterscheidbar bei diesem n) |
+| Cycle 1 -> 2 (dense -> hybrid) | recall@5 | multi-hop | 13 | +0.08 | [-0.12, +0.23] | CI includes 0 (nicht von Null unterscheidbar bei diesem n) |
+| Cycle 2 -> 3 (hybrid -> +reranking) | recall@5 | global | 59 | +0.07 | [+0.01, +0.14] | CI excludes 0 (deutet auf realem Effekt) |
+| Cycle 2 -> 3 (hybrid -> +reranking) | recall@5 | semantic | 15 | +0.13 | [+0.00, +0.33] | CI includes 0 (nicht von Null unterscheidbar bei diesem n) |
+| Cycle 2 -> 3 (hybrid -> +reranking) | recall@5 | multi-hop | 13 | +0.08 | [-0.12, +0.27] | CI includes 0 (nicht von Null unterscheidbar bei diesem n) |
+| Cycle 3 -> 4 (+reranking -> +contextual) | recall@5 | global | 59 | +0.00 | [+0.00, +0.00] | CI includes 0 (nicht von Null unterscheidbar bei diesem n) |
+| Cycle-3 ablation: dense+rerank vs. hybrid+rerank | recall@5 | global | 59 | +0.00 | [+0.00, +0.00] | CI includes 0 (nicht von Null unterscheidbar bei diesem n) |
+| Cycle 1 -> 2 (dense -> hybrid) | mrr | global | 59 | -0.01 | [-0.11, +0.08] | CI includes 0 (nicht von Null unterscheidbar bei diesem n) |
+| Cycle 2 -> 3 (hybrid -> +reranking) | mrr | global | 59 | +0.11 | [+0.02, +0.20] | CI excludes 0 (deutet auf realem Effekt) |
+| Cycle 3 -> 4 (+reranking -> +contextual) | mrr | global | 59 | +0.01 | [-0.02, +0.03] | CI includes 0 (nicht von Null unterscheidbar bei diesem n) |
+<!-- auto:bootstrap:end -->
+
+The single-query-level swings the point estimates suggested are visible
+here directly: e.g. the cycle-2 semantic regression (1.00→0.87, n=15) has a
+CI that excludes 0 despite n=15 — losing 2 of 15 is a large share of a
+small subset. The cycle-3→4 global comparison (contextual retrieval's
+verdict) has a CI centered on and including 0, which is the bootstrap
+directly confirming "no measurable delta" rather than just eyeballing two
+equal-looking numbers.
+
 ## Secondary: generation quality (judge-free number-hit + local judge)
 
 Number-hit = all reference numbers appear in the answer (deterministic,

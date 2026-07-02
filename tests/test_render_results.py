@@ -8,7 +8,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
-from render_results import fmt, render, render_failure_rate_table, render_metric_table, render_secondary_table, splice
+from render_results import fmt, render, render_bootstrap_table, render_failure_rate_table, render_metric_table, render_secondary_table, splice
 
 
 class TestFmt:
@@ -112,6 +112,35 @@ class TestRenderFailureRateTable:
         line = next(line for line in table.splitlines() if line.startswith("| 1 |"))
         cells = [c.strip() for c in line.strip("|").split("|")]
         assert cells[3] == f"{expected_failure:.2f}"
+
+
+class TestRenderBootstrapTable:
+    def test_identical_cycles_give_a_zero_width_ci_at_zero(self):
+        # cycle-3 ablation: dense+rerank vs hybrid+rerank is (per the cycle-3
+        # verdict) an exact tie on every query for recall@5 global.
+        table = render_bootstrap_table()
+        line = next(line for line in table.splitlines() if line.startswith("| Cycle-3 ablation"))
+        assert "+0.00" in line
+        assert "CI includes 0" in line
+
+    def test_reports_n_matching_subset_size(self):
+        table = render_bootstrap_table()
+        line = next(
+            line for line in table.splitlines()
+            if line.startswith("| Cycle 1 -> 2") and "| exact-match |" in line
+        )
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        assert cells[3] == "18"
+
+    def test_every_row_has_a_ci_that_brackets_the_delta(self):
+        import re
+
+        table = render_bootstrap_table()
+        for line in table.splitlines()[2:]:
+            cells = [c.strip() for c in line.strip("|").split("|")]
+            delta = float(cells[4])
+            lo, hi = (float(x) for x in re.findall(r"[+-]\d+\.\d+", cells[5]))
+            assert lo <= delta <= hi
 
 
 class TestRenderIsIdempotent:
