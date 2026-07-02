@@ -1,0 +1,352 @@
+#!/usr/bin/env python3
+"""Generate the self-contained static study report at report/index.html.
+
+Pulls the same numbers as results.md (via scripts/render_results, so the
+two never drift on the metrics) plus a small amount of hand-curated
+editorial content that lives only here: verdict badges, one-line "why",
+and the cost/latency figures (not stored in any JSON — see
+render_results.py's docstring for why cost/latency stays hand-authored).
+Keep that content in sync with results.md by hand if a verdict changes.
+
+No build step, no external resources: one HTML file, inline <style>,
+charts as inline SVG (no JS, no CDN, no fonts/images fetched over the
+network — works fully offline and under a strict CSP).
+
+    python -m scripts.render_report
+"""
+
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO_ROOT))
+sys.path.insert(0, str(REPO_ROOT / "scripts"))
+
+from render_results import (  # noqa: E402
+    CORE_COMPARISONS,
+    CYCLE_ORDER,
+    CYCLES,
+    SINGLE_HOP_TYPES,
+    SUBSET_LABEL,
+    load_json,
+    query_type_map,
+)
+from src.bootstrap import paired_bootstrap_delta  # noqa: E402
+
+REPORT_DIR = REPO_ROOT / "report"
+REPORT_PATH = REPORT_DIR / "index.html"
+
+# Cycle 7 (GraphRAG) has no eval/results.md row (nothing was ever built,
+# unlike cycle 6, which at least has a CYCLES entry) — labelled here only
+# for the verdict card.
+EXTRA_CYCLE_LABELS = {"7": "GraphRAG (optional)"}
+
+# Column order for the subset charts — matches results.md's table columns
+# (SUBSET_LABEL's dict order differs slightly and isn't meant as a display order).
+SUBSET_ORDER = ["global", "semantic", "exact_match", "multi_hop", "visual"]
+
+SERIES_COLOR = {
+    "global": "#4f8ff7",
+    "semantic": "#35c2a0",
+    "exact_match": "#f2b84b",
+    "multi_hop": "#f2665e",
+    "visual": "#b18cf5",
+}
+
+# Editorial content: not derivable from any JSON, kept in sync with
+# results.md / PROJECT.md by hand. verdict keys drive badge color+label.
+VERDICT_META = {
+    "keep": ("Keep", "#35c2a0"),
+    "conditional": ("Keep, conditionally", "#f2b84b"),
+    "drop": ("Drop", "#7c8592"),
+    "pending": ("Needs Nico", "#4f8ff7"),
+    "not_built": ("Not built (by design)", "#9b8cf5"),
+}
+
+CYCLE_VERDICTS = {
+    "-1": dict(verdict="keep", why="Baseline: without retrieval the generator gets 0/18 post-cutoff facts right — establishes the floor every later cycle must beat."),
+    "1": dict(verdict="keep", why="The baseline. Naive dense retrieval already reaches semantic saturation (R@5=1.00); exact-match and multi-hop gaps are exactly what cycles 2/3 target."),
+    "2": dict(verdict="conditional", why="Hybrid wins where the query carries specific tokens (exact-match, multi-hop) but regresses semantic@5 — the regression is designed to be healed by cycle 3's reranker."),
+    "3": dict(verdict="keep", why="Strongest cycle: heals the cycle-2 regression and lifts every subset. Ablation shows dense+rerank ≡ hybrid+rerank — drop the fusion once a reranker is present. Recommended stack."),
+    "4": dict(verdict="drop", why="Zero measurable delta over hybrid+rerank (bootstrap CI on the global recall@5 delta is a single point at 0) despite ~6h CPU cost for context generation. A clean negative result, not a failed cycle."),
+    "5": dict(verdict="pending", why="Built (ColQwen2 late-interaction retriever + VLM generation), infra confirmed reachable, but a timing smoke test shows the visual index build alone would take on the order of 8 hours on this CPU-only machine — see the cycle-5 section below."),
+    "6": dict(verdict="not_built", why="Trigger condition (multi-hop demonstrably weak) is met, but the cycle-3 finding is that the generator, not retrieval, is the end-to-end bottleneck past cycle 3 — decomposition would not move the measured metric."),
+    "7": dict(verdict="not_built", why="Trigger condition (global cross-corpus provenance queries) does not occur anywhere in the golden set."),
+}
+
+# Cost/latency: not in any JSON (see render_results.py docstring) — hand-transcribed from results.md, keep in sync.
+COST_LATENCY = [
+    ("−1", "–", "~48s generation (closed book, no retrieval)", "Ollama"),
+    ("1", "106 min (BGE-M3 encode, 4,318 chunks)", "0.43s retrieval + ~69s generation (7B CPU)", "Qdrant embedded"),
+    ("2", "+ ~5s BM25 build (in-memory)", "0.38s retrieval + ~70s generation", "rank_bm25"),
+    ("3", "– (reuses index)", "29.6s retrieval + ~65s generation (95s total)", "bge-reranker-v2-m3 (2.3 GB)"),
+    ("4", "~6h context generation + 100 min re-encode", "unchanged", "– (cost bought nothing)"),
+]
+
+
+def svg_escape(text: str) -> str:
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+
+def grouped_bar_chart(categories: list[str], series: dict[str, list[float | None]], colors: dict[str, str], y_max: float = 1.0, width: int = 820, height: int = 260) -> str:
+    """Grouped bar chart as inline SVG. No JS; per-bar <title> gives a native hover tooltip."""
+    margin_l, margin_r, margin_t, margin_b = 40, 10, 10, 30
+    plot_w = width - margin_l - margin_r
+    plot_h = height - margin_t - margin_b
+    n_cat = len(categories)
+    n_series = len(series)
+    band_w = plot_w / n_cat
+    bar_w = band_w / (n_series + 1)
+
+    def y_of(v: float) -> float:
+        return margin_t + plot_h * (1 - v / y_max)
+
+    parts = [f'<svg viewBox="0 0 {width} {height}" width="100%" role="img" aria-label="grouped bar chart">']
+    # gridlines + y labels
+    for frac in (0, 0.25, 0.5, 0.75, 1.0):
+        y = y_of(frac * y_max)
+        parts.append(f'<line x1="{margin_l}" y1="{y:.1f}" x2="{width - margin_r}" y2="{y:.1f}" stroke="#262b36" stroke-width="1"/>')
+        parts.append(f'<text x="{margin_l - 6}" y="{y + 3:.1f}" text-anchor="end" font-size="10" fill="#9aa4b2">{frac * y_max:.2f}</text>')
+    # bars
+    for ci, cat in enumerate(categories):
+        band_x = margin_l + ci * band_w
+        for si, (name, values) in enumerate(series.items()):
+            v = values[ci]
+            x = band_x + si * bar_w + bar_w * 0.15
+            w = bar_w * 0.7
+            if v is None:
+                continue
+            y = y_of(v)
+            h = margin_t + plot_h - y
+            color = colors.get(name, "#4f8ff7")
+            parts.append(
+                f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}" fill="{color}" rx="1.5">'
+                f"<title>{svg_escape(name)}: {v:.2f}</title></rect>"
+            )
+        parts.append(f'<text x="{band_x + band_w / 2:.1f}" y="{height - 8}" text-anchor="middle" font-size="11" fill="#c7cdd6">{svg_escape(cat)}</text>')
+    parts.append("</svg>")
+    return "".join(parts)
+
+
+def legend(colors: dict[str, str], labels: dict[str, str]) -> str:
+    items = []
+    for key, color in colors.items():
+        items.append(
+            f'<span class="legend-item"><span class="swatch" style="background:{color}"></span>{svg_escape(labels.get(key, key))}</span>'
+        )
+    return '<div class="legend">' + "".join(items) + "</div>"
+
+
+def metric_series(metric_key: str) -> tuple[list[str], dict[str, list[float | None]]]:
+    categories, series = [], {col: [] for col in SUBSET_ORDER}
+    for cid in CYCLE_ORDER:
+        data = load_json(CYCLES[cid]["retrieval_file"])
+        if data is None:
+            continue
+        categories.append(cid)
+        for col in SUBSET_ORDER:
+            series[col].append(data["metrics"].get(col, {}).get(metric_key))
+    return categories, series
+
+
+def failure_series(k: int) -> tuple[list[str], dict[str, list[float | None]]]:
+    categories: list[str] = []
+    series: dict[str, list[float | None]] = {"global": [], "single_hop": [], "multi_hop": [], "visual": []}
+    metric_key = f"recall@{k}"
+    for cid in CYCLE_ORDER:
+        cfg = CYCLES[cid]
+        data = load_json(cfg["retrieval_file"])
+        if data is None:
+            continue
+        categories.append(cid)
+        types = query_type_map(data)
+        by_id = {d["id"]: d[metric_key] for d in data["details"]}
+
+        def failure(ids: list[str]) -> float:
+            return round(1 - sum(by_id[i] for i in ids) / len(ids), 4)
+
+        all_ids = list(by_id.keys())
+        series["global"].append(failure(all_ids))
+        series["single_hop"].append(failure([i for i in all_ids if types[i] in SINGLE_HOP_TYPES]))
+        series["multi_hop"].append(failure([i for i in all_ids if types[i] == "multi_hop"]))
+        series["visual"].append(failure([i for i in all_ids if types[i] == "visual"]))
+    return categories, series
+
+
+def render_table(headers: list[str], rows: list[list[str]]) -> str:
+    thead = "".join(f"<th>{svg_escape(h)}</th>" for h in headers)
+    tbody = "".join("<tr>" + "".join(f"<td>{cell}</td>" for cell in row) + "</tr>" for row in rows)
+    return f'<table><thead><tr>{thead}</tr></thead><tbody>{tbody}</tbody></table>'
+
+
+def render_verdict_cards() -> str:
+    cards = []
+    for cid in ["-1", "1", "2", "3", "4", "5", "6", "7"]:
+        meta = CYCLE_VERDICTS.get(cid)
+        if meta is None:
+            continue
+        label, color = VERDICT_META[meta["verdict"]]
+        cycle_label = CYCLES[cid]["label"] if cid in CYCLES else EXTRA_CYCLE_LABELS[cid]
+        cards.append(
+            f'<div class="card"><div class="card-head"><span class="cycle-id">Cycle {svg_escape(cid)}</span>'
+            f'<span class="badge" style="background:{color}22;color:{color};border-color:{color}55">{svg_escape(label)}</span></div>'
+            f'<div class="cycle-name">{svg_escape(cycle_label)}</div>'
+            f'<p class="why">{svg_escape(meta["why"])}</p></div>'
+        )
+    return '<div class="card-grid">' + "".join(cards) + "</div>"
+
+
+def render_bootstrap_table() -> str:
+    rows = []
+    for label, file_a, file_b, metric_key, subset in CORE_COMPARISONS:
+        data_a, data_b = load_json(file_a), load_json(file_b)
+        if data_a is None or data_b is None:
+            continue
+        types = query_type_map(data_a)
+        ids = [i for i in types if subset == "global" or types[i] == subset]
+        by_a = {d["id"]: d[metric_key] for d in data_a["details"]}
+        by_b = {d["id"]: d[metric_key] for d in data_b["details"]}
+        result = paired_bootstrap_delta([by_a[i] for i in ids], [by_b[i] for i in ids])
+        note = "excludes 0" if result["excludes_zero"] else "includes 0"
+        note_color = "#35c2a0" if result["excludes_zero"] else "#9aa4b2"
+        rows.append([
+            svg_escape(label), metric_key, subset.replace("_", "-"), str(result["n"]),
+            f"{result['mean']:+.2f}", f"[{result['ci_low']:+.2f}, {result['ci_high']:+.2f}]",
+            f'<span style="color:{note_color}">{note}</span>',
+        ])
+    return render_table(["Comparison", "Metric", "Subset", "n", "Δ mean", "95% CI", "CI vs. 0"], rows)
+
+
+def build_html(cycle5_section: str) -> str:
+    recall5_cats, recall5_series = metric_series("recall@5")
+    failure5_cats, failure5_series = failure_series(5)
+
+    failure_labels = {**SUBSET_LABEL, "single_hop": "single-hop (semantic+exact-match)"}
+    failure_colors = {"global": "#4f8ff7", "single_hop": "#35c2a0", "multi_hop": "#f2665e", "visual": "#b18cf5"}
+
+    cost_rows = [[c, idx, lat, infra] for c, idx, lat, infra in COST_LATENCY]
+
+    return f"""<title>scouting-rag — Retrieval Technique Comparison Study</title>
+<style>
+  :root {{ color-scheme: dark; }}
+  * {{ box-sizing: border-box; }}
+  body {{
+    margin: 0; padding: 2.5rem 1.25rem 5rem; background: #0b0e14; color: #e6e6e6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+  }}
+  main {{ max-width: 920px; margin: 0 auto; }}
+  h1 {{ font-size: 1.7rem; margin-bottom: 0.25rem; }}
+  h2 {{ font-size: 1.2rem; margin-top: 3rem; border-bottom: 1px solid #262b36; padding-bottom: 0.5rem; }}
+  .subtitle {{ color: #9aa4b2; margin-top: 0; }}
+  .meta {{ color: #6b7280; font-size: 0.85rem; }}
+  section p {{ color: #c7cdd6; }}
+  table {{ width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 0.75rem 0; }}
+  th, td {{ text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid #1c212b; }}
+  th {{ color: #9aa4b2; font-weight: 600; white-space: nowrap; }}
+  td {{ color: #dbe0e8; }}
+  .card-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.9rem; margin-top: 1rem; }}
+  .card {{ background: #12151d; border: 1px solid #1c212b; border-radius: 10px; padding: 0.9rem 1rem; }}
+  .card-head {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem; }}
+  .cycle-id {{ font-size: 0.78rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.04em; }}
+  .cycle-name {{ font-weight: 600; margin-bottom: 0.4rem; }}
+  .badge {{ font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 999px; border: 1px solid; white-space: nowrap; }}
+  .why {{ font-size: 0.85rem; color: #9aa4b2; margin: 0; }}
+  .legend {{ display: flex; flex-wrap: wrap; gap: 0.9rem; font-size: 0.8rem; color: #9aa4b2; margin: 0.4rem 0 0.8rem; }}
+  .legend-item {{ display: inline-flex; align-items: center; gap: 0.35rem; }}
+  .swatch {{ width: 10px; height: 10px; border-radius: 2px; display: inline-block; }}
+  .chart-wrap {{ background: #12151d; border: 1px solid #1c212b; border-radius: 10px; padding: 0.9rem; }}
+  .callout {{ background: #161a23; border-left: 3px solid #4f8ff7; padding: 0.7rem 1rem; border-radius: 6px; font-size: 0.88rem; color: #c7cdd6; }}
+  .callout.warn {{ border-left-color: #f2b84b; }}
+  a {{ color: #4f8ff7; }}
+  footer {{ margin-top: 3rem; color: #6b7280; font-size: 0.8rem; }}
+</style>
+<main>
+  <h1>scouting-rag: Retrieval Technique Comparison Study</h1>
+  <p class="subtitle">A measured comparison of retrieval techniques (naive vector → hybrid → reranking → contextual → visual) over a mixed football-scouting corpus, entirely local and CPU-only.</p>
+  <p class="meta">Generated by <code>scripts/render_report.py</code> from <code>eval/results/*.json</code> — regenerate after any eval change, never hand-edit.</p>
+
+  <section>
+    <h2>Verdicts at a glance</h2>
+    {render_verdict_cards()}
+  </section>
+
+  <section>
+    <h2>Primary metric: Recall@5 per cycle</h2>
+    <p>Judge-free retrieval metric against hand-annotated ground truth. Read text-cycle numbers against the effective ceiling (global 0.72, multi-hop 0.73 — visual ground truth is unreachable by design in text-only cycles).</p>
+    {legend(SERIES_COLOR, SUBSET_LABEL)}
+    <div class="chart-wrap">{grouped_bar_chart(recall5_cats, recall5_series, SERIES_COLOR)}</div>
+  </section>
+
+  <section>
+    <h2>Retrieval failure rate (1 − Recall@5)</h2>
+    <p>Same numbers, inverse framing (after Anthropic's Contextual Retrieval write-up): how often retrieval misses outright. Global failure drops 40%→33% from reranking; multi-hop failure (42%) resists it — the residual misses are structural, not a ranking problem.</p>
+    {legend(failure_colors, failure_labels)}
+    <div class="chart-wrap">{grouped_bar_chart(failure5_cats, failure5_series, failure_colors)}</div>
+  </section>
+
+  <section>
+    <h2>Bootstrap confidence intervals (core comparisons)</h2>
+    <p>Paired percentile bootstrap (10,000 resamples, fixed seed) over per-query values already in the eval JSONs — no new eval runs. "Excludes 0" is read as "deutet auf" (suggestive) at these sample sizes, not a classical significance claim.</p>
+    {render_bootstrap_table()}
+  </section>
+
+  <section>
+    <h2>Cost &amp; latency per cycle</h2>
+    <p>Honest CPU numbers (no GPU), not production-representative.</p>
+    {render_table(["Cycle", "Indexing (one-off)", "Latency / query", "Extra infra"], cost_rows)}
+  </section>
+
+  <section>
+    <h2>Limitations (read before trusting any single number)</h2>
+    <div class="callout warn">
+      <strong>Small samples.</strong> n=13–18 per question type — one query can move a metric by 7–8 points. Every claim above should be read as "deutet auf", not "beweist".<br><br>
+      <strong>Judge noise.</strong> The local faithfulness judge (llama3.1:8b) was checked once via test–retest (n=10, agreement 1.00) and via a Claude-reviewed manual sample (n=13, not an independent human check; agreement with the judge was 7/13 strict, 10/13 honest-reading).<br><br>
+      <strong>A metric bug, found late.</strong> Cycle 4's semantic nDCG@10 computes to 1.02 — mathematically impossible. Root cause: <code>eval_metrics.py</code>'s dcg/precision@k don't deduplicate repeated coverage of one ground-truth entry across ranks the way recall@k already does. Present since cycle 1 (up to 1.06 in raw per-query data), just never large enough in the rounded aggregate to be visible before cycle 4. Not fixed here — fixing changes every cycle's numbers and needs a full re-run plus sign-off. See results.md for the full note.<br><br>
+      <strong>Visual cycle (5) is unevaluated.</strong> Built and infra-verified, but a timing smoke test on this CPU-only machine shows the ColQwen2 index build alone would take on the order of 8 hours — see below.
+    </div>
+  </section>
+
+  {cycle5_section}
+
+  <footer>scouting-rag · local, CPU-only, no paid APIs · see <code>results.md</code> for the full narrative and <code>PLAN.md</code> for the binding cycle plan.</footer>
+</main>
+"""
+
+
+# Cycle-5 status: hand-authored (mirrors the results.md write-up), not
+# derivable from any JSON since there is no cycle-5 eval run to read from.
+# Update alongside results.md if the cycle-5 status changes.
+CYCLE5_SECTION = """
+  <section>
+    <h2>Cycle 5: Visual retrieval (ColQwen2) — status</h2>
+    <div class="callout">
+      Infra check: Ollama reachable locally with <code>qwen2.5vl:7b</code> pulled;
+      ColQwen2 weights (<code>vidore/colqwen2-v1.0</code>) present in the local
+      HF cache. A timing smoke test (this machine, 16-core CPU, no GPU)
+      measured 346-351s to embed a single stat-sheet page, reproducibly
+      across two independent runs. Extrapolated: building the full 84-page
+      visual index alone would take on the order of 8 hours — before any of
+      the 59 retrieval queries or 13 VLM generations, and far past the
+      ~30 minute budget for an unattended run. Not started. See
+      <code>results.md</code> for the exact commands, the full timing
+      evidence, and three options for Nico to choose from (run as an
+      accepted ~14-15h overnight batch, run on GPU hardware, or close the
+      study at cycle 4) — this is a "Needs Nico" decision, not a
+      silently-skipped task.
+    </div>
+  </section>
+"""
+
+
+def main() -> None:
+    REPORT_DIR.mkdir(exist_ok=True)
+    html = build_html(CYCLE5_SECTION)
+    REPORT_PATH.write_text(html, encoding="utf-8")
+    print(f"wrote {REPORT_PATH}")
+
+
+if __name__ == "__main__":
+    main()
