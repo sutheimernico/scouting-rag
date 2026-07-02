@@ -20,15 +20,24 @@ unreachable by design; 7 of 13 multi-hop queries have an image half):
 global 0.72, multi-hop 0.73, visual 0.00. Read every text-cycle number
 against these ceilings, not against 1.0.
 
+<!-- auto:recall5:start -->
 | Cycle | Technique | global | semantic | exact-match | multi-hop | visual |
-|-------|-----------|--------|----------|-------------|-----------|--------|
-| −1 | Closed book (no retrieval) | – | – | – | – | – |
-| 1 | Naive dense (BGE-M3) | 0.60 | **1.00** | 0.83 | 0.42 | 0.00 |
-| 2 | + Hybrid (sparse + RRF) | 0.60 | 0.87 | **0.89** | **0.50** | 0.00 |
-| 3 | + Reranking (cross-encoder) | **0.67** | **1.00** | **0.94** | **0.58** | 0.00 |
-| 4 | + Contextual retrieval | 0.67 (±0) | 1.00 | 0.94 | 0.58 | 0.00 |
-| 5 | Visual (ColQwen) | | | | | |
-| 6 | Agentic (optional) | | | | | |
+|---|---|---|---|---|---|---|
+| -1 | Closed book (no retrieval) | – | – | – | – | – |
+| 1 | Naive dense (BGE-M3) | 0.60 | 1.00 | 0.83 | 0.42 | 0.00 |
+| 2 | + Hybrid (sparse + RRF) | 0.60 | 0.87 | 0.89 | 0.50 | 0.00 |
+| 3 | + Reranking (cross-encoder) | 0.67 | 1.00 | 0.94 | 0.58 | 0.00 |
+| 4 | + Contextual retrieval | 0.67 | 1.00 | 0.94 | 0.58 | 0.00 |
+| 5 | Visual (ColQwen) |  |  |  |  |  |
+| 6 | Agentic (optional) |  |  |  |  |  |
+<!-- auto:recall5:end -->
+
+Cycle 3 vs. 4 recall@5 is an exact tie (0.67 both) — the earlier hand-written
+table annotated this as "0.67 (±0)" and bolded each column's first-reached
+best value; that per-cell styling was editorial, not part of the metric, and
+is dropped now that the table is machine-generated (see
+`scripts/render_results.py` docstring). The interpretation lives in the
+verdict prose below, unaffected.
 
 ## Primary: Recall@10 / Precision@5 / MRR / nDCG@10
 
@@ -36,39 +45,86 @@ _Same table layout as Recall@5 — filled per cycle._
 
 ### Recall@10
 
+<!-- auto:recall10:start -->
 | Cycle | Technique | global | semantic | exact-match | multi-hop | visual |
-|-------|-----------|--------|----------|-------------|-----------|--------|
+|---|---|---|---|---|---|---|
 | 1 | Naive dense (BGE-M3) | 0.66 | 1.00 | 0.89 | 0.62 | 0.00 |
 | 2 | + Hybrid (sparse + RRF) | 0.66 | 1.00 | 0.89 | 0.62 | 0.00 |
 | 3 | + Reranking (cross-encoder) | 0.69 | 1.00 | 0.94 | 0.65 | 0.00 |
-| 4 | + Contextual retrieval | 0.69 | 1.00 | 0.94 | 0.65 | 0.00 |
+| 4 | + Contextual retrieval | 0.68 | 1.00 | 0.94 | 0.62 | 0.00 |
+<!-- auto:recall10:end -->
 
 ### Precision@5
 
+<!-- auto:precision5:start -->
 | Cycle | Technique | global | semantic | exact-match | multi-hop | visual |
-|-------|-----------|--------|----------|-------------|-----------|--------|
+|---|---|---|---|---|---|---|
 | 1 | Naive dense (BGE-M3) | 0.15 | 0.24 | 0.17 | 0.17 | 0.00 |
-| 2 | + Hybrid (sparse + RRF) | 0.16 | 0.20 | 0.18 | 0.20 | 0.00 |
-| 3 | + Reranking (cross-encoder) | 0.18 | 0.25 | 0.19 | 0.22 | 0.00 |
-| 4 | + Contextual retrieval | 0.18 | 0.25 | 0.19 | 0.22 | 0.00 |
+| 2 | + Hybrid (sparse + RRF) | 0.15 | 0.20 | 0.18 | 0.20 | 0.00 |
+| 3 | + Reranking (cross-encoder) | 0.17 | 0.24 | 0.20 | 0.23 | 0.00 |
+| 4 | + Contextual retrieval | 0.17 | 0.24 | 0.19 | 0.23 | 0.00 |
+<!-- auto:precision5:end -->
+
+**Correction vs. the previous manually-transcribed table:** regenerating
+from the raw JSON changed Precision@5 in three rows — cycle 2 global
+0.16→0.15; cycle 3 global/semantic/exact-match/multi-hop
+0.18/0.25/0.19/0.22 → 0.17/0.24/0.20/0.23; cycle 4
+global/semantic/multi-hop 0.18/0.25/0.22 → 0.17/0.24/0.23 (exact-match was
+already correct at 0.19). Cycle 3 and 4 had identical Precision@5 rows in
+the hand-written table, which likely masked a copy-paste transcription slip
+when cycle 4 was written up. Small corrections also surfaced in Recall@10
+(cycle 4: global 0.69→0.68, multi-hop 0.65→0.62) and nDCG@10 (cycle 4 —
+see the anomaly noted under the nDCG@10 table below). Recall@5 and MRR
+matched the JSON exactly everywhere. No interpretation in the verdict prose
+below depended on any of the wrong values. This transcription drift is the
+exact integrity risk `scripts/render_results.py` exists to remove.
 
 ### MRR
 
+<!-- auto:mrr:start -->
 | Cycle | Technique | global | semantic | exact-match | multi-hop | visual |
-|-------|-----------|--------|----------|-------------|-----------|--------|
+|---|---|---|---|---|---|---|
 | 1 | Naive dense (BGE-M3) | 0.53 | 0.79 | 0.64 | 0.62 | 0.00 |
 | 2 | + Hybrid (sparse + RRF) | 0.52 | 0.69 | 0.65 | 0.65 | 0.00 |
 | 3 | + Reranking (cross-encoder) | 0.63 | 0.86 | 0.84 | 0.69 | 0.00 |
 | 4 | + Contextual retrieval | 0.63 | 0.87 | 0.86 | 0.69 | 0.00 |
+<!-- auto:mrr:end -->
 
 ### nDCG@10
 
+<!-- auto:ndcg10:start -->
 | Cycle | Technique | global | semantic | exact-match | multi-hop | visual |
-|-------|-----------|--------|----------|-------------|-----------|--------|
+|---|---|---|---|---|---|---|
 | 1 | Naive dense (BGE-M3) | 0.56 | 0.95 | 0.70 | 0.49 | 0.00 |
 | 2 | + Hybrid (sparse + RRF) | 0.55 | 0.86 | 0.72 | 0.51 | 0.00 |
 | 3 | + Reranking (cross-encoder) | 0.65 | 1.00 | 0.89 | 0.56 | 0.00 |
-| 4 | + Contextual retrieval | 0.65 | 1.00 | 0.89 | 0.56 | 0.00 |
+| 4 | + Contextual retrieval | 0.65 | 1.02 | 0.88 | 0.54 | 0.00 |
+<!-- auto:ndcg10:end -->
+
+**Data-quality finding (found while building the rendering script, not
+fixed here):** cycle 4's semantic nDCG@10 is 1.02 — mathematically
+impossible, nDCG is bounded by 1.0. Root cause: `query_metrics()` in
+`src/eval_metrics.py` gives full DCG (and precision@k) credit to *every*
+retrieved rank that covers a ground-truth entry, without checking whether
+that entry was already covered by a higher rank — unlike `recall@k`,
+which correctly unions covered indices. When two or more chunks from the
+same article both satisfy a single-entry (`n_gt=1`) passage match (a
+retriever legitimately returning several truly-matching chunks from the
+same source doc — SCHEMA.md's chunking-agnostic ground truth allows this
+by design), `idcg`'s cap of `min(n_gt, k)` slots is too low for the
+`dcg` this produces, so the ratio exceeds 1. Confirmed on q042/q043/q044:
+the effect is not specific to contextual retrieval — it is already present
+in cycle 1's raw per-query data (`ndcg@10` up to 1.06) and in cycle 3's,
+just never large enough in the *aggregate* to cross 1.00 until cycle 4.
+Precision@5 has the same non-deduplication bug but can't self-flag the
+same way (it's bounded to ≤1.0 by construction), so it is plausibly
+inflated by a similar small amount project-wide — undetermined without a
+fix. **Not fixed in this change**: correcting `eval_metrics.py` changes
+every cycle's precision/nDCG numbers and would need every retrieval eval
+re-run to recompute from raw chunk data (the stored JSON only keeps
+rounded per-query metrics, not the full `covers` matrix) — out of scope
+for a results-rendering script and too consequential to do without
+sign-off. Flagged for Nico as a follow-up decision, not silently patched.
 
 ## Secondary: generation quality (judge-free number-hit + local judge)
 
@@ -77,12 +133,14 @@ exact-match subset). Faithful (strict) = judge says every claim is
 context-supported. Honest = supported OR honest refusal (the judge applied
 the refusal rule inconsistently, so both readings are reported).
 
+<!-- auto:secondary:start -->
 | Cycle | Number-hit exact-match (n=18) | Faithful strict (n=59) | Honest (n=59) | Refusal rate | Manual check (n=13) |
-|-------|-------------------------------|------------------------|---------------|--------------|---------------------|
-| −1 | **0.00** | n/a (no context to be faithful to) | n/a | – | – |
+|---|---|---|---|---|---|
+| -1 | **0.00** | n/a (no context to be faithful to) | n/a | – | – |
 | 1 | **0.72** | 0.66 | 0.95 | 0.31 | done (Claude, not human — see below) |
 | 2 | **0.78** | 0.76 | 0.98 | 0.22 | – |
 | 3 | **0.78** | 0.73 | 0.98 | 0.25 | – |
+<!-- auto:secondary:end -->
 
 **Judge noise (test–retest, n=10, temp 0.3, seeds 1/2):** agreement 1.00 —
 the judge is stable on this sample; n is small, treat as indicative.
