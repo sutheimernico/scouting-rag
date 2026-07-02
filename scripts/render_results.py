@@ -66,7 +66,10 @@ CYCLES: dict[str, dict] = {
     "2": dict(label="+ Hybrid (sparse + RRF)", retrieval_file="cycle2_hybrid_retrieval.json", secondary_file="cycle2_rag_hybrid_k5_secondary.json"),
     "3": dict(label="+ Reranking (cross-encoder)", retrieval_file="cycle3_hybrid_rerank_retrieval.json", secondary_file="cycle3_rag_dense_rerank_k5_secondary.json"),
     "4": dict(label="+ Contextual retrieval", retrieval_file="cycle4_dense_ctx_rerank_retrieval.json", secondary_file=None),
-    "5": dict(label="Visual (ColQwen)", retrieval_file="cycle5_visual_retrieval.json", secondary_file="cycle5_visual_rag_k5_secondary.json"),
+    # k=1, not k=5: generate_visual's NUM_CTX=4096 (sized for text RAG contexts)
+    # overflows at ~1575 tokens/image once k>=2 images are attached — see the
+    # cycle-5 verdict below for the full blocker writeup.
+    "5": dict(label="Visual (ColQwen)", retrieval_file="cycle5_visual_retrieval.json", secondary_file="cycle5_visual_rag_k1_secondary.json"),
     "6": dict(label="Agentic (optional)", retrieval_file=None, secondary_file=None),
 }
 

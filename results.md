@@ -28,7 +28,7 @@ against these ceilings, not against 1.0.
 | 2 | + Hybrid (sparse + RRF) | 0.60 | 0.87 | 0.89 | 0.50 | 0.00 |
 | 3 | + Reranking (cross-encoder) | 0.67 | 1.00 | 0.94 | 0.58 | 0.00 |
 | 4 | + Contextual retrieval | 0.67 | 1.00 | 0.94 | 0.58 | 0.00 |
-| 5 | Visual (ColQwen) |  |  |  |  |  |
+| 5 | Visual (ColQwen) | 0.03 | 0.00 | 0.00 | 0.00 | 0.15 |
 | 6 | Agentic (optional) |  |  |  |  |  |
 <!-- auto:recall5:end -->
 
@@ -52,6 +52,7 @@ _Same table layout as Recall@5 — filled per cycle._
 | 2 | + Hybrid (sparse + RRF) | 0.66 | 1.00 | 0.89 | 0.62 | 0.00 |
 | 3 | + Reranking (cross-encoder) | 0.69 | 1.00 | 0.94 | 0.65 | 0.00 |
 | 4 | + Contextual retrieval | 0.68 | 1.00 | 0.94 | 0.62 | 0.00 |
+| 5 | Visual (ColQwen) | 0.03 | 0.00 | 0.00 | 0.00 | 0.15 |
 <!-- auto:recall10:end -->
 
 ### Precision@5
@@ -63,6 +64,7 @@ _Same table layout as Recall@5 — filled per cycle._
 | 2 | + Hybrid (sparse + RRF) | 0.15 | 0.20 | 0.18 | 0.20 | 0.00 |
 | 3 | + Reranking (cross-encoder) | 0.17 | 0.24 | 0.20 | 0.23 | 0.00 |
 | 4 | + Contextual retrieval | 0.17 | 0.24 | 0.19 | 0.23 | 0.00 |
+| 5 | Visual (ColQwen) | 0.01 | 0.00 | 0.00 | 0.00 | 0.03 |
 <!-- auto:precision5:end -->
 
 **Correction vs. the previous manually-transcribed table:** regenerating
@@ -88,6 +90,7 @@ exact integrity risk `scripts/render_results.py` exists to remove.
 | 2 | + Hybrid (sparse + RRF) | 0.52 | 0.69 | 0.65 | 0.65 | 0.00 |
 | 3 | + Reranking (cross-encoder) | 0.63 | 0.86 | 0.84 | 0.69 | 0.00 |
 | 4 | + Contextual retrieval | 0.63 | 0.87 | 0.86 | 0.69 | 0.00 |
+| 5 | Visual (ColQwen) | 0.01 | 0.00 | 0.00 | 0.00 | 0.04 |
 <!-- auto:mrr:end -->
 
 ### nDCG@10
@@ -99,6 +102,7 @@ exact integrity risk `scripts/render_results.py` exists to remove.
 | 2 | + Hybrid (sparse + RRF) | 0.55 | 0.86 | 0.72 | 0.51 | 0.00 |
 | 3 | + Reranking (cross-encoder) | 0.65 | 1.00 | 0.89 | 0.56 | 0.00 |
 | 4 | + Contextual retrieval | 0.65 | 1.02 | 0.88 | 0.54 | 0.00 |
+| 5 | Visual (ColQwen) | 0.01 | 0.00 | 0.00 | 0.00 | 0.07 |
 <!-- auto:ndcg10:end -->
 
 **Data-quality finding (found while building the rendering script, not
@@ -145,6 +149,7 @@ their failure modes are structurally different (see `eval/SCHEMA.md`).
 | 2 | + Hybrid (sparse + RRF) | 0.40 | 0.12 | 0.50 | 1.00 |
 | 3 | + Reranking (cross-encoder) | 0.33 | 0.03 | 0.42 | 1.00 |
 | 4 | + Contextual retrieval | 0.33 | 0.03 | 0.42 | 1.00 |
+| 5 | Visual (ColQwen) | 0.97 | 1.00 | 1.00 | 0.85 |
 <!-- auto:failure_rate_5:end -->
 
 ### Failure@10
@@ -156,6 +161,7 @@ their failure modes are structurally different (see `eval/SCHEMA.md`).
 | 2 | + Hybrid (sparse + RRF) | 0.34 | 0.06 | 0.38 | 1.00 |
 | 3 | + Reranking (cross-encoder) | 0.31 | 0.03 | 0.35 | 1.00 |
 | 4 | + Contextual retrieval | 0.32 | 0.03 | 0.38 | 1.00 |
+| 5 | Visual (ColQwen) | 0.97 | 1.00 | 1.00 | 0.85 |
 <!-- auto:failure_rate_10:end -->
 
 Global failure@5 drops from 40% (cycle 1) to 33% (cycle 3) — a 7-point,
@@ -217,6 +223,7 @@ the refusal rule inconsistently, so both readings are reported).
 | 1 | **0.72** | 0.66 | 0.95 | 0.31 | done (Claude, not human — see below) |
 | 2 | **0.78** | 0.76 | 0.98 | 0.22 | – |
 | 3 | **0.78** | 0.73 | 0.98 | 0.25 | – |
+| 5 | **0.00** (visual) | n/a (no context to be faithful to) | n/a | – | – |
 <!-- auto:secondary:end -->
 
 **Judge noise (test–retest, n=10, temp 0.3, seeds 1/2):** agreement 1.00 —
@@ -336,7 +343,13 @@ relevant context for interpreting cycle 4.
   (the 7b would have taken days on CPU). Both documented, neither changes
   the verdict for THIS corpus and pipeline.
 
-### Cycle 5 (visual retrieval, ColQwen2) — status: blocked on hardware, needs Nico
+### Cycle 5 (visual retrieval, ColQwen2) — run, and a broken result documented honestly
+
+_The first four bullets below are carried over unchanged from the prior
+iteration that stopped before the index was built (infra check, timing
+smoke test, extrapolation) — still accurate as a historical record of
+that state. Everything from "Index built, evaluated..." onward is new:
+the index has since been built and both evals actually ran._
 
 - **Code is done** (`src/visual_index.py`: ColQwen2 late-interaction
   retriever, brute-force torch MaxSim over 84 self-rendered stat sheets;
@@ -364,29 +377,102 @@ relevant context for interpreting cycle 4.
   overnight batches (cycle 4's context generation took ~6h CPU) — an
   8h index build could fit that pattern, but crosses the explicit
   threshold for what an agent should start without asking first.
-- **Not run.** No retrieval or generation metrics exist for cycle 5; the
-  Recall/Precision/MRR/nDCG tables above correctly show it as empty
-  rather than estimated or invented — per the project's iron principle,
-  no cycle-5 number should ever appear without an actual run behind it.
-- **Needs Nico — pick one:**
-  1. Run it anyway as an accepted overnight batch on this machine:
-     `.venv/bin/python -m src.visual_index build` (~8h), then
-     `.venv/bin/python -m src.run_eval retrieval --name cycle5_visual --retriever visual`
-     (59 queries × ~350s embedding each ≈ 5.7h more — dominates total time,
-     since only the *query* embedding cost is unmeasured but is the same
-     model doing the same kind of forward pass), then
-     `.venv/bin/python -m src.run_eval rag --name cycle5_visual_rag_k5 --retriever visual --k 5`
-     (13 VLM generations only, likely ~15-20 min based on cycles 1-3's
-     generation cost) and
-     `.venv/bin/python -m src.run_secondary eval/results/cycle5_visual_rag_k5.json`.
-     Total: on the order of **14-15 hours**, CPU-only, no paid cost.
-  2. Run it on GPU hardware (own or rented) — ColQwen2/Qwen2-VL-2B-class
-     models are fast on any CUDA GPU; this would very plausibly fit the
-     original ~30-minute budget and is the recommended path if available.
-  3. Accept the study as closed at cycle 4 and document cycle 5 as "built,
-     evaluated infeasible on available hardware" — a legitimate, honest
-     stopping point per PLAN.md's own iron principles (nothing here
-     changes if the answer is "we didn't have the hardware").
+- **Index built, evaluated, and the code has a real bug — not a capability
+  finding.** `data/visual_index.pt` (84 pages) was built and both the
+  retrieval eval (59 golden-set queries) and generation (13 visual-subset
+  VLM answers) actually ran against it. Every number below is from those
+  two real runs (`eval/results/cycle5_visual_retrieval.json`,
+  `eval/results/cycle5_visual_rag_k1.json` /
+  `..._secondary.json`) — none estimated.
+
+- **Retrieval result: Recall@5 = Recall@10 = 0.15 (2 of 13), MRR = 0.04,
+  nDCG@10 = 0.07** on the visual subset (n=13) — far below the ADR's
+  expectation that in-distribution ColQwen2 on clean self-rendered sheets
+  would be ceiling-inflated (Decision 3). Only q017 (rank 3) and q025
+  (rank 5) retrieved their correct stat sheet at all; 0 of 13 hit rank 1.
+  Global metrics (n=59) collapse further (recall@5 0.03) because the
+  visual retriever structurally cannot match text ground truth — expected
+  by design, not a new finding (see the effective-recall-ceiling note
+  under the Recall@5 table).
+
+- **Root cause, diagnosed, not guessed:** the ColQwen2 checkpoint
+  (`vidore/colqwen2-v1.0` + `colqwen2-base`) loads with its
+  language-model backbone's embedding and final-norm layers **randomly
+  initialized**, not from the pretrained checkpoint. Every load prints a
+  report with `language_model.embed_tokens.weight` / `language_model.norm.weight`
+  as `MISSING` and `model.embed_tokens.weight` / `model.norm.weight` as
+  `UNEXPECTED` — confirmed by direct inspection of the loaded state dict:
+  `language_model.norm.weight` is exactly `mean=1.0, std=0.0` (an all-ones
+  vector — the default init for a norm layer, not a trained value) and
+  `language_model.embed_tokens.weight` has `std=0.0200` (the textbook
+  default init std for an embedding layer). This is a `colpali_engine==0.3.16`
+  vs. `transformers==5.10.2` internal module-naming mismatch (`language_model.*`
+  vs. `model.*` prefixes for the Qwen2-VL backbone) — both packages were
+  already pinned together in `requirements.txt` before this run; pip's
+  own metadata (`transformers<6.0.0,>=5.3.0`) does not catch it because
+  it is a runtime key-naming drift, not a version-range violation.
+  Reproduced twice independently: once inside the eval run, once via a
+  standalone `visual_index.py search` CLI call outside it. The corrupted
+  weights affect the already-built index file too (it was built with the
+  same environment), not just query-time embedding — the whole cycle-5
+  retrieval artifact needs re-indexing after a fix, not just a rerun.
+  **This is a real, reproducible code/dependency bug, not evidence that
+  ColQwen2 late-interaction retrieval doesn't work on this corpus** — the
+  model that actually ran was not the model the design called for.
+
+- **Generation blocker (separate from the retrieval bug):** the intended
+  `--k 5` run (5 stat-sheet images per query, matching cycles 1–4's k)
+  crashed on the very first query — `rag.py`'s `NUM_CTX=4096` was sized
+  for text contexts ("k=5 contexts à ~400 tokens", per its own comment)
+  and never adjusted for the VLM path, where 5 images alone need ~7,873
+  prompt tokens (~1,575 tokens/image). Zero generations completed at k=5;
+  no output file exists for it. Ran `--k 1` instead (already-supported
+  flag, no pipeline code changed) to still get a real, honest signal — an
+  honest fallback, not a substitute for the intended setup.
+
+- **End-to-end (k=1, n=13 VLM generations, all real):** number-hit
+  **0.00** (n=12 — q020's reference has no extractable number, correctly
+  excluded). Every one of the 13 retrieved images was the wrong player's
+  sheet at k=1 (0-of-13 rank-1 accuracy, consistent with the retrieval
+  numbers above). The VLM's behavior under wrong context is itself an
+  honest-refusal data point: 10 of 13 answers refuse or explicitly say the
+  shown sheet doesn't match the asked-about player (e.g. q016: "Es handelt sich
+  um eine Darstellung von Joshua Kimmich, nicht von Álex Grimaldo"; q022
+  correctly flags the query/context player mismatch by name) rather than
+  fabricating a percentile: closer to cycle 1's "honest over-refusal"
+  finding than to hallucination. 3 of 13 (q018, q023, q026) answered with
+  a concrete number anyway, and all three are wrong against the
+  reference (59 vs. 99; 80 vs. 6; 33 vs. 87) — a direct consequence of
+  reading the wrong player's sheet, not evidence of poor chart-reading on
+  a correctly-retrieved sheet (the ADR's planned retrieval-conditioned
+  reading of number-hit cannot be computed here: n=0 queries had correct
+  top-1 retrieval to condition on).
+
+- **Cost/latency (real, CPU, honest):** retrieval 2.7 s/query average
+  (cheap — a query is one short forward pass, unlike the ~350 s/page
+  index-build cost measured in the earlier timing smoke test, which
+  stands as reported). Generation 105.9 s/query average (k=1, one image),
+  in the same range as cycles 1–3's text generation despite a heavier VLM
+  and image tokens. Total wall time for the full retrieval + generation +
+  secondary run: well under an hour once the index existed — the
+  previously-measured 8.2h index-build cost (unaffected by this bug — it
+  is a wall-clock cost, not a correctness one) remains the dominant cost
+  of this cycle, run separately as an accepted overnight batch.
+
+- **Verdict: cannot judge ColQwen2 late-interaction retrieval on this
+  corpus from this run — the eval measured a broken model, not the
+  technique.** Recommend, in order: (1) fix the `colpali_engine`/
+  `transformers` weight-loading mismatch (pin down to a known-compatible
+  `transformers` version, or upgrade `colpali_engine` past 0.3.16 if a
+  fix lands there — needs a dependency change, flagged for Nico rather
+  than done unilaterally here), (2) fix `rag.py`'s `NUM_CTX` for the
+  visual path so a real k=5 run is possible, (3) re-run both the index
+  build and the full eval end-to-end. Until then, cycle 5 stays an open,
+  honestly-documented result rather than a closed keep/drop call — the
+  0.15 Recall@5 above must not be read as "ColQwen2 is weak on football
+  stat sheets," because the number is real but the model that produced it
+  was not.
 - Per PLAN.md §2's working mode, this is where the cycle stops and waits
-  for Nico's decision before either running the overnight batch or closing
-  the study at cycle 4.
+  for Nico's decision on the dependency fix before either cycle 5 is
+  re-run for a real verdict or the study closes at cycle 4 with cycle 5
+  documented as "attempted, blocked on a tooling bug" instead.

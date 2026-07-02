@@ -1,0 +1,21 @@
+{
+ "source": "cycle5_visual_rag_k1.json",
+ "number_hit_visual": {
+  "n": 12,
+  "hit_rate": 0.0,
+  "misses": [
+   "q015",
+   "q016",
+   "q017",
+   "q018",
+   "q019",
+   "q021",
+   "q022",
+   "q023",
+   "q024",
+   "q025",
+   "q026",
+   "q027"
+  ]
+ }
+}

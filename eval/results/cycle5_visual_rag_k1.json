@@ -1,0 +1,162 @@
+{
+ "mode": "rag_visual_k1",
+ "latency_per_query_s": 105.91,
+ "outputs": [
+  {
+   "id": "q015",
+   "type": "visual",
+   "query": "In welchem Perzentil liegt Álex Grimaldo beim xAG pro 90 Minuten laut seinem Statblatt 2024/25?",
+   "reference_answer": "99. Perzentil (verglichen mit Verteidigern).",
+   "answer": "Die Antwort kann nicht abgelesen werden, da das Statblatt für Álex Grimaldo nicht im Bild dargestellt ist.",
+   "context_docs": [
+    "statsheets/harry_kane_bayern_munich.png"
+   ],
+   "context_texts": [],
+   "duration_s": 159.13
+  },
+  {
+   "id": "q016",
+   "type": "visual",
+   "query": "Wie stark ist Álex Grimaldo laut Statblatt bei Key Passes pro 90 im Vergleich zu anderen Verteidigern?",
+   "reference_answer": "100. Perzentil — bester Wert der Positionsgruppe.",
+   "answer": "Die Abbildung zeigt keine Daten für Álex Grimaldo. Es handelt sich um eine Darstellung von Joshua Kimmich, nicht von Álex Grimaldo. Daher kann ich keine Aussage über die Leistung von Álex Grimaldo bei Key Passes pro 90 im Vergleich zu anderen Verteidigern treffen.",
+   "context_docs": [
+    "statsheets/joshua_kimmich_bayern_munich.png"
+   ],
+   "context_texts": [],
+   "duration_s": 164.82
+  },
+  {
+   "id": "q017",
+   "type": "visual",
+   "query": "Welchen npxG-pro-90-Perzentilwert zeigt das Statblatt von Serhou Guirassy für 2024/25?",
+   "reference_answer": "100. Perzentil unter Stürmern.",
+   "answer": "Das Statblatt zeigt keinen npxG-pro-90-Wert für Serhou Guirassy. Es gibt Informationen zu Joshua Kimmich, nicht zu Serhou Guirassy.",
+   "context_docs": [
+    "statsheets/joshua_kimmich_bayern_munich.png"
+   ],
+   "context_texts": [],
+   "duration_s": 8.79
+  },
+  {
+   "id": "q018",
+   "type": "visual",
+   "query": "In welchem Perzentil liegt Granit Xhaka bei progressiven Pässen pro 90 laut seinem Statblatt?",
+   "reference_answer": "99. Perzentil unter Mittelfeldspielern.",
+   "answer": "59",
+   "context_docs": [
+    "statsheets/mitchell_weiser_werder_bremen.png"
+   ],
+   "context_texts": [],
+   "duration_s": 156.32
+  },
+  {
+   "id": "q019",
+   "type": "visual",
+   "query": "Wie gut ist die Passquote von Jonathan Tah im Positionsgruppen-Vergleich laut Statblatt 2024/25?",
+   "reference_answer": "98. Perzentil unter Verteidigern (92,9 % Passquote).",
+   "answer": "Die Passquote von Jonathan Tah im Positionsgruppen-Vergleich lautet nicht ablesbar.",
+   "context_docs": [
+    "statsheets/joe_scally_gladbach.png"
+   ],
+   "context_texts": [],
+   "duration_s": 159.34
+  },
+  {
+   "id": "q020",
+   "type": "visual",
+   "query": "Welcher Verteidiger von Werder Bremen erreicht laut Statblatt das 100. npxG-Perzentil seiner Positionsgruppe?",
+   "reference_answer": "Mitchell Weiser.",
+   "answer": "Die Antwort kann nicht abgelesen werden, da die Statistik für Werder Bremen nicht im Bild dargestellt ist.",
+   "context_docs": [
+    "statsheets/diogo_leite_union_berlin.png"
+   ],
+   "context_texts": [],
+   "duration_s": 161.04
+  },
+  {
+   "id": "q021",
+   "type": "visual",
+   "query": "In welchem npxG-pro-90-Perzentil liegt Andrej Kramarić laut seinem Statblatt?",
+   "reference_answer": "97. Perzentil unter Mittelfeldspielern.",
+   "answer": "Keine Daten für Andrej Kramarić verfügbar.",
+   "context_docs": [
+    "statsheets/joshua_kimmich_bayern_munich.png"
+   ],
+   "context_texts": [],
+   "duration_s": 4.54
+  },
+  {
+   "id": "q022",
+   "type": "visual",
+   "query": "Welchen xAG-pro-90-Perzentilwert weist das Statblatt von Angelo Stiller aus?",
+   "reference_answer": "91. Perzentil unter Mittelfeldspielern.",
+   "answer": "Die Frage bezieht sich auf Joe Scally und nicht auf Angelo Stiller, daher kann ich keine Angaben zu Angelo Stiller machen. Bitte prüfe die Frage noch einmal oder stelle sie für Joe Scally.",
+   "context_docs": [
+    "statsheets/joe_scally_gladbach.png"
+   ],
+   "context_texts": [],
+   "duration_s": 9.09
+  },
+  {
+   "id": "q023",
+   "type": "visual",
+   "query": "Wie schwach ist Kaishu Sano laut Statblatt beim npxG pro 90 im Vergleich seiner Positionsgruppe?",
+   "reference_answer": "6. Perzentil — sehr schwach unter Mittelfeldspielern.",
+   "answer": "Kaishu Sano hat ein npxG/90 von 80.",
+   "context_docs": [
+    "statsheets/danilho_doekhi_union_berlin.png"
+   ],
+   "context_texts": [],
+   "duration_s": 161.33
+  },
+  {
+   "id": "q024",
+   "type": "visual",
+   "query": "In welchem Perzentil liegt die Passquote von Tim Kleindienst laut seinem Statblatt 2024/25?",
+   "reference_answer": "8. Perzentil unter Stürmern (60,9 %).",
+   "answer": "Die Passquote von Tim Kleindienst ist nicht ablesbar.",
+   "context_docs": [
+    "statsheets/harry_kane_bayern_munich.png"
+   ],
+   "context_texts": [],
+   "duration_s": 4.69
+  },
+  {
+   "id": "q025",
+   "type": "visual",
+   "query": "Welchen npxG-Perzentilwert zeigt das Statblatt von Danilho Doekhi?",
+   "reference_answer": "80. Perzentil unter Verteidigern.",
+   "answer": "Es ist nicht möglich, den npxG-Perzentilwert für Danilho Doekhi aus dem gezeigten Statblatt abzulesen. Das Statblatt bezieht sich auf Tom Bischof von Hoffenheim und enthält keine Informationen über Danilho Doekhi.",
+   "context_docs": [
+    "statsheets/tom_bischof_hoffenheim.png"
+   ],
+   "context_texts": [],
+   "duration_s": 167.82
+  },
+  {
+   "id": "q026",
+   "type": "visual",
+   "query": "Wie gut ist Ko Itakuras Passquote im Verteidiger-Vergleich laut Statblatt?",
+   "reference_answer": "87. Perzentil (89,0 % Passquote).",
+   "answer": "Die Passquote von Ko Itakura ist 33% und liegt in der unteren Hälfte des Vergleichs.",
+   "context_docs": [
+    "statsheets/diogo_leite_union_berlin.png"
+   ],
+   "context_texts": [],
+   "duration_s": 6.51
+  },
+  {
+   "id": "q027",
+   "type": "visual",
+   "query": "Ist Álex Grimaldo laut seinem Statblatt stärker bei Key Passes pro 90 oder bei der Passquote, jeweils im Perzentil-Vergleich?",
+   "reference_answer": "Deutlich stärker bei Key Passes (100. Perzentil) als bei der Passquote (46. Perzentil).",
+   "answer": "Die Antwort kann nicht abgelesen werden.",
+   "context_docs": [
+    "statsheets/jeffrey_gouweleeuw_augsburg.png"
+   ],
+   "context_texts": [],
+   "duration_s": 160.63
+  }
+ ]
+}
