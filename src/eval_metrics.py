@@ -13,7 +13,9 @@ Metrics (per query, then averaged globally and per type):
 - recall@k:    covered ground-truth entries / all entries (multi-GT aware)
 - precision@k: relevant retrieved / k (relevant = matches any GT entry)
 - mrr:         1 / rank of first relevant chunk (0 if none in top-k)
-- ndcg@k:      binary relevance, ideal = all GT entries ranked first
+- ndcg@k:      binary relevance with ground-truth deduplication (a rank only
+               earns gain for GT entries no higher rank covered yet, mirroring
+               recall@k); ideal = all GT entries ranked first
 """
 
 from __future__ import annotations
@@ -66,8 +68,18 @@ def query_metrics(ground_truth: list[dict], retrieved: list[dict], ks: tuple[int
     first_rank = next((r + 1 for r, c in enumerate(covers) if c), None)
     out["mrr"] = 1.0 / first_rank if first_rank else 0.0
 
+    # DCG must dedup against already-covered ground truth: several retrieved
+    # chunks may legitimately satisfy the SAME single GT entry (chunking-agnostic
+    # ground truth, see eval/SCHEMA.md). Crediting each of them inflates DCG past
+    # the IDCG ceiling of min(n_gt, k) slots and produced nDCG > 1.0 before this
+    # fix. A rank earns gain iff it contributes at least one new GT entry.
     k_ndcg = max(ks)
-    dcg = sum(1.0 / math.log2(r + 2) for r, c in enumerate(covers[:k_ndcg]) if c)
+    dcg = 0.0
+    covered_ndcg: set[int] = set()
+    for r, c in enumerate(covers[:k_ndcg]):
+        if c - covered_ndcg:
+            dcg += 1.0 / math.log2(r + 2)
+            covered_ndcg |= c
     idcg = sum(1.0 / math.log2(r + 2) for r in range(min(n_gt, k_ndcg)))
     out[f"ndcg@{k_ndcg}"] = dcg / idcg if idcg else 0.0
     return out
