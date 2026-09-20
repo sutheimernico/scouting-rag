@@ -1,5 +1,17 @@
 # scouting-rag — LOOP (per-iteration prompt for the autonomous build agent)
 
+> **Status 2026-09-20: the study is closed.** Cycles −1…4 are verdicted, cycle 5
+> is closed without a technique verdict (tooling-blocked, see
+> `docs/colqwen2-load-evidence.md`), cycles 6/7 were declined by ADR, and the
+> final synthesis PLAN.md §5 mandates is written. There is no open build task.
+> Do **not** open a new cycle — the study's own Iron Principles and ADR forbid
+> it. The only mechanical work that may still be outstanding: if
+> `results.md`'s nDCG@10 table shows warning signs, the corresponding
+> `python -m src.run_eval retrieval --retriever <r> --name <file>` re-runs have
+> not finished; re-run them against the unchanged indexes (no re-indexing) and
+> then `python -m scripts.render_results && python -m scripts.render_report`.
+> Everything else on this page is kept as the historical build protocol.
+
 You are a fresh headless agent. You do ONE high-value thing, verify it, commit it, and exit.
 Progress lives on disk (this file, `PLAN.md`, `results.md`, git history) — never in context.
 

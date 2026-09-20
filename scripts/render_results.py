@@ -274,8 +274,10 @@ def render_ndcg_before_after() -> str:
     rows.append("")
     rows.append(
         "_Only rows that moved are listed; every subset not shown came back "
-        "bit-identical. Every other metric (recall@5/@10, precision@5, MRR) "
-        "was unchanged everywhere — see the reproducibility note above._"
+        "bit-identical. Every other metric (recall@5/@10, precision@5, MRR) was "
+        "unchanged in every artifact regenerated so far — see the reproducibility "
+        "note above. Cycles whose nDCG@10 still carries the warning sign in the "
+        "table above are not represented here yet._"
     )
     return "\n".join(rows)
 

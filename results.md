@@ -145,20 +145,27 @@ already deduplicated, MRR only looks at the first covering rank.
 ground-truth entry that no higher rank covered, mirroring recall@k's existing
 `covered` set. Three regression tests fail on the old implementation and pass
 on the new one, including the worst case (ten chunks all covering one GT
-entry → nDCG exactly 1.0, previously 3.41).
+entry → nDCG exactly 1.0, previously 4.54).
 
 **The re-run (this is what the 2026-07-02 note assumed was too expensive).**
 `run_eval.py retrieval` only *queries* already-built indexes — no
-re-indexing, no LLM calls. All six retrieval artifacts were regenerated on
-2026-09-20 against the unchanged indexes. The 2026-07-02 estimate that a fix
-"would need every retrieval eval re-run" was right; the implied cost was not
-(the ~6 h figure in this file is cycle 4's context *generation*, a different
-step entirely).
+re-indexing, no LLM calls. The 2026-07-02 estimate that a fix "would need
+every retrieval eval re-run" was right; the implied cost was not (the ~6 h
+figure in this file is cycle 4's context *generation*, a different step
+entirely). The one genuine cost is the reranked configurations: 30
+cross-encoder passes per query means ~30 min per reranked cycle on an idle
+machine, and considerably longer on a loaded one.
+
+Every artifact now carries an `eval_metrics_version` stamp naming the metric
+implementation that produced it, and the nDCG@10 table marks any row whose
+artifact has not been recomputed yet — so the tables can never quietly mix
+pre-fix and post-fix numbers.
 
 The re-run doubles as a reproducibility check: **every metric other than
-nDCG@10 came back bit-identical across all six artifacts** — same recall,
-same precision, same MRR, same per-query values. Retrieval in this study is
-deterministic, and the only thing that moved is the thing that was fixed.
+nDCG@10 came back bit-identical** — same recall, same precision, same MRR,
+same per-query values, in every artifact regenerated so far. Retrieval in
+this study is deterministic, and the only thing that moved is the thing that
+was fixed.
 
 <!-- auto:ndcg_before_after:start -->
 | Cycle | Technique | Subset | nDCG@10 before | after | delta |
@@ -171,7 +178,7 @@ deterministic, and the only thing that moved is the thing that was fixed.
 | 4-standalone | Contextual, standalone (no reranker) | global | 0.5610 | 0.5345 | -0.0265 |
 | 4-standalone | Contextual, standalone (no reranker) | semantic | 0.9970 | 0.8929 | -0.1041 |
 
-_Only rows that moved are listed; every subset not shown came back bit-identical. Every other metric (recall@5/@10, precision@5, MRR) was unchanged everywhere — see the reproducibility note above._
+_Only rows that moved are listed; every subset not shown came back bit-identical. Every other metric (recall@5/@10, precision@5, MRR) was unchanged in every artifact regenerated so far — see the reproducibility note above. Cycles whose nDCG@10 still carries the warning sign in the table above are not represented here yet._
 <!-- auto:ndcg_before_after:end -->
 
 **Verdict impact.** The correction is uniformly *downward* — every affected
