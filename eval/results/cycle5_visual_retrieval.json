@@ -1,15 +1,16 @@
 {
  "mode": "retrieval_visual",
- "latency_per_query_s": 2.7,
+ "eval_metrics_version": "2026-09-20-ndcg-dedup",
+ "latency_per_query_s": 29.28,
  "metrics": {
   "global": {
    "n": 59,
    "recall@5": 0.0339,
-   "precision@5": 0.0068,
-   "recall@10": 0.0339,
-   "precision@10": 0.0034,
-   "mrr": 0.009,
-   "ndcg@10": 0.015
+   "precision@5": 0.0102,
+   "recall@10": 0.0424,
+   "precision@10": 0.0068,
+   "mrr": 0.0316,
+   "ndcg@10": 0.0272
   },
   "exact_match": {
    "n": 18,
@@ -22,12 +23,12 @@
   },
   "multi_hop": {
    "n": 13,
-   "recall@5": 0.0,
-   "precision@5": 0.0,
-   "recall@10": 0.0,
-   "precision@10": 0.0,
-   "mrr": 0.0,
-   "ndcg@10": 0.0
+   "recall@5": 0.0769,
+   "precision@5": 0.0308,
+   "recall@10": 0.1154,
+   "precision@10": 0.0231,
+   "mrr": 0.1282,
+   "ndcg@10": 0.0937
   },
   "semantic": {
    "n": 15,
@@ -40,12 +41,12 @@
   },
   "visual": {
    "n": 13,
-   "recall@5": 0.1538,
-   "precision@5": 0.0308,
-   "recall@10": 0.1538,
-   "precision@10": 0.0154,
-   "mrr": 0.041,
-   "ndcg@10": 0.0682
+   "recall@5": 0.0769,
+   "precision@5": 0.0154,
+   "recall@10": 0.0769,
+   "precision@10": 0.0077,
+   "mrr": 0.0154,
+   "ndcg@10": 0.0298
   }
  },
  "details": [
@@ -60,10 +61,10 @@
    "ndcg@10": 0.0,
    "top_docs": [
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
-    "statsheets/vincenzo_grifo_freiburg.png"
+    "statsheets/serhou_guirassy_dortmund.png",
+    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/romano_schmid_werder_bremen.png"
    ]
   },
   {
@@ -76,11 +77,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/rani_khedira_union_berlin.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/romano_schmid_werder_bremen.png",
-    "statsheets/dimitris_giannoulis_augsburg.png"
+    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/serhou_guirassy_dortmund.png",
+    "statsheets/vincenzo_grifo_freiburg.png",
+    "statsheets/danilho_doekhi_union_berlin.png"
    ]
   },
   {
@@ -95,9 +96,9 @@
    "top_docs": [
     "statsheets/diogo_leite_union_berlin.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/romano_schmid_werder_bremen.png",
-    "statsheets/ermedin_demirovic_stuttgart.png"
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/serhou_guirassy_dortmund.png",
+    "statsheets/danilho_doekhi_union_berlin.png"
    ]
   },
   {
@@ -110,11 +111,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/harry_kane_bayern_munich.png",
+    "statsheets/robin_hack_gladbach.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/ermedin_demirovic_stuttgart.png",
-    "statsheets/dimitris_giannoulis_augsburg.png",
-    "statsheets/diogo_leite_union_berlin.png"
+    "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/jonas_wind_wolfsburg.png"
    ]
   },
   {
@@ -127,11 +128,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
+    "statsheets/serhou_guirassy_dortmund.png",
+    "statsheets/vincenzo_grifo_freiburg.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
-    "statsheets/dimitris_giannoulis_augsburg.png"
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/diogo_leite_union_berlin.png"
    ]
   },
   {
@@ -144,11 +145,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/serhou_guirassy_dortmund.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/dimitris_giannoulis_augsburg.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/diogo_leite_union_berlin.png"
+    "statsheets/manolis_saliakas_st_pauli.png",
+    "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/robin_hack_gladbach.png"
    ]
   },
   {
@@ -161,11 +162,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/romano_schmid_werder_bremen.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/ermedin_demirovic_stuttgart.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png"
+    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/ritsu_doan_freiburg.png"
    ]
   },
   {
@@ -178,11 +179,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/chrislain_matsima_augsburg.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
-    "statsheets/joe_scally_gladbach.png",
-    "statsheets/rani_khedira_union_berlin.png"
+    "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/manolis_saliakas_st_pauli.png",
+    "statsheets/harry_kane_bayern_munich.png",
+    "statsheets/dimitris_giannoulis_augsburg.png",
+    "statsheets/joshua_kimmich_bayern_munich.png"
    ]
   },
   {
@@ -195,11 +196,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/serhou_guirassy_dortmund.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/harry_kane_bayern_munich.png"
+    "statsheets/vincenzo_grifo_freiburg.png",
+    "statsheets/manolis_saliakas_st_pauli.png",
+    "statsheets/diogo_leite_union_berlin.png"
    ]
   },
   {
@@ -212,11 +213,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/ritsu_doan_freiburg.png",
-    "statsheets/diogo_leite_union_berlin.png"
+    "statsheets/harry_kane_bayern_munich.png",
+    "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/joshua_kimmich_bayern_munich.png",
+    "statsheets/jonas_wind_wolfsburg.png",
+    "statsheets/jackson_irvine_st_pauli.png"
    ]
   },
   {
@@ -229,11 +230,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
-    "statsheets/diogo_leite_union_berlin.png",
     "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/joe_scally_gladbach.png",
-    "statsheets/ermedin_demirovic_stuttgart.png"
+    "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/serhou_guirassy_dortmund.png",
+    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/tom_bischof_hoffenheim.png"
    ]
   },
   {
@@ -246,11 +247,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/harry_kane_bayern_munich.png",
+    "statsheets/diogo_leite_union_berlin.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/romano_schmid_werder_bremen.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/diogo_leite_union_berlin.png"
+    "statsheets/robin_hack_gladbach.png"
    ]
   },
   {
@@ -264,10 +265,10 @@
    "ndcg@10": 0.0,
    "top_docs": [
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/romano_schmid_werder_bremen.png",
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/deniz_undav_stuttgart.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/tiago_tomas_wolfsburg.png"
+    "statsheets/hugo_ekitike_eint_frankfurt.png"
    ]
   },
   {
@@ -280,11 +281,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/granit_xhaka_leverkusen.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/ermedin_demirovic_stuttgart.png",
-    "statsheets/vincenzo_grifo_freiburg.png"
+    "statsheets/harry_kane_bayern_munich.png",
+    "statsheets/romano_schmid_werder_bremen.png",
+    "statsheets/jonas_wind_wolfsburg.png"
    ]
   },
   {
@@ -297,11 +298,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/serhou_guirassy_dortmund.png",
-    "statsheets/diogo_leite_union_berlin.png"
+    "statsheets/harry_kane_bayern_munich.png",
+    "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/joe_scally_gladbach.png",
+    "statsheets/robin_hack_gladbach.png",
+    "statsheets/joshua_kimmich_bayern_munich.png"
    ]
   },
   {
@@ -314,28 +315,28 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/harry_kane_bayern_munich.png",
     "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/deniz_undav_stuttgart.png",
     "statsheets/romano_schmid_werder_bremen.png",
-    "statsheets/vincenzo_grifo_freiburg.png"
+    "statsheets/robin_hack_gladbach.png"
    ]
   },
   {
    "id": "q017",
    "type": "visual",
-   "recall@5": 1.0,
-   "precision@5": 0.2,
-   "recall@10": 1.0,
-   "precision@10": 0.1,
-   "mrr": 0.3333,
-   "ndcg@10": 0.5,
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/serhou_guirassy_dortmund.png",
-    "statsheets/morgan_guilavogui_st_pauli.png",
-    "statsheets/rani_khedira_union_berlin.png"
+    "statsheets/romano_schmid_werder_bremen.png",
+    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/harry_kane_bayern_munich.png",
+    "statsheets/robin_hack_gladbach.png",
+    "statsheets/joe_scally_gladbach.png"
    ]
   },
   {
@@ -348,11 +349,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/morgan_guilavogui_st_pauli.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
     "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/danilho_doekhi_union_berlin.png",
     "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png"
+    "statsheets/serhou_guirassy_dortmund.png",
+    "statsheets/diogo_leite_union_berlin.png"
    ]
   },
   {
@@ -365,11 +366,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
     "statsheets/rani_khedira_union_berlin.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/romano_schmid_werder_bremen.png",
-    "statsheets/vincenzo_grifo_freiburg.png"
+    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/omar_traore_heidenheim.png",
+    "statsheets/serhou_guirassy_dortmund.png"
    ]
   },
   {
@@ -382,11 +383,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/angelo_stiller_stuttgart.png",
+    "statsheets/harry_kane_bayern_munich.png",
     "statsheets/joshua_kimmich_bayern_munich.png",
-    "statsheets/joe_scally_gladbach.png"
+    "statsheets/romano_schmid_werder_bremen.png"
    ]
   },
   {
@@ -399,28 +400,28 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/morgan_guilavogui_st_pauli.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/rasmus_kristensen_eint_frankfurt.png"
+    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/jeffrey_gouweleeuw_augsburg.png",
+    "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/morgan_guilavogui_st_pauli.png"
    ]
   },
   {
    "id": "q022",
    "type": "visual",
-   "recall@5": 0.0,
-   "precision@5": 0.0,
-   "recall@10": 0.0,
-   "precision@10": 0.0,
-   "mrr": 0.0,
-   "ndcg@10": 0.0,
+   "recall@5": 1.0,
+   "precision@5": 0.2,
+   "recall@10": 1.0,
+   "precision@10": 0.1,
+   "mrr": 0.2,
+   "ndcg@10": 0.3869,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/morgan_guilavogui_st_pauli.png",
-    "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
-    "statsheets/diogo_leite_union_berlin.png"
+    "statsheets/harry_kane_bayern_munich.png",
+    "statsheets/romano_schmid_werder_bremen.png",
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/deniz_undav_stuttgart.png",
+    "statsheets/angelo_stiller_stuttgart.png"
    ]
   },
   {
@@ -433,11 +434,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
     "statsheets/rani_khedira_union_berlin.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/ermedin_demirovic_stuttgart.png",
-    "statsheets/chrislain_matsima_augsburg.png"
+    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/vincenzo_grifo_freiburg.png",
+    "statsheets/romano_schmid_werder_bremen.png"
    ]
   },
   {
@@ -450,28 +451,28 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/romano_schmid_werder_bremen.png",
-    "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/manolis_saliakas_st_pauli.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/ermedin_demirovic_stuttgart.png"
+    "statsheets/morgan_guilavogui_st_pauli.png",
+    "statsheets/vincenzo_grifo_freiburg.png",
+    "statsheets/danilho_doekhi_union_berlin.png"
    ]
   },
   {
    "id": "q025",
    "type": "visual",
-   "recall@5": 1.0,
-   "precision@5": 0.2,
-   "recall@10": 1.0,
-   "precision@10": 0.1,
-   "mrr": 0.2,
-   "ndcg@10": 0.3869,
+   "recall@5": 0.0,
+   "precision@5": 0.0,
+   "recall@10": 0.0,
+   "precision@10": 0.0,
+   "mrr": 0.0,
+   "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/morgan_guilavogui_st_pauli.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/romano_schmid_werder_bremen.png",
+    "statsheets/angelo_stiller_stuttgart.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
-    "statsheets/danilho_doekhi_union_berlin.png"
+    "statsheets/chrislain_matsima_augsburg.png"
    ]
   },
   {
@@ -484,11 +485,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/harry_kane_bayern_munich.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/chrislain_matsima_augsburg.png",
-    "statsheets/ermedin_demirovic_stuttgart.png"
+    "statsheets/angelo_stiller_stuttgart.png",
+    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/joshua_kimmich_bayern_munich.png"
    ]
   },
   {
@@ -501,11 +502,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/manolis_saliakas_st_pauli.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/morgan_guilavogui_st_pauli.png",
-    "statsheets/serhou_guirassy_dortmund.png",
-    "statsheets/diogo_leite_union_berlin.png"
+    "statsheets/romano_schmid_werder_bremen.png",
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/robin_hack_gladbach.png",
+    "statsheets/joe_scally_gladbach.png"
    ]
   },
   {
@@ -518,10 +519,10 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/ermedin_demirovic_stuttgart.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/morgan_guilavogui_st_pauli.png",
+    "statsheets/diogo_leite_union_berlin.png",
     "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/serhou_guirassy_dortmund.png",
     "statsheets/jeffrey_gouweleeuw_augsburg.png"
    ]
   },
@@ -536,9 +537,9 @@
    "ndcg@10": 0.0,
    "top_docs": [
     "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/serhou_guirassy_dortmund.png",
     "statsheets/rani_khedira_union_berlin.png",
     "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/romano_schmid_werder_bremen.png",
     "statsheets/vincenzo_grifo_freiburg.png"
    ]
   },
@@ -552,11 +553,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/ermedin_demirovic_stuttgart.png"
+    "statsheets/jeffrey_gouweleeuw_augsburg.png",
+    "statsheets/marvin_pieringer_heidenheim.png",
+    "statsheets/tom_bischof_hoffenheim.png",
+    "statsheets/jackson_irvine_st_pauli.png",
+    "statsheets/chrislain_matsima_augsburg.png"
    ]
   },
   {
@@ -569,11 +570,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
     "statsheets/diogo_leite_union_berlin.png",
     "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/serhou_guirassy_dortmund.png",
     "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/ermedin_demirovic_stuttgart.png"
+    "statsheets/danilho_doekhi_union_berlin.png"
    ]
   },
   {
@@ -587,10 +588,10 @@
    "ndcg@10": 0.0,
    "top_docs": [
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/diogo_leite_union_berlin.png",
     "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/chrislain_matsima_augsburg.png",
-    "statsheets/morgan_guilavogui_st_pauli.png"
+    "statsheets/jackson_irvine_st_pauli.png",
+    "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/jan_schoppner_heidenheim.png"
    ]
   },
   {
@@ -603,11 +604,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/dimitris_giannoulis_augsburg.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png"
+    "statsheets/serhou_guirassy_dortmund.png",
+    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/vincenzo_grifo_freiburg.png",
+    "statsheets/diogo_leite_union_berlin.png"
    ]
   },
   {
@@ -621,10 +622,10 @@
    "ndcg@10": 0.0,
    "top_docs": [
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/chrislain_matsima_augsburg.png",
+    "statsheets/serhou_guirassy_dortmund.png",
+    "statsheets/romano_schmid_werder_bremen.png",
     "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/morgan_guilavogui_st_pauli.png"
+    "statsheets/deniz_undav_stuttgart.png"
    ]
   },
   {
@@ -637,11 +638,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/harry_kane_bayern_munich.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/rani_khedira_union_berlin.png",
     "statsheets/jeffrey_gouweleeuw_augsburg.png",
-    "statsheets/morgan_guilavogui_st_pauli.png"
+    "statsheets/angelo_stiller_stuttgart.png"
    ]
   },
   {
@@ -654,11 +655,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
+    "statsheets/manolis_saliakas_st_pauli.png",
     "statsheets/morgan_guilavogui_st_pauli.png",
-    "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/jackson_irvine_st_pauli.png"
+    "statsheets/mitchell_weiser_werder_bremen.png",
+    "statsheets/jeffrey_gouweleeuw_augsburg.png",
+    "statsheets/diogo_leite_union_berlin.png"
    ]
   },
   {
@@ -671,11 +672,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/romano_schmid_werder_bremen.png",
+    "statsheets/serhou_guirassy_dortmund.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/dimitris_giannoulis_augsburg.png",
-    "statsheets/ermedin_demirovic_stuttgart.png"
+    "statsheets/ritsu_doan_freiburg.png",
+    "statsheets/manolis_saliakas_st_pauli.png"
    ]
   },
   {
@@ -688,11 +689,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/ermedin_demirovic_stuttgart.png",
-    "statsheets/dimitris_giannoulis_augsburg.png",
-    "statsheets/diogo_leite_union_berlin.png"
+    "statsheets/robin_hack_gladbach.png",
+    "statsheets/joe_scally_gladbach.png",
+    "statsheets/harry_kane_bayern_munich.png",
+    "statsheets/jackson_irvine_st_pauli.png",
+    "statsheets/jeffrey_gouweleeuw_augsburg.png"
    ]
   },
   {
@@ -705,11 +706,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
+    "statsheets/diogo_leite_union_berlin.png",
     "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/dimitris_giannoulis_augsburg.png",
+    "statsheets/vincenzo_grifo_freiburg.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/ermedin_demirovic_stuttgart.png"
+    "statsheets/granit_xhaka_leverkusen.png"
    ]
   },
   {
@@ -722,11 +723,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/manolis_saliakas_st_pauli.png",
     "statsheets/danilho_doekhi_union_berlin.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/ermedin_demirovic_stuttgart.png",
-    "statsheets/romano_schmid_werder_bremen.png"
+    "statsheets/joshua_kimmich_bayern_munich.png",
+    "statsheets/granit_xhaka_leverkusen.png"
    ]
   },
   {
@@ -739,11 +740,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/rani_khedira_union_berlin.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png"
+    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/jeffrey_gouweleeuw_augsburg.png",
+    "statsheets/jan_schoppner_heidenheim.png"
    ]
   },
   {
@@ -759,7 +760,7 @@
     "statsheets/rani_khedira_union_berlin.png",
     "statsheets/danilho_doekhi_union_berlin.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/morgan_guilavogui_st_pauli.png",
+    "statsheets/serhou_guirassy_dortmund.png",
     "statsheets/vincenzo_grifo_freiburg.png"
    ]
   },
@@ -773,11 +774,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/diogo_leite_union_berlin.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png"
+    "statsheets/morgan_guilavogui_st_pauli.png",
+    "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/joshua_kimmich_bayern_munich.png",
+    "statsheets/serhou_guirassy_dortmund.png"
    ]
   },
   {
@@ -790,11 +791,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
+    "statsheets/jackson_irvine_st_pauli.png",
+    "statsheets/jeffrey_gouweleeuw_augsburg.png",
     "statsheets/morgan_guilavogui_st_pauli.png",
-    "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png"
+    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/mitchell_weiser_werder_bremen.png"
    ]
   },
   {
@@ -807,11 +808,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/romano_schmid_werder_bremen.png",
-    "statsheets/rani_khedira_union_berlin.png"
+    "statsheets/jackson_irvine_st_pauli.png",
+    "statsheets/morgan_guilavogui_st_pauli.png",
+    "statsheets/jeffrey_gouweleeuw_augsburg.png",
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/chrislain_matsima_augsburg.png"
    ]
   },
   {
@@ -824,28 +825,28 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
-    "statsheets/chrislain_matsima_augsburg.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/joe_scally_gladbach.png",
+    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/angelo_stiller_stuttgart.png",
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/hugo_larsson_eint_frankfurt.png",
     "statsheets/diogo_leite_union_berlin.png"
    ]
   },
   {
    "id": "q047",
    "type": "multi_hop",
-   "recall@5": 0.0,
-   "precision@5": 0.0,
-   "recall@10": 0.0,
-   "precision@10": 0.0,
-   "mrr": 0.0,
-   "ndcg@10": 0.0,
+   "recall@5": 0.5,
+   "precision@5": 0.2,
+   "recall@10": 0.5,
+   "precision@10": 0.1,
+   "mrr": 1.0,
+   "ndcg@10": 0.6131,
    "top_docs": [
-    "statsheets/morgan_guilavogui_st_pauli.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
+    "statsheets/granit_xhaka_leverkusen.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/rani_khedira_union_berlin.png"
+    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/jeffrey_gouweleeuw_augsburg.png"
    ]
   },
   {
@@ -858,11 +859,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/romano_schmid_werder_bremen.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/ermedin_demirovic_stuttgart.png"
+    "statsheets/harry_kane_bayern_munich.png",
+    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/angelo_stiller_stuttgart.png"
    ]
   },
   {
@@ -875,11 +876,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/rani_khedira_union_berlin.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/romano_schmid_werder_bremen.png",
-    "statsheets/vincenzo_grifo_freiburg.png"
+    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/vincenzo_grifo_freiburg.png",
+    "statsheets/serhou_guirassy_dortmund.png",
+    "statsheets/nadiem_amiri_mainz_05.png"
    ]
   },
   {
@@ -892,11 +893,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
+    "statsheets/serhou_guirassy_dortmund.png",
     "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/danilho_doekhi_union_berlin.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/chrislain_matsima_augsburg.png"
+    "statsheets/vincenzo_grifo_freiburg.png"
    ]
   },
   {
@@ -909,11 +910,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/romano_schmid_werder_bremen.png",
-    "statsheets/vincenzo_grifo_freiburg.png"
+    "statsheets/harry_kane_bayern_munich.png",
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/manolis_saliakas_st_pauli.png",
+    "statsheets/angelo_stiller_stuttgart.png",
+    "statsheets/robin_hack_gladbach.png"
    ]
   },
   {
@@ -926,11 +927,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
+    "statsheets/serhou_guirassy_dortmund.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/harry_kane_bayern_munich.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
-    "statsheets/danilho_doekhi_union_berlin.png"
+    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/vincenzo_grifo_freiburg.png"
    ]
   },
   {
@@ -943,26 +944,26 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/romano_schmid_werder_bremen.png"
+    "statsheets/diogo_leite_union_berlin.png",
+    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/vincenzo_grifo_freiburg.png",
+    "statsheets/ermedin_demirovic_stuttgart.png"
    ]
   },
   {
    "id": "q054",
    "type": "multi_hop",
-   "recall@5": 0.0,
-   "precision@5": 0.0,
-   "recall@10": 0.0,
-   "precision@10": 0.0,
-   "mrr": 0.0,
-   "ndcg@10": 0.0,
+   "recall@5": 0.5,
+   "precision@5": 0.2,
+   "recall@10": 0.5,
+   "precision@10": 0.1,
+   "mrr": 0.5,
+   "ndcg@10": 0.3869,
    "top_docs": [
-    "statsheets/rani_khedira_union_berlin.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/romano_schmid_werder_bremen.png",
+    "statsheets/serhou_guirassy_dortmund.png",
+    "statsheets/rani_khedira_union_berlin.png",
     "statsheets/danilho_doekhi_union_berlin.png",
     "statsheets/vincenzo_grifo_freiburg.png"
    ]
@@ -977,10 +978,10 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
-    "statsheets/morgan_guilavogui_st_pauli.png",
+    "statsheets/granit_xhaka_leverkusen.png",
     "statsheets/harry_kane_bayern_munich.png",
-    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/ritsu_doan_freiburg.png",
+    "statsheets/joshua_kimmich_bayern_munich.png",
     "statsheets/diogo_leite_union_berlin.png"
    ]
   },
@@ -994,11 +995,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
+    "statsheets/serhou_guirassy_dortmund.png",
     "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
-    "statsheets/vincenzo_grifo_freiburg.png",
-    "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/morgan_guilavogui_st_pauli.png"
+    "statsheets/manolis_saliakas_st_pauli.png",
+    "statsheets/ibrahima_sissoko_bochum.png",
+    "statsheets/diogo_leite_union_berlin.png"
    ]
   },
   {
@@ -1011,11 +1012,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/rani_khedira_union_berlin.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/romano_schmid_werder_bremen.png",
-    "statsheets/joshua_kimmich_bayern_munich.png"
+    "statsheets/harry_kane_bayern_munich.png",
+    "statsheets/granit_xhaka_leverkusen.png",
+    "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/danilho_doekhi_union_berlin.png"
    ]
   },
   {
@@ -1023,16 +1024,16 @@
    "type": "multi_hop",
    "recall@5": 0.0,
    "precision@5": 0.0,
-   "recall@10": 0.0,
-   "precision@10": 0.0,
-   "mrr": 0.0,
-   "ndcg@10": 0.0,
+   "recall@10": 0.5,
+   "precision@10": 0.1,
+   "mrr": 0.1667,
+   "ndcg@10": 0.2184,
    "top_docs": [
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
-    "statsheets/morgan_guilavogui_st_pauli.png",
-    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/harry_kane_bayern_munich.png",
+    "statsheets/jackson_irvine_st_pauli.png",
+    "statsheets/marvin_pieringer_heidenheim.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/rani_khedira_union_berlin.png"
+    "statsheets/robin_hack_gladbach.png"
    ]
   },
   {
@@ -1045,11 +1046,11 @@
    "mrr": 0.0,
    "ndcg@10": 0.0,
    "top_docs": [
-    "statsheets/danilho_doekhi_union_berlin.png",
     "statsheets/rani_khedira_union_berlin.png",
+    "statsheets/serhou_guirassy_dortmund.png",
     "statsheets/diogo_leite_union_berlin.png",
-    "statsheets/jeffrey_gouweleeuw_augsburg.png",
-    "statsheets/ermedin_demirovic_stuttgart.png"
+    "statsheets/danilho_doekhi_union_berlin.png",
+    "statsheets/vincenzo_grifo_freiburg.png"
    ]
   }
  ]

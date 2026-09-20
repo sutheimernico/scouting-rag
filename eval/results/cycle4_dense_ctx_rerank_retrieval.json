@@ -1,6 +1,7 @@
 {
  "mode": "retrieval_dense_ctx_rerank",
- "latency_per_query_s": 29.14,
+ "eval_metrics_version": "2026-09-20-ndcg-dedup",
+ "latency_per_query_s": 35.66,
  "metrics": {
   "global": {
    "n": 59,
@@ -9,7 +10,7 @@
    "recall@10": 0.678,
    "precision@10": 0.0864,
    "mrr": 0.6342,
-   "ndcg@10": 0.6477
+   "ndcg@10": 0.6178
   },
   "exact_match": {
    "n": 18,
@@ -36,7 +37,7 @@
    "recall@10": 1.0,
    "precision@10": 0.12,
    "mrr": 0.8667,
-   "ndcg@10": 1.019
+   "ndcg@10": 0.9016
   },
   "visual": {
    "n": 13,
@@ -754,7 +755,7 @@
    "recall@10": 1.0,
    "precision@10": 0.2,
    "mrr": 1.0,
-   "ndcg@10": 1.6309,
+   "ndcg@10": 1.0,
    "top_docs": [
     "articles/07ead1864dd51dd3.json",
     "articles/07ead1864dd51dd3.json",
@@ -771,7 +772,7 @@
    "recall@10": 1.0,
    "precision@10": 0.2,
    "mrr": 0.5,
-   "ndcg@10": 1.1309,
+   "ndcg@10": 0.6309,
    "top_docs": [
     "articles/b1b4b107bb9b360d.json",
     "articles/b1b4b107bb9b360d.json",
@@ -788,7 +789,7 @@
    "recall@10": 1.0,
    "precision@10": 0.2,
    "mrr": 1.0,
-   "ndcg@10": 1.6309,
+   "ndcg@10": 1.0,
    "top_docs": [
     "articles/6f7505c9d0f61def.json",
     "articles/6f7505c9d0f61def.json",

@@ -1,6 +1,7 @@
 {
  "mode": "retrieval_hybrid",
- "latency_per_query_s": 5.97,
+ "eval_metrics_version": "2026-09-20-ndcg-dedup",
+ "latency_per_query_s": 8.56,
  "metrics": {
   "global": {
    "n": 59,

@@ -1,6 +1,7 @@
 {
  "mode": "retrieval_hybrid_rerank",
- "latency_per_query_s": 29.57,
+ "eval_metrics_version": "2026-09-20-ndcg-dedup",
+ "latency_per_query_s": 36.82,
  "metrics": {
   "global": {
    "n": 59,
@@ -9,7 +10,7 @@
    "recall@10": 0.6864,
    "precision@10": 0.0898,
    "mrr": 0.6257,
-   "ndcg@10": 0.6486
+   "ndcg@10": 0.6149
   },
   "exact_match": {
    "n": 18,
@@ -18,7 +19,7 @@
    "recall@10": 0.9444,
    "precision@10": 0.1,
    "mrr": 0.8426,
-   "ndcg@10": 0.8923
+   "ndcg@10": 0.8684
   },
   "multi_hop": {
    "n": 13,
@@ -36,7 +37,7 @@
    "recall@10": 1.0,
    "precision@10": 0.12,
    "mrr": 0.8556,
-   "ndcg@10": 0.997
+   "ndcg@10": 0.8929
   },
   "visual": {
    "n": 13,
@@ -533,7 +534,7 @@
    "recall@10": 1.0,
    "precision@10": 0.2,
    "mrr": 0.3333,
-   "ndcg@10": 0.9307,
+   "ndcg@10": 0.5,
    "top_docs": [
     "articles/543e285d9049496c.json",
     "articles/ace092ba411d8396.json",
@@ -754,7 +755,7 @@
    "recall@10": 1.0,
    "precision@10": 0.2,
    "mrr": 1.0,
-   "ndcg@10": 1.5,
+   "ndcg@10": 1.0,
    "top_docs": [
     "articles/07ead1864dd51dd3.json",
     "articles/07ead1864dd51dd3.json",
@@ -771,7 +772,7 @@
    "recall@10": 1.0,
    "precision@10": 0.2,
    "mrr": 0.5,
-   "ndcg@10": 1.0616,
+   "ndcg@10": 0.6309,
    "top_docs": [
     "articles/b1b4b107bb9b360d.json",
     "articles/b1b4b107bb9b360d.json",
@@ -788,7 +789,7 @@
    "recall@10": 1.0,
    "precision@10": 0.2,
    "mrr": 1.0,
-   "ndcg@10": 1.6309,
+   "ndcg@10": 1.0,
    "top_docs": [
     "articles/6f7505c9d0f61def.json",
     "articles/6f7505c9d0f61def.json",
