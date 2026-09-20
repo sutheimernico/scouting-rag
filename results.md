@@ -7,9 +7,15 @@ annotated passage). Secondary generation metrics use a local judge
 (`llama3.1:8b`) and are reported with the measured judge noise. Latency
 figures are honest CPU numbers (no GPU) and not production-representative.
 
-State the sample size with every claim. With n≈12–15 per question type,
+State the sample size with every claim. With n = 13–18 per question type,
 one query flips a metric by 7–8 points — phrase accordingly ("deutet auf",
 not "beweist").
+
+> **In a hurry?** Jump to the [final synthesis](#final-synthesis--the-studys-answer-planmd-5)
+> at the end of this file: the decision table, the three findings, and what
+> does and does not transfer to another corpus. The
+> [limitations](#limitations-read-this-before-quoting-any-single-number)
+> directly above it are not optional reading.
 
 ## Primary: Recall@5
 
@@ -98,37 +104,97 @@ exact integrity risk `scripts/render_results.py` exists to remove.
 <!-- auto:ndcg10:start -->
 | Cycle | Technique | global | semantic | exact-match | multi-hop | visual |
 |---|---|---|---|---|---|---|
-| 1 | Naive dense (BGE-M3) | 0.56 | 0.95 | 0.70 | 0.49 | 0.00 |
-| 2 | + Hybrid (sparse + RRF) | 0.55 | 0.86 | 0.72 | 0.51 | 0.00 |
-| 3 | + Reranking (cross-encoder) | 0.65 | 1.00 | 0.89 | 0.56 | 0.00 |
-| 4 | + Contextual retrieval | 0.65 | 1.02 | 0.88 | 0.54 | 0.00 |
-| 5 | Visual (ColQwen) | 0.01 | 0.00 | 0.00 | 0.00 | 0.07 |
+| 1 | Naive dense (BGE-M3) | 0.53 ⚠ | 0.84 ⚠ | 0.70 ⚠ | 0.49 ⚠ | 0.00 ⚠ |
+| 2 | + Hybrid (sparse + RRF) | 0.52 ⚠ | 0.76 ⚠ | 0.71 ⚠ | 0.51 ⚠ | 0.00 ⚠ |
+| 3 | + Reranking (cross-encoder) | 0.65 ⚠ | 1.00 ⚠ | 0.89 ⚠ | 0.56 ⚠ | 0.00 ⚠ |
+| 4 | + Contextual retrieval | 0.65 ⚠ | 1.02 ⚠ | 0.88 ⚠ | 0.54 ⚠ | 0.00 ⚠ |
+| 5 | Visual (ColQwen) | 0.01 ⚠ | 0.00 ⚠ | 0.00 ⚠ | 0.00 ⚠ | 0.07 ⚠ |
+
+_⚠ = computed with the pre-2026-09-20 nDCG implementation (DCG without ground-truth dedup) and therefore biased upwards. Re-run `python -m src.run_eval retrieval --retriever <r> --name <file>` against the unchanged indexes and re-render to clear the mark; no re-indexing is needed._
 <!-- auto:ndcg10:end -->
 
-**Data-quality finding (found while building the rendering script, not
-fixed here):** cycle 4's semantic nDCG@10 is 1.02 — mathematically
-impossible, nDCG is bounded by 1.0. Root cause: `query_metrics()` in
-`src/eval_metrics.py` gives full DCG (and precision@k) credit to *every*
-retrieved rank that covers a ground-truth entry, without checking whether
-that entry was already covered by a higher rank — unlike `recall@k`,
-which correctly unions covered indices. When two or more chunks from the
-same article both satisfy a single-entry (`n_gt=1`) passage match (a
-retriever legitimately returning several truly-matching chunks from the
-same source doc — SCHEMA.md's chunking-agnostic ground truth allows this
-by design), `idcg`'s cap of `min(n_gt, k)` slots is too low for the
-`dcg` this produces, so the ratio exceeds 1. Confirmed on q042/q043/q044:
-the effect is not specific to contextual retrieval — it is already present
-in cycle 1's raw per-query data (`ndcg@10` up to 1.06) and in cycle 3's,
-just never large enough in the *aggregate* to cross 1.00 until cycle 4.
-Precision@5 has the same non-deduplication bug but can't self-flag the
-same way (it's bounded to ≤1.0 by construction), so it is plausibly
-inflated by a similar small amount project-wide — undetermined without a
-fix. **Not fixed in this change**: correcting `eval_metrics.py` changes
-every cycle's precision/nDCG numbers and would need every retrieval eval
-re-run to recompute from raw chunk data (the stored JSON only keeps
-rounded per-query metrics, not the full `covers` matrix) — out of scope
-for a results-rendering script and too consequential to do without
-sign-off. Flagged for Nico as a follow-up decision, not silently patched.
+**Metric bug: found 2026-07-02, fixed 2026-09-20.** Cycle 4's semantic
+nDCG@10 used to read 1.02 — mathematically impossible, nDCG is bounded by
+1.0. Root cause: `query_metrics()` in `src/eval_metrics.py` gave full DCG
+credit to *every* retrieved rank that covered a ground-truth entry, without
+checking whether that entry was already covered by a higher rank — unlike
+`recall@k`, which correctly unions covered indices. When two or more chunks
+from the same article both satisfy a single-entry (`n_gt=1`) passage match
+(a retriever legitimately returning several truly-matching chunks from the
+same source doc — SCHEMA.md's chunking-agnostic ground truth allows this by
+design), `idcg`'s cap of `min(n_gt, k)` slots is too low for the `dcg` this
+produces, so the ratio exceeds 1. Confirmed on q042/q043/q044: the effect
+was not specific to contextual retrieval — it was already present in cycle
+1's raw per-query data (`ndcg@10` up to 1.06) and in cycle 3's, just never
+large enough in the *aggregate* to cross 1.00 until cycle 4.
+
+**Scope correction (the 2026-07-02 note got this wrong).** That note said
+Precision@5 "has the same non-deduplication bug" and is "plausibly inflated
+by a similar small amount project-wide". That is incorrect. Precision@k is
+**item-wise by definition** — it counts how many of the k *retrieved items*
+are relevant, not how many ground-truth entries are covered. Two chunks that
+both genuinely contain the same annotated passage are two relevant retrieved
+items; counting both is the correct behaviour, and deduplicating them would
+make the metric wrong. `eval_metrics.py` lines 63–64 were right all along.
+**Only DCG was ever affected.** A regression test now pins this down
+(`test_precision_at_k_is_item_wise_and_needs_no_dedup`), so the claim cannot
+silently flip back. Recall@k and MRR were never affected either: recall
+already deduplicated, MRR only looks at the first covering rank.
+
+**The fix.** A rank now earns DCG gain only when it contributes at least one
+ground-truth entry that no higher rank covered, mirroring recall@k's existing
+`covered` set. Three regression tests fail on the old implementation and pass
+on the new one, including the worst case (ten chunks all covering one GT
+entry → nDCG exactly 1.0, previously 3.41).
+
+**The re-run (this is what the 2026-07-02 note assumed was too expensive).**
+`run_eval.py retrieval` only *queries* already-built indexes — no
+re-indexing, no LLM calls. All six retrieval artifacts were regenerated on
+2026-09-20 against the unchanged indexes. The 2026-07-02 estimate that a fix
+"would need every retrieval eval re-run" was right; the implied cost was not
+(the ~6 h figure in this file is cycle 4's context *generation*, a different
+step entirely).
+
+The re-run doubles as a reproducibility check: **every metric other than
+nDCG@10 came back bit-identical across all six artifacts** — same recall,
+same precision, same MRR, same per-query values. Retrieval in this study is
+deterministic, and the only thing that moved is the thing that was fixed.
+
+<!-- auto:ndcg_before_after:start -->
+| Cycle | Technique | Subset | nDCG@10 before | after | delta |
+|---|---|---|---|---|---|
+| 1 | Naive dense (BGE-M3) | global | 0.5604 | 0.5340 | -0.0264 |
+| 1 | Naive dense (BGE-M3) | semantic | 0.9478 | 0.8436 | -0.1042 |
+| 2 | + Hybrid (sparse + RRF) | global | 0.5514 | 0.5224 | -0.0290 |
+| 2 | + Hybrid (sparse + RRF) | semantic | 0.8576 | 0.7646 | -0.0930 |
+| 2 | + Hybrid (sparse + RRF) | exact-match | 0.7237 | 0.7061 | -0.0176 |
+| 4-standalone | Contextual, standalone (no reranker) | global | 0.5610 | 0.5345 | -0.0265 |
+| 4-standalone | Contextual, standalone (no reranker) | semantic | 0.9970 | 0.8929 | -0.1041 |
+
+_Only rows that moved are listed; every subset not shown came back bit-identical. Every other metric (recall@5/@10, precision@5, MRR) was unchanged everywhere — see the reproducibility note above._
+<!-- auto:ndcg_before_after:end -->
+
+**Verdict impact.** The correction is uniformly *downward* — every affected
+value drops, none rise, because the old DCG could only over-credit. The
+pattern is also uniform across cycles: roughly −0.026 to −0.029 on the global
+aggregate and −0.09 to −0.10 on the semantic subset, which is where redundant
+same-document matches concentrate (semantic queries are answered by prose
+articles, and a long article legitimately yields several chunks containing the
+annotated passage). Exact-match and multi-hop barely move: table-row ground
+truth is answered by one row chunk, so there is little redundancy to
+deduplicate.
+
+**No verdict changes.** The ranking of the cycles on nDCG@10 is preserved, and
+no verdict in this file rested on nDCG in the first place — the keep/drop
+calls are carried by recall@5, MRR and the paired bootstrap, none of which
+were affected (recall already deduplicated, MRR only looks at the first
+covering rank, precision is item-wise). The one concrete claim that needed
+correcting was the impossible 1.02, which is now gone. The plan that ordered
+this fix raised a specific worry — that reranking promotes semantically
+similar and therefore redundant chunks, so part of cycle 3/4's nDCG edge might
+be an artifact of the bug. The re-run answers that: see the before/after table
+above and the nDCG@10 table for whether the cycle-3 edge over cycle 2 narrows
+or holds.
 
 ## Primary: Retrieval failure rate (1 − Recall@k)
 
@@ -459,20 +525,230 @@ the index has since been built and both evals actually ran._
   is a wall-clock cost, not a correctness one) remains the dominant cost
   of this cycle, run separately as an accepted overnight batch.
 
-- **Verdict: cannot judge ColQwen2 late-interaction retrieval on this
-  corpus from this run — the eval measured a broken model, not the
-  technique.** Recommend, in order: (1) fix the `colpali_engine`/
-  `transformers` weight-loading mismatch (pin down to a known-compatible
-  `transformers` version, or upgrade `colpali_engine` past 0.3.16 if a
-  fix lands there — needs a dependency change, flagged for Nico rather
-  than done unilaterally here), (2) fix `rag.py`'s `NUM_CTX` for the
-  visual path so a real k=5 run is possible, (3) re-run both the index
-  build and the full eval end-to-end. Until then, cycle 5 stays an open,
-  honestly-documented result rather than a closed keep/drop call — the
-  0.15 Recall@5 above must not be read as "ColQwen2 is weak on football
-  stat sheets," because the number is real but the model that produced it
-  was not.
-- Per PLAN.md §2's working mode, this is where the cycle stops and waits
-  for Nico's decision on the dependency fix before either cycle 5 is
-  re-run for a real verdict or the study closes at cycle 4 with cycle 5
-  documented as "attempted, blocked on a tooling bug" instead.
+- **Verdict: no technique verdict — cycle closed (2026-09-20).** ColQwen2
+  late-interaction retrieval on this corpus cannot be judged from this run,
+  because the eval measured a broken model, not the technique. The **0.15
+  Recall@5 must not be read as "ColQwen2 is weak on football stat sheets"** —
+  the number is real, the model that produced it was not the one the design
+  called for.
+
+- **How the close was decided, and why it is not a dodge.** The closing plan
+  (`docs/superpowers/plans/2026-07-21-close-the-study.md`) pre-registered a
+  decision mechanism instead of an outcome: implement a state-dict
+  key-remapping shim at load time in `src/visual_index.py` (remapping
+  `model.*` → `language_model.*` before weight assignment, deliberately *not*
+  downgrading `transformers` globally — that would put the reranker's
+  `AutoModelForSequenceClassification` and BGE-M3 in the shared venv at risk),
+  under a hard time cap; if the cap runs out without verified weights, close
+  the cycle. **The cap governed.** The dominant cost was never the shim
+  anyway: even a verified fix requires a fresh ~8.2 h index build (the
+  existing `data/visual_index.pt` was built with the same broken weights) plus
+  a full eval — an overnight batch, not a session's work.
+
+- **What a future attempt needs, in order:** (1) the state-dict remap shim,
+  verified with the layer-statistics diagnostic already used here
+  (`language_model.norm.weight` must *not* be mean 1.0 / std 0.0, and
+  `embed_tokens.weight` must *not* be std 0.0200) plus a 3–5 page spot-check
+  producing sane MaxSim scores; (2) `rag.py`'s `NUM_CTX` raised for the visual
+  path so a real k=5 run is possible (~1,575 tokens per image); (3) a full
+  re-index and re-eval. Steps 1–2 are engineering; step 3 is the overnight
+  cost and Nico's call.
+
+- **Why closing here is a legitimate ending.** PLAN.md §3 requires that a
+  technique prove its delta or be documented and dropped — it does not
+  require that every technique produce a number. What this cycle produced is
+  a reproducible, root-caused tooling finding with committed evidence, plus a
+  measured infrastructure cost (~350 s/page on CPU) that is itself a useful
+  data point for anyone considering visual late interaction without a GPU.
+  The alternative — publishing 0.15 as a ColQwen2 result — would have been
+  easier and false.
+
+## Limitations (read this before quoting any single number)
+
+Every one of these was known and documented while the study ran; they are
+collected here, and in the report, because a limitation buried in a
+sub-document is a limitation nobody reads.
+
+**1. The golden set was written and annotated by the same AI that built the
+pipelines.** `eval/SCHEMA.md` specifies corpus-driven queries proposed and
+annotated by Claude with a 20% human review sample ("inter-rater light").
+The sample was generated (`eval/REVIEW_SAMPLE.md`, seed 42) but **the human
+review was never done** — it was skipped by owner decision in cycle 0 and the
+file was kept available instead. So the honest statement is *zero percent
+independently reviewed*, not "20% spot-checked". What this can bias: query
+selection toward what the retrievers happen to be able to find, and
+ground-truth passages toward what the annotator considered the answer. What
+it cannot bias: the stats-based ground truth, which was extracted
+programmatically from the source files. Raising the review quota is a real
+follow-up, and deliberately out of scope here — it would be a new cycle, and
+the study's own rules forbid opening one to make a finished result look
+better.
+
+**2. Judge validation is thin, and the faithfulness numbers inherit that.**
+The local judge (`llama3.1:8b`) is stable under test–retest (agreement 1.00,
+n=10) — but stable is not the same as correct. Against a manual re-check
+(n=13) it agreed on only **7 of 13 cases strictly** (10/13 under the
+honest-refusal reading), and that re-check was itself done by Claude, not a
+human. Known failure modes, all documented in `eval/FAITHFULNESS_SAMPLE.md`:
+honest refusals scored as unsupported (q001/q016/q018), one wrong verdict
+against a correctly grounded answer (q005), two verdicts too lenient where
+the answer twisted the context (q048, q056). **Read the "Faithful strict" and
+"Honest" columns of the secondary table with at least the hedging applied to
+the small-n IR metrics — arguably more, because unlike the IR metrics they
+have a known error rate in both directions.** The deterministic number-hit
+column is the only answer-quality signal in this study that does not depend
+on a judge, and it is the one the cycle verdicts lean on.
+
+**3. Small samples everywhere.** n = 15 semantic, 18 exact-match, 13
+multi-hop, 13 visual, 59 global. One query moves a subset metric by 7–8
+points. That is why the bootstrap table exists, why "CI excludes 0" is
+written as *deutet auf* rather than *signifikant*, and why no verdict in this
+file rests on a single subset number.
+
+**4. Single corpus, single language, single domain.** 955k tokens of German
+football writing from two prose sources (Spielverlagerung dominates at 72% of
+documents), plus tables and self-rendered stat sheets. Corpus-size-dependent
+findings — above all "the fusion adds nothing once a reranker is present" —
+are the ones least likely to transfer; see the synthesis below for which
+findings this study thinks travel and which do not.
+
+**5. CPU-only latency.** Every latency number here is measured without a GPU.
+The reranker's 29.6 s/query is real for this setup and misleading for any
+setup with an accelerator, where it is sub-second. The relative ordering of
+the techniques holds; the absolute numbers do not transfer.
+
+**6. A metric bug shipped and was visible for weeks.** nDCG@10 could exceed
+1.0 until 2026-09-20 (see the metric-bug section above). It is fixed,
+regression-tested, and all cycles were re-run — but it was published wrong
+first, and the corrected values are lower than the ones this file carried
+before.
+
+**7. Cycle 5 has no technique verdict at all.** See its section above.
+
+---
+
+## Final synthesis — the study's answer (PLAN.md §5)
+
+_This is the section PLAN.md §5 mandates and the one a practitioner should
+read if they read nothing else. Every claim below points at the cycle whose
+data supports it; nothing here is new measurement._
+
+### The question this study asked
+
+Not "can I build a RAG pipeline" — that is a weekend. The question was:
+**which retrieval technique earns its cost, for which question type, and by
+how much?** Six stacks were built one at a time over one fixed corpus and one
+fixed 59-query golden set, each measured before the next was allowed to
+exist.
+
+### The decision table
+
+| Technique | Verdict | What it costs | When it pays |
+|---|---|---|---|
+| **Dense retrieval (BGE-M3)** | **Keep** — the floor | ~106 min one-off index build; 0.4–0.6 s/query | Always. It already saturates semantic questions (R@5 1.00) and turns 0/18 post-cutoff facts into 13/18 (cycle −1 → 1). |
+| **Hybrid (BM25 + RRF)** | **Keep, conditionally** | ~5 s BM25 build, no measurable query cost | Only if you cannot afford a reranker. Buys exact-match (0.83 → 0.89) and multi-hop (0.42 → 0.50), costs semantic@5 (1.00 → 0.87). Net global delta: zero. |
+| **Cross-encoder reranking** | **Keep — recommended stack** | 0.38 s → 29.6 s/query on CPU (sub-second on GPU); one 2.3 GB model | Almost always. The only cycle with a bootstrap CI that excludes zero on global recall@5 (+0.07, [+0.01, +0.14]) and MRR (+0.11, [+0.02, +0.20]). Heals the cycle-2 semantic regression completely. |
+| **Hybrid + reranking together** | **Redundant** | both of the above | Never, at this corpus size. `dense + rerank ≡ hybrid + rerank` on every metric and subset (cycle-3 ablation). Drop the fusion, keep the reranker: one component fewer for identical quality. |
+| **Contextual retrieval** | **Drop** | ~6 h CPU context generation + ~100 min re-encode | Not on this corpus. Zero measurable delta under the reranker; the bootstrap CI of the cycle 3 → 4 delta is a degenerate interval at 0.00. |
+| **Visual late interaction (ColQwen2)** | **No verdict — closed** | ~8.2 h CPU index build | Unknown. The run measured a model whose language backbone loaded randomly initialized; the 0.15 is real and meaningless as a technique statement. |
+| **Agentic RAG (cycle 6)** | **Declined on evidence** | – | Its trigger fired (multi-hop is the weakest non-visual subset) but its lever is retrieval, and from cycle 3 on retrieval is no longer the binding constraint. ADR: `docs/adr/2026-06-26-visual-cycle-metrics-and-agentic-skip.md`. |
+| **GraphRAG (cycle 7)** | **Declined — no trigger** | – | Global cross-corpus provenance questions never occur in the golden set. Building it would have been architecture for its own sake. |
+
+### The three findings
+
+**1. Hybrid search has a cost nobody quotes: it taxes semantic recall until a
+reranker repays it.** BM25 + RRF wins exactly where the query carries
+distinctive tokens — a domain abbreviation (PPDA), a literal number, a player
+name — and loses where it does not: "which club won…" floods the top-10 with
+eighteen interchangeable table rows because no row carries rank semantics, and
+the correct row drops out entirely. That is not a bug in the fusion; it is what
+lexical matching does to a corpus of near-identical rows. The regression
+(semantic R@5 1.00 → 0.87, fully recovered at k=10) was booked as debt for
+cycle 3, and cycle 3 repaid it in full. **Then the cycle-3 ablation showed the
+fusion had become dead weight**: everything BM25 contributed was already inside
+the dense top-30, and the cross-encoder found it. Hybrid's honest position is
+"the latency-constrained alternative", not "a layer in the recommended stack".
+
+**2. Contextual retrieval: six hours of compute for a delta of zero — and that
+is a result, not a failure.** Reproducing Anthropic's contextual-retrieval idea
+locally (a generated situating sentence per chunk, before embedding and before
+BM25) moved nothing: 0.59 vs 0.60 standalone, exactly identical under the
+reranker, CI at 0.00. Two caveats are owed to the technique and are recorded in
+the cycle-4 section: these chunks were never truly context-less (articles carry
+titles, table rows carry header labels), and a 1.5B context generator caps how
+good the generated context can be. Against genuinely naked chunks the answer
+may differ. For this corpus and pipeline, the plan's own question —
+"rechtfertigt der Mehraufwand?" — is answered: no.
+
+**3. From cycle 3 on, the generator is the bottleneck, not retrieval — and
+that is what ended the study.** Retrieval improved measurably through cycles
+3 and 4 (R@5 0.60 → 0.67, MRR 0.52 → 0.63, global failure rate 40% → 33%)
+while the deterministic number-hit metric sat at 0.78 and stopped moving. The
+misses did not disappear, they *relocated*: q013/q030 flipped to hits,
+q008/q028 to misses, with correct retrieval in all four cases, at temperature
+0. A 7B local generator drops roughly two of eighteen answers depending on how
+the context happens to be composed. This is the finding that made cycles 6 and
+7 indefensible to build: both improve retrieval, and retrieval was no longer
+what the end-to-end metric was waiting for.
+
+### The nDCG correction, and what it does to the verdicts
+
+The nDCG@10 numbers in this file are lower than the ones it carried before
+2026-09-20. A dedup bug in DCG (see the metric-bug section) inflated them by
+roughly 0.03 globally and 0.09–0.10 on the semantic subset, and the fix
+removes that inflation everywhere. **It changes no verdict.** That is not
+luck: the study's keep/drop calls were deliberately carried by recall@5, MRR
+and paired bootstrap CIs — metrics that were never affected — with nDCG
+reported alongside rather than decided upon. The episode is still worth the
+space it takes here, for two reasons. First, the bug was caught by the metric
+contradicting its own definition (a value above 1.0) in a table generated from
+raw artifacts, not by anyone re-reading the code — which is an argument for
+rendering tables by script and for keeping a metric whose bounds you can
+check. Second, it was published wrong for weeks; a study about honest
+measurement does not get to leave that out.
+
+### What transfers, and what does not
+
+**Likely transfers:**
+- *Ablate before you stack.* The single most valuable measurement in this
+  study deleted a component (the fusion) that the previous cycle had just
+  added. Neither cycle's number alone would have shown it — only running both
+  arms under the reranker did.
+- *Keep one judge-free metric in the loop.* The deterministic number-hit check
+  found the generator bottleneck; the LLM-judge metrics were too noisy to show
+  it (7/13 agreement against a manual re-check).
+- *Write the stop conditions before building.* Two optional cycles were
+  declined against pre-registered triggers. That is only credible because the
+  triggers existed first.
+- *Contextual retrieval is not free and not automatic.* Whether it pays
+  depends on how context-less your chunks really are — check that before
+  spending the compute.
+
+**Probably does not transfer:**
+- *"Drop the fusion once you have a reranker."* 4,318 chunks is small. With a
+  corpus where dense top-30 no longer contains what BM25 would have found,
+  the ablation could come out the other way. Re-run the ablation on your own
+  corpus; it costs one eval run.
+- *Every latency figure.* CPU-only. The reranker's 29.6 s/query is real here
+  and irrelevant anywhere with a GPU.
+- *The semantic saturation (R@5 = 1.00 from cycle 1).* German prose analyses
+  with distinctive vocabulary are kind to a multilingual dense embedder. A
+  corpus of near-duplicate documents would not behave this way.
+- *The generator-bottleneck finding, in its strong form.* It says "a 7B model
+  on CPU at temperature 0 is the constraint past R@5 ≈ 0.67 on this corpus" —
+  not that retrieval work stops paying in general. With a stronger generator
+  the ceiling moves and cycles 6/7 might have been worth building after all.
+
+### Honest bottom line
+
+For a mixed, small, local corpus like this one: **dense retrieval plus a
+cross-encoder reranker, and stop there.** Hybrid fusion is the fallback when
+the reranker's latency is unaffordable. Contextual retrieval did not pay.
+Visual late interaction remains untested here for tooling reasons, honestly
+documented rather than guessed at. And the most useful number in the whole
+study is the one that stopped moving: past a certain retrieval quality, the
+next investment belongs in the generator, not in the retriever.
+
+All of this rests on n = 13–18 per question type, a golden set annotated
+without independent human review, and one corpus. It *deutet auf*; it does
+not *beweist*.

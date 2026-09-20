@@ -23,7 +23,9 @@ built. Ground truth is chunking-agnostic (a chunk is relevant iff it
 overlaps an annotated passage/table-row/image — see `eval/SCHEMA.md`), so
 changing the chunking strategy across cycles never invalidates the eval
 set. Primary metrics are judge-free IR metrics (Recall@5/10, Precision@5,
-MRR, nDCG@10) against that ground truth; secondary metrics use a local
+MRR, nDCG@10) against that ground truth (nDCG's DCG deduplicates repeated
+coverage of one ground-truth entry — fixed 2026-09-20, all cycles re-run,
+before/after in `results.md`); secondary metrics use a local
 LLM judge (`llama3.1:8b`) for faithfulness/refusal, reported next to its
 own measured test–retest noise.
 
@@ -44,9 +46,15 @@ invented, estimated, or extrapolated.
 | 2 | + Hybrid (BM25 + RRF) | **keep, conditionally** | wins on exact-match/multi-hop where tokens are specific; semantic@5 regresses (recovers at k=10); superseded once reranking lands |
 | 3 | + Cross-encoder reranking | **keep — recommended stack** | strongest cycle; heals the cycle-2 semantic regression; ablation shows dense+rerank ≡ hybrid+rerank, so the fusion adds nothing once a reranker is present |
 | 4 | + Contextual retrieval | **drop** | zero measurable delta over hybrid+rerank despite ~6h CPU cost for context generation; documented as a negative result, not a failure to reach the bar |
-| 5 | Visual (ColQwen2 late interaction) | **inconclusive — tooling bug, not a technique verdict** | index built and evaluated (Recall@5 0.15, n=13), but the ColQwen2 checkpoint loads with its language-model backbone randomly initialized (`colpali_engine`/`transformers` version mismatch) — the run measured a broken model, not the technique; see `results.md` cycle-5 section |
+| 5 | Visual (ColQwen2 late interaction) | **inconclusive — tooling-blocked, closed** | index built and evaluated (Recall@5 0.15, n=13), but the ColQwen2 checkpoint loads with its language-model backbone randomly initialized (`colpali_engine`/`transformers` key-naming drift, proven from the state dict) — the run measured a broken model, not the technique. A remap-shim fix path is specified and was time-capped by the closing plan; the cap governed, so the cycle is closed without a technique verdict rather than left open. See `results.md` cycle-5 section |
 | 6 | Agentic RAG (optional) | **not built** | trigger condition (multi-hop demonstrably weak) is met, but the cycle-3 finding is that the generator, not retrieval, is the end-to-end bottleneck past cycle 3 — decomposition would not move the measured metric (`docs/adr/2026-06-26-visual-cycle-metrics-and-agentic-skip.md`) |
 | 7 | GraphRAG (optional) | **not built** | trigger condition (global cross-corpus provenance queries) does not occur in the golden set |
+
+The study is closed at cycle 4: the recommended stack is dense retrieval +
+cross-encoder reranking, hybrid fusion is the reranker-free fallback,
+contextual retrieval is a documented negative result, and cycles 5–7 end
+without technique verdicts for the reasons in the table. The full reasoning
+is in the closing synthesis of `results.md`.
 
 From cycle 3 onward, the generator (not retrieval) is the measured
 end-to-end bottleneck: retrieval kept improving through cycles 3–4 while
@@ -68,7 +76,10 @@ paid API calls anywhere in the pipeline.
 ## Where things live
 
 - `PLAN.md` — binding cycle plan and working mode (verbatim, never edited)
-- `results.md` — the measured comparison table, deltas, and verdicts
+- `results.md` — the measured comparison table, deltas, verdicts, the
+  collected limitations, and the **final synthesis** (PLAN.md §5) that closes
+  the study
+- `docs/blog-draft.md` — write-up draft of the findings (awaiting Nico's voice pass)
 - `CORPUS.md` — corpus sources, licensing, volume, the long-context check
 - `eval/golden_set.jsonl` + `eval/SCHEMA.md` — the eval set and its schema
 - `eval/results/*.json` — raw per-cycle run outputs (retrieval, generation, secondary metrics)
