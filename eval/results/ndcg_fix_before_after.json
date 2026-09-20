@@ -1,0 +1,64 @@
+{
+ "_what": "nDCG@10 values as published BEFORE the 2026-09-20 DCG dedup fix in src/eval_metrics.py.",
+ "_source_ref": "a6e27be",
+ "_reproduce": "git show <ref>:eval/results/<file> | jq '.metrics | map_values(.\"ndcg@10\")'",
+ "_captured": "2026-09-20",
+ "before": {
+  "1": {
+   "file": "cycle1_dense_retrieval.json",
+   "global": 0.5604,
+   "exact_match": 0.6965,
+   "multi_hop": 0.4855,
+   "semantic": 0.9478,
+   "visual": 0.0
+  },
+  "2": {
+   "file": "cycle2_hybrid_retrieval.json",
+   "global": 0.5514,
+   "exact_match": 0.7237,
+   "multi_hop": 0.5109,
+   "semantic": 0.8576,
+   "visual": 0.0
+  },
+  "3": {
+   "file": "cycle3_hybrid_rerank_retrieval.json",
+   "global": 0.6486,
+   "exact_match": 0.8923,
+   "multi_hop": 0.558,
+   "semantic": 0.997,
+   "visual": 0.0
+  },
+  "4": {
+   "file": "cycle4_dense_ctx_rerank_retrieval.json",
+   "global": 0.6477,
+   "exact_match": 0.8829,
+   "multi_hop": 0.5412,
+   "semantic": 1.019,
+   "visual": 0.0
+  },
+  "5": {
+   "file": "cycle5_visual_retrieval.json",
+   "global": 0.015,
+   "exact_match": 0.0,
+   "multi_hop": 0.0,
+   "semantic": 0.0,
+   "visual": 0.0682
+  },
+  "3-ablation": {
+   "file": "cycle3_dense_rerank_ablation.json",
+   "global": 0.6507,
+   "exact_match": 0.9034,
+   "multi_hop": 0.5517,
+   "semantic": 0.997,
+   "visual": 0.0
+  },
+  "4-standalone": {
+   "file": "cycle4_dense_ctx_retrieval.json",
+   "global": 0.561,
+   "exact_match": 0.6721,
+   "multi_hop": 0.4651,
+   "semantic": 0.997,
+   "visual": 0.0
+  }
+ }
+}

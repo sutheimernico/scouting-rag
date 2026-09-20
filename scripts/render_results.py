@@ -54,6 +54,12 @@ from src.bootstrap import paired_bootstrap_delta  # noqa: E402
 RESULTS_DIR = REPO_ROOT / "eval" / "results"
 RESULTS_MD = REPO_ROOT / "results.md"
 
+# Artifacts produced before this stamp existed were computed with the pre-2026-09-20
+# nDCG implementation (DCG without ground-truth dedup). Their nDCG@10 cells are
+# marked rather than silently mixed with recomputed ones.
+CURRENT_METRICS_VERSION = "2026-09-20-ndcg-dedup"
+STALE_MARK = " ⚠"
+
 # Per-cycle metadata. `retrieval_file` / `secondary_file` are the canonical
 # source for that cycle's row — where a cycle produced more than one
 # retrieval run (e.g. cycle 3's dense+rerank ablation), the file used here
@@ -137,6 +143,7 @@ def render_metric_table(metric_key: str, always_show_all: bool) -> str:
     header = "| Cycle | Technique | " + " | ".join(c[1] for c in COLUMNS) + " |"
     sep = "|" + "---|" * (2 + len(COLUMNS))
     rows = [header, sep]
+    stale = False
     for cid in CYCLE_ORDER:
         cfg = CYCLES[cid]
         data = load_json(cfg["retrieval_file"])
@@ -147,7 +154,18 @@ def render_metric_table(metric_key: str, always_show_all: bool) -> str:
         else:
             metrics = data["metrics"]
             cells = [fmt(metrics.get(col, {}).get(metric_key)) for col, _ in COLUMNS]
+            if metric_key == "ndcg@10" and data.get("eval_metrics_version") != CURRENT_METRICS_VERSION:
+                stale = True
+                cells = [c + STALE_MARK if c != "n/a" else c for c in cells]
         rows.append(f"| {cid} | {cfg['label']} | " + " | ".join(cells) + " |")
+    if metric_key == "ndcg@10" and stale:
+        rows.append("")
+        rows.append(
+            f"_{STALE_MARK.strip()} = computed with the pre-2026-09-20 nDCG implementation "
+            "(DCG without ground-truth dedup) and therefore biased upwards. Re-run "
+            "`python -m src.run_eval retrieval --retriever <r> --name <file>` against the "
+            "unchanged indexes and re-render to clear the mark; no re-indexing is needed._"
+        )
     return "\n".join(rows)
 
 
@@ -212,6 +230,56 @@ def render_bootstrap_table() -> str:
     return "\n".join(rows)
 
 
+# nDCG@10 as published before the 2026-09-20 DCG dedup fix. Captured once
+# from the pre-fix committed artifacts (the file records the git ref and the
+# command); the "after" column is always read live from the current artifacts,
+# so the delta can never drift away from what the eval files actually say.
+NDCG_BASELINE_FILE = "ndcg_fix_before_after.json"
+
+NDCG_BEFORE_AFTER_ROWS = [
+    ("1", "Naive dense (BGE-M3)"),
+    ("2", "+ Hybrid (sparse + RRF)"),
+    ("3", "+ Reranking (cross-encoder)"),
+    ("3-ablation", "Cycle-3 ablation: dense + rerank"),
+    ("4-standalone", "Contextual, standalone (no reranker)"),
+    ("4", "+ Contextual retrieval"),
+    ("5", "Visual (ColQwen)"),
+]
+
+
+def render_ndcg_before_after() -> str:
+    baseline = load_json(NDCG_BASELINE_FILE)
+    if baseline is None:
+        return "_(nDCG baseline file missing — cannot render the before/after table)_"
+    header = "| Cycle | Technique | Subset | nDCG@10 before | after | delta |"
+    sep = "|---|---|---|---|---|---|"
+    rows = [header, sep]
+    for key, label in NDCG_BEFORE_AFTER_ROWS:
+        entry = baseline["before"].get(key)
+        if entry is None:
+            continue
+        current = load_json(entry["file"])
+        if current is None:
+            continue
+        for subset, subset_label in COLUMNS:
+            before = entry.get(subset)
+            after = current["metrics"].get(subset, {}).get("ndcg@10")
+            if before is None or after is None:
+                continue
+            if abs(before - after) < 5e-5:
+                continue
+            rows.append(
+                f"| {key} | {label} | {subset_label} | {before:.4f} | {after:.4f} | {after - before:+.4f} |"
+            )
+    rows.append("")
+    rows.append(
+        "_Only rows that moved are listed; every subset not shown came back "
+        "bit-identical. Every other metric (recall@5/@10, precision@5, MRR) "
+        "was unchanged everywhere — see the reproducibility note above._"
+    )
+    return "\n".join(rows)
+
+
 def render_failure_rate_table(k: int) -> str:
     header = "| Cycle | Technique | global | single-hop (semantic+exact-match) | multi-hop | visual |"
     sep = "|---|---|---|---|---|---|"
@@ -242,6 +310,7 @@ SECTION_RENDERERS["auto:secondary"] = render_secondary_table
 SECTION_RENDERERS["auto:failure_rate_5"] = lambda: render_failure_rate_table(5)
 SECTION_RENDERERS["auto:failure_rate_10"] = lambda: render_failure_rate_table(10)
 SECTION_RENDERERS["auto:bootstrap"] = render_bootstrap_table
+SECTION_RENDERERS["auto:ndcg_before_after"] = render_ndcg_before_after
 
 
 def splice(content: str, marker: str, body: str) -> str:

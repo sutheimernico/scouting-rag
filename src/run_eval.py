@@ -24,6 +24,12 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 GOLDEN = REPO_ROOT / "eval" / "golden_set.jsonl"
 RESULTS_DIR = REPO_ROOT / "eval" / "results"
 
+# Provenance stamp for the metric implementation an artifact was produced with.
+# Bumped whenever src/eval_metrics.py changes a metric definition, so a result
+# file always says which version computed it and the rendering scripts can flag
+# tables that mix versions. Artifacts without the field predate 2026-09-20.
+EVAL_METRICS_VERSION = "2026-09-20-ndcg-dedup"
+
 
 def load_golden() -> list[dict]:
     return [json.loads(line) for line in GOLDEN.read_text(encoding="utf-8").splitlines()]
@@ -78,6 +84,7 @@ def run_retrieval(retriever_name: str) -> dict:
     elapsed = time.monotonic() - t0
     return {
         "mode": f"retrieval_{retriever_name}",
+        "eval_metrics_version": EVAL_METRICS_VERSION,
         "latency_per_query_s": round(elapsed / len(entries), 2),
         "metrics": aggregate(per_query, types),
         "details": details,
