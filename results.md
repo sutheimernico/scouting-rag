@@ -486,6 +486,26 @@ the index has since been built and both evals actually ran._
   ColQwen2 late-interaction retrieval doesn't work on this corpus** — the
   model that actually ran was not the model the design called for.
 
+- **Root cause, upgraded on the 2026-09-20 re-run: it is worse than
+  embed/norm — the whole retrieval fine-tune is dropped.** The original
+  diagnosis (embedding table and final norm randomly initialized) was correct
+  but incomplete. Re-reading the full `transformers` load report shows a
+  second, larger block of missing keys: **14 LoRA tensor families × 28 layers
+  = 392 tensors**, i.e. *every* LoRA weight of ColQwen2's language-side
+  fine-tune, reported `MISSING` under `language_model.layers.{0...28}.*` while
+  the checkpoint offers them as `model.layers.{0...28}.*`. Only
+  `custom_text_proj` — the projection head, which sits outside the backbone —
+  loads correctly, which is exactly why nothing crashes and the model still
+  emits plausibly-shaped multi-vector output. **The model that produced the
+  0.15 was therefore not "ColQwen2 with two broken layers" but an untuned
+  Qwen2-VL backbone with a random embedding table and a trained projection
+  head bolted on.** Checkpoint-side confirmation without loading anything: the
+  base safetensors name the backbone `model.*` (731 tensors), the adapter uses
+  PEFT's `base_model.model.model.layers.*` (394 tensors), and the instantiated
+  architecture expects `language_model.*`. Full evidence, including the
+  verbatim load reports and the measured layer statistics, is committed in
+  `docs/colqwen2-load-evidence.md`.
+
 - **Generation blocker (separate from the retrieval bug):** the intended
   `--k 5` run (5 stat-sheet images per query, matching cycles 1–4's k)
   crashed on the very first query — `rag.py`'s `NUM_CTX=4096` was sized

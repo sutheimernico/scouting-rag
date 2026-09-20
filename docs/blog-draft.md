@@ -1,6 +1,6 @@
 ---
 title: "What I measured when I stopped trusting RAG advice"
-subtitle: "Six retrieval stacks, one corpus, 59 queries — and the two techniques that did not earn their cost"
+subtitle: "Five retrieval stacks, one corpus, 59 queries — and the two that did not earn their cost"
 status: draft — Nico to refine (voice, length, publication target)
 date: 2026-09-20
 source: https://github.com/sutheimernico/RAG-Projekt

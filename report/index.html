@@ -107,11 +107,19 @@
       <code>language_model.norm.weight</code> at exactly mean 1.0 / std 0.0 (untouched
       default init) and <code>embed_tokens.weight</code> at the textbook default std of
       0.0200, while the checkpoint's <code>model.*</code> keys are reported as unexpected.
+      Worse, the same drift drops <strong>every LoRA weight of the retrieval fine-tune</strong>:
+      14 tensor families across 28 layers (392 tensors) arrive as
+      <code>MISSING</code> under <code>language_model.layers.*</code> while the checkpoint
+      offers them as <code>model.layers.*</code>. Only <code>custom_text_proj</code> — the
+      projection head outside the backbone — loads correctly, which is why nothing crashes.
+      What ran was an untuned Qwen2-VL backbone with a random embedding table, not ColQwen2.
       That is a <code>colpali_engine==0.3.16</code> × <code>transformers==5.10.2</code>
       module-naming drift; pip's version ranges do not catch it because it is a runtime
       key-naming mismatch, not a range violation. Reproduced twice independently, inside
       and outside the eval harness. The corruption applies to the built index as well as to
       query-time embedding, so a fix requires a full re-index, not just a re-run.
+      Full evidence &mdash; verbatim load reports, measured layer statistics, checkpoint key
+      inspection &mdash; is committed in <code>docs/colqwen2-load-evidence.md</code>.
     </div>
     <p>A second, independent blocker: the intended <code>--k 5</code> generation run
     crashed immediately because <code>rag.py</code>'s <code>NUM_CTX=4096</code> was sized

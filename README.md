@@ -2,10 +2,10 @@
 
 **A measured comparison study of retrieval techniques — not a RAG demo.**
 
-Six retrieval stacks were built one at a time over the same mixed
-football-scouting corpus (prose analyses, season stat tables, rendered stat
-sheets) and each was measured against the same 59-query golden set before the
-next one was allowed to exist. The deliverable is the answer to a question
+Five retrieval stacks — plus a closed-book floor and one ablation — were built
+one at a time over the same mixed football-scouting corpus (prose analyses,
+season stat tables, rendered stat sheets), and each was measured against the
+same 59-query golden set before the next one was allowed to exist. The deliverable is the answer to a question
 most RAG write-ups skip: *which technique actually earns its cost, on which
 question type, and by how much?*
 
@@ -23,7 +23,7 @@ figures.
 | 2 | + Hybrid (BM25 + RRF) | 0.60 | **Keep, conditionally** — wins exact-match, taxes semantic@5 |
 | 3 | + Cross-encoder reranking | 0.67 | **Keep — recommended stack** |
 | 4 | + Contextual retrieval | 0.67 | **Drop** — zero delta for ~6 h of CPU |
-| 5 | Visual (ColQwen2 late interaction) | 0.15 (visual subset) | **Closed without a technique verdict** — reproducible tooling bug |
+| 5 | Visual (ColQwen2 late interaction) | 0.03 global / 0.15 on the visual subset | **Closed without a technique verdict** — reproducible tooling bug |
 
 Text-only cycles cannot exceed an effective global Recall@5 of 0.72 (visual
 ground truth is unreachable by design). Read every number against that ceiling,
