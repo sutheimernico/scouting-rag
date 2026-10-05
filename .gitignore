@@ -3,6 +3,8 @@ data/
 
 # Secrets and local environment
 .env
+.env.*
+!.env.example
 
 # Python
 __pycache__/

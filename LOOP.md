@@ -16,7 +16,7 @@ You are a fresh headless agent. You do ONE high-value thing, verify it, commit i
 Progress lives on disk (this file, `PLAN.md`, `results.md`, git history) — never in context.
 
 ## Per-iteration protocol
-1. Read `~/private/AUTOPILOT.md` (global rules), then this `LOOP.md`, then `PLAN.md` and the
+1. Read `AUTOPILOT.md` (author's global loop rules, not part of this repo) (global rules), then this `LOOP.md`, then `PLAN.md` and the
    latest entries in `results.md`.
 2. Confirm you are on branch `autopilot/work` (the runner guarantees this; if not, stop).
    NOTE: this branch was cut from `feat/cycle-5-visual-eval`, which has uncommitted changes in

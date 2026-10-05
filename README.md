@@ -168,3 +168,6 @@ tables come from OpenLigaDB and worldfootballR/FBref extracts; the stat sheets
 are rendered by this repo from those numbers. Access controls were never
 worked around — sources that blocked crawling were dropped and the drops are
 listed in `CORPUS.md`.
+
+The saved `eval/results/*_rag_*.json` runs keep only the first 200 characters of each retrieved context
+(`context_texts`), so no article text is redistributed. Re-running a run regenerates the full texts locally.

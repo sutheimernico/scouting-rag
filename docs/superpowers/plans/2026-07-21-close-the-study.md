@@ -79,7 +79,7 @@ Promote from buried docs into the report: (a) golden-set provenance — proposed
 
 ### Task 7: External-reader pass + blog draft
 **Files:** `README.md`, new `docs/blog-draft.md`.
-- README rewritten for someone who didn't build it: what/why/method in one screen, verdict table, how to reproduce (env, run commands, expected runtimes), honest limitations link. No employer references, no personal paths (pre-publish sweep discipline).
+- README rewritten for someone who didn't build it: what/why/method in one screen, verdict table, how to reproduce (env, run commands, expected runtimes), honest limitations link.
 - `docs/blog-draft.md`: ~1,200-word write-up of the findings in Nico's established honest-methodology voice, marked `_(draft — Nico to refine)_` in frontmatter, structured for his content pass.
 **Accept:** README stands alone; blog draft covers the three headline findings + the C5 story; no invented numbers (all from the regenerated artifacts).
 
